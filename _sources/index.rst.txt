@@ -6,6 +6,11 @@
 Welcome to the Open Fixed-point Formula documentation!
 ======================================================
 
+These pages provide extended documentation for a python implementation of the open fixed-point formula and the math behind it. The python and documentation source code can be downloaded from `<https://github.com/amitainz/open_fixedpoint_formula>`_
+
+If you want to tinker a bit with the program without having to install anything, point your browser to `<https://repl.it/@amitainz/Open-Fixed-point-Formula>`_. You can execute the main.py file there, and then clear it and start entering your own commands.
+
+
 What this program is trying to achieve
 --------------------------------------
 
@@ -181,7 +186,6 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   includeme
    overview
    evenOddTrees
    weighted_fp_contribs
