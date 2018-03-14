@@ -181,7 +181,6 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   includeme
    overview
    evenOddTrees
    weighted_fp_contribs
