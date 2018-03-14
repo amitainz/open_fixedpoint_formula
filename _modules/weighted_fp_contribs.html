@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>weighted_fp_contribs &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for weighted_fp_contribs</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">input</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">str</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">map</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">zip</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">past.utils</span> <span class="k">import</span> <span class="n">old_div</span>
+<span class="kn">from</span> <span class="nn">pincher</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="c1"># may be needed for python 2.7 compatiblity</span>
+<span class="c1"># from sets import *</span>
+
+
+<span class="c1"># the formula for open descendent invariants of a point,</span>
+<span class="c1"># see Section 1.7 of https://arxiv.org/abs/1409.2191.</span>
+<span class="kn">from</span> <span class="nn">jrrFormula</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="c1"># implements fixed point diagram generation.</span>
+<span class="kn">from</span> <span class="nn">fixedPoints</span> <span class="k">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="wfp_nou"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.wfp_nou">[docs]</a><span class="k">def</span> <span class="nf">wfp_nou</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">e</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">this is short for &quot;weighted fixed point contribution no :math:`u`&quot;.</span>
+
+<span class="sd">It&#39;s a wrapper for :py:func:`weighted_fpContrib` that removes the formal generator u and returns a rational number. This is the function we actually use.</span>
+
+<span class="sd">The inputs are as follows:</span>
+
+<span class="sd">* :py:obj:`d` is the relative degree :math:`\\in H_2(X,L)`</span>
+
+<span class="sd">* :py:obj:`l` is the number of interior markings.</span>
+
+<span class="sd">* :py:obj:`k` is the number of boundary markings and incoming edges.</span>
+
+<span class="sd">* :py:obj:`e` is the number of outgoing edges.</span>
+
+<span class="sd">If :math:`d` is even we must have :math:`e = 0` and if :math:`d` is odd, we must have :math:`k = 0`.</span>
+
+<span class="sd">The output is a rational number.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">weighted_fpContrib</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">e</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">**</span><span class="p">(</span><span class="n">old_div</span><span class="p">((</span><span class="mi">3</span><span class="o">*</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">k</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="weighted_fpContrib"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.weighted_fpContrib">[docs]</a><span class="k">def</span> <span class="nf">weighted_fpContrib</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">e</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is the main function which computes</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    \\sum_{A_{\\tilde F}} A_{\\tilde F} = \\sum \\xi_{F(\\tilde F)} \\int_{\\tilde F} \\frac{\\omega|_{\\tilde F}}{e^{T^2}(N_{\\tilde F})}`.</span>
+
+<span class="sd">There&#39;s a detailed explanation in the introduction to the module documentation.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+    <span class="c1"># generate all the fixed point diagrams</span>
+    <span class="c1"># The zero here is an optional</span>
+    <span class="c1"># argument which is never used in this program (allows for</span>
+    <span class="c1"># &quot;dummy&quot; interior markings which don&#39;t carry</span>
+    <span class="c1"># a constraint).</span>
+    <span class="n">fps</span> <span class="o">=</span> <span class="n">fixedPoints</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
+
+    <span class="c1"># a buffer to hold the conributions of the fixed points.</span>
+    <span class="n">conts</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">([</span><span class="n">N</span><span class="p">],</span> <span class="n">sp</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span>
+
+    <span class="c1"># this set records the indices of the T^2 fixed point contributions,</span>
+    <span class="c1"># which would become singular if we set eps = 0,</span>
+    <span class="c1"># which corresponds to pulling back along BS^1 -&gt; BT^2 (see</span>
+    <span class="c1"># detailed discussion in the intro to the module)</span>
+    <span class="n">sing</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+    <span class="c1"># go over all of the fixed point components...</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">:</span>
+
+        <span class="c1"># compute the integral of \omega|_F / e(N_F)</span>
+        <span class="c1"># for the i&#39;th fixed point. That is,</span>
+        <span class="c1"># fact is the integral without the weight prefactor</span>
+        <span class="c1"># \xi_F.</span>
+        <span class="n">fact</span> <span class="o">=</span> <span class="n">fpContrib</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+        <span class="c1"># the degree of the irreducible disk component</span>
+        <span class="n">discDeg</span> <span class="o">=</span> <span class="n">fps</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># where the disk component maps to.</span>
+        <span class="n">rootMu</span> <span class="o">=</span> <span class="n">fps</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="c1"># the integral of the propagator</span>
+        <span class="c1"># picks up a sign according to the boundary orientation,</span>
+        <span class="c1"># which depends on mu.</span>
+        <span class="n">sign</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">old_div</span><span class="p">(</span><span class="n">rootMu</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># if there are outgoing edges...</span>
+        <span class="k">if</span> <span class="n">e</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="c1"># ... the contribution is the \xi_F x fact.</span>
+            <span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">sign</span><span class="o">*</span><span class="n">rat</span><span class="p">(</span><span class="n">discDeg</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="n">e</span><span class="o">*</span><span class="n">fact</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="c1"># otherwise, the contribution is just fact.</span>
+            <span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fact</span>
+
+        <span class="c1"># this is an ugly hack, it tries</span>
+        <span class="c1"># to set eps = 0. It tests whether we get a singularity</span>
+        <span class="c1"># by looking for &quot;oo&quot; in the string representation of this</span>
+        <span class="c1"># evaluation. I couldn&#39;t find a better way to do this</span>
+        <span class="c1"># (maybe things have improved since I last looked).</span>
+        <span class="c1"># if we get a singularity...</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">tmp</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;oo&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">tmp</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;nan&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">:</span>
+            <span class="c1"># ... we record the singularity&#39;s index in the list.</span>
+            <span class="n">sing</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="c1"># otherwise, we replace conts[i] by the eps = 0 subtitution.</span>
+            <span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># we want to group the singular T^2 fixed point contributions</span>
+    <span class="c1"># by the S^1 fixed point component they belong to.</span>
+    <span class="c1"># as discussed in the intro, the sum over each group should (and does!)</span>
+    <span class="c1"># become regular at eps = 0.</span>
+    <span class="c1">#</span>
+    <span class="c1"># we do NOT want to sum over all of the fixed point components</span>
+    <span class="c1"># to avoid getting enormous (memory-clogging enormous,</span>
+    <span class="c1"># if I remember correctly) denominators coming from</span>
+    <span class="c1"># summing too many unrelated rational functions.</span>
+    <span class="n">p2c</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sing</span> <span class="p">:</span>
+        <span class="c1"># pinch is implemented in pincher.py</span>
+        <span class="c1"># and it returns a unique representative to each</span>
+        <span class="c1"># S^1 equivalence class of fixed point diagrams.</span>
+        <span class="c1"># so we just add the index i to the dictionary</span>
+        <span class="c1"># at this key specifying the S^1 fixed point component.</span>
+        <span class="n">p2c</span><span class="p">[</span><span class="n">pinch</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+    <span class="c1"># Each cell of this array corresponds to one of the groups of</span>
+    <span class="c1"># singular contributions above...</span>
+    <span class="n">sconts</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">p2c</span><span class="p">)],</span> <span class="n">sp</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">p2c</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">keys</span><span class="p">))</span> <span class="p">:</span>
+        <span class="c1"># ... and it holds the sum of the singular contributions in the group</span>
+        <span class="c1"># evaluated at eps = 0 (this evaluation should be okay after we sum).</span>
+        <span class="n">sconts</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">sumRats</span><span class="p">([</span><span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">p2c</span><span class="p">[</span><span class="n">keys</span><span class="p">[</span><span class="n">j</span><span class="p">]]],</span> <span class="n">vrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">eps</span><span class="p">,</span> <span class="n">u</span><span class="p">])</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">eps</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># total sum, of all the singular contributions.</span>
+    <span class="n">s1</span> <span class="o">=</span> <span class="n">intsum</span><span class="p">(</span><span class="n">sconts</span><span class="p">)</span>
+
+    <span class="c1"># in case we have an empty sum, we replace False by zero.</span>
+    <span class="k">if</span> <span class="n">s1</span> <span class="o">==</span> <span class="kc">False</span> <span class="p">:</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># sum of the singular contributions and the contributions that</span>
+    <span class="c1"># were regular to begin with.</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">intsum</span><span class="p">([</span><span class="n">conts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">conts</span><span class="p">))</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sing</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="fpContrib"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.fpContrib">[docs]</a><span class="k">def</span> <span class="nf">fpContrib</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Computes</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    \\int_{\\tilde F} \\frac{\\omega|_{\\tilde F}}{e^{T^2}(N_{\\tilde F})}</span>
+
+<span class="sd">(without the outgoing edge weights).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="c1"># get the specs of the moduli spaces of the contracted components.</span>
+    <span class="c1"># as well as a description of the (factorized) Euler form.</span>
+    <span class="n">openModuli</span><span class="p">,</span><span class="n">closedModulis</span> <span class="o">=</span> <span class="n">fpModuliAndEuler</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># if the disk component is contracted (even degree)...</span>
+    <span class="k">if</span> <span class="n">openModuli</span> <span class="p">:</span>
+        <span class="c1"># ... extract its specs ...</span>
+        <span class="n">coeff</span><span class="p">,</span><span class="n">dumb0</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="n">omegas</span> <span class="o">=</span> <span class="n">openModuli</span>
+
+        <span class="c1"># and compute the relevant open descendent integral.</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="n">openIntegral</span><span class="p">(</span><span class="n">dumb0</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="n">omegas</span><span class="p">)</span>
+
+    <span class="c1"># go over the moduli spaces of the other contracted components...</span>
+    <span class="k">for</span> <span class="n">coeff</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">omegas</span> <span class="ow">in</span> <span class="n">closedModulis</span> <span class="p">:</span>
+        <span class="c1"># ... and multiply in the corresponding descendent integral.</span>
+        <span class="n">res</span> <span class="o">*=</span> <span class="n">coeff</span> <span class="o">*</span> <span class="n">closedIntegral</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">omegas</span><span class="p">)</span>
+
+    <span class="c1"># return res / Aut(fp) (divide by the size of the automorphism group).</span>
+    <span class="k">return</span> <span class="n">fpCombFactor</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">*</span> <span class="n">res</span></div>
+
+<div class="viewcode-block" id="closedIntegral"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.closedIntegral">[docs]</a><span class="k">def</span> <span class="nf">closedIntegral</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="n">omegas</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Let :math:`e` denote :py:obj:`len(omegas)`.</span>
+<span class="sd">This function computes the integral of</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    \\prod_{1 \leq i \leq e} \\frac{1}{1-\\psi_i/\\omega_i} := \\sum_{j_1,...,j_e} \\prod_i \\left(\\frac{\\psi_i}{\\omega_i}\\right)^{j_i}</span>
+
+<span class="sd">over :math:`\\overline{\\mathcal{M}}_{0,l + e}`.</span>
+
+<span class="sd">If :math:`l + e &lt; 3` this is just the unit class. Otherwise, we apply the string equation (see Exercise 25.2.8 in `MS book &lt;http://www.claymath.org/library/monographs/cmim-1.pdf&gt;`_) and simplify to find this is just</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    (\\sum_i \\frac{1}{\\omega_i})^{l + e -3}</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">omegas</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">o</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">omegas</span><span class="p">)</span><span class="o">**</span><span class="n">dim</span>  <span class="c1">#* (u**(2*l)</span></div>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+
+<div class="viewcode-block" id="openIntegral"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.openIntegral">[docs]</a><span class="k">def</span> <span class="nf">openIntegral</span><span class="p">(</span><span class="n">dummies</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">omegas</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">computes the integral over open moduli of discs of</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    \\prod_{1 \leq i \leq e} \\frac{1}{1-\\psi_i/\\omega_i} := \\sum_{j_1,...,j_e} \\prod_i \\left(\\frac{\\psi_i}{\\omega_i}\\right)^{j_i}</span>
+
+<span class="sd">by invoking the Pandharipande-Solomon-Tessler formula (see intro to module for more info).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">nnodes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">omegas</span><span class="p">)</span>
+    <span class="c1"># this is the real dimension of the moduli space.</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">nnodes</span> <span class="o">+</span> <span class="n">dummies</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">l</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">3</span>
+    <span class="k">if</span> <span class="n">dim</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;dimension of moduli space is odd, something&#39;s wrong...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># complex dimension</span>
+    <span class="n">cdim</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">openIntegral</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># psiPows describes how many times each of the nodes&#39; psi appears</span>
+    <span class="c1"># in the integrand. We know the total power must equal the complex dimension</span>
+    <span class="c1"># of the moduli space.</span>
+    <span class="k">for</span> <span class="n">psiPows</span> <span class="ow">in</span> <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">cdim</span><span class="p">,</span> <span class="n">nnodes</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">coefficient</span> <span class="o">=</span> <span class="n">myprod</span><span class="p">(</span><span class="n">o</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="n">p</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">omegas</span><span class="p">,</span> <span class="n">psiPows</span><span class="p">))</span>
+
+        <span class="c1"># if (p,n) appears in tauPows, it should be interpreted as</span>
+        <span class="c1"># &quot;n of the psi_i&#39;s appear to the power p&quot;. which means</span>
+        <span class="c1"># tau_p^n should be added to the invariant we compute.</span>
+        <span class="n">tauPows</span>       <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">psiPows</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+        <span class="n">openIntegral</span> <span class="o">+=</span> <span class="n">coefficient</span> <span class="o">*</span> <span class="n">jrrFormula</span><span class="p">(</span><span class="n">addTau0s</span><span class="p">(</span><span class="n">tauPows</span><span class="p">,</span><span class="n">dummies</span><span class="p">),</span><span class="n">k</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">openIntegral</span></div>
+
+<span class="c1"># For most of the fixed point formula, it is convenient to think of</span>
+<span class="c1"># CP^2 more symmetrically as being equipped with a (degenerate) T^3 action,</span>
+<span class="c1"># each factor acting by complex multiplication on one of the three coordinates.</span>
+<span class="c1">#</span>
+<span class="c1"># The T^2 action factors through this T^3 action via a homomorphism</span>
+<span class="c1"># T^2 -&gt; T^3. Pullback in cohomology along BT^2 -&gt; BT^3 is given by</span>
+<span class="c1"># the assignment described by the list below.</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="p">[</span><span class="n">u</span><span class="o">+</span><span class="n">eps</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="n">u</span><span class="o">+</span><span class="n">eps</span><span class="p">]</span>
+
+<span class="c1"># Poincare dual to the real fixed point :math:`p_0` inside</span>
+<span class="c1"># :math:`\\mathbb{R}P^2`. dumb is always zero in this version.</span>
+<div class="viewcode-block" id="PDp0"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.PDp0">[docs]</a><span class="k">def</span> <span class="nf">PDp0</span><span class="p">(</span><span class="n">imps</span><span class="p">,</span><span class="n">dumb</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span><span class="o">-</span><span class="n">alpha</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span><span class="o">**</span><span class="n">imps</span><span class="o">*</span><span class="n">u</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dumb</span><span class="p">)</span></div>
+
+<span class="c1"># Poincare dual to the complex fixed point :math:`p_+` or :math:`p_-`</span>
+<span class="c1"># inside :math:`\\mathbb{C}P^2`. dumb is always zero in this version.</span>
+<div class="viewcode-block" id="PDppm"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.PDppm">[docs]</a><span class="k">def</span> <span class="nf">PDppm</span><span class="p">(</span><span class="n">imps</span><span class="p">,</span><span class="n">dumb</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span>
+            <span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">**</span><span class="n">imps</span> <span class="o">*</span>\
+            <span class="n">u</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dumb</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="fpModuliAndEuler"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.fpModuliAndEuler">[docs]</a><span class="k">def</span> <span class="nf">fpModuliAndEuler</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">integrand_at_F</span> <span class="o">=</span> <span class="n">PDppm</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Given a fixed point diagram :py:obj:`fp`, this function computes</span>
+
+<span class="sd">* the parameter spaces for the vertices in the fixed point diagram (so the product of these spaces is diffeomorphic to the fixed point component specified by :py:obj:`fp`). [#this-is-a-lie]_</span>
+
+<span class="sd">* the integrand for this fixed point locus, as a product of factors, one for each of the parameter spaces above.</span>
+
+<span class="sd">The name of the function, :py:obj:`fpModuliAndEuler`, is thus a bit of a misnomer, perhaps :py:obj:`fpModuliAndIntegrand` would&#39;ve been better.</span>
+
+<span class="sd">The output is of the form :py:obj:`(openModuli, closedModulis)`.</span>
+
+<span class="sd">**The open Moduli space and integrand factor**</span>
+
+<span class="sd">:py:obj:`openModuli` is :py:obj:`False` if the disk degree is positive (and odd), so there&#39;s no contracted component there and the parameter space is just a point. The relevant &quot;square root of edge&quot; term corresponding to deformations of the map is then appended to the coefficient of the root vertex in the fixed point diagram (in general, each vertex&#39;s :py:obj:`coeff` is responsible for the unique edge going up towards the root).</span>
+
+<span class="sd">Otherwise, if the total degree is even :py:obj:`openModuli = (coeff,dumb0,totalK,omegas)` is a tuple where :py:obj:`coeff`, and each element of the list :py:obj:`omegas`, is a rational function in :py:obj:`u,eps`. :py:obj:`dumb0` can always be assumed to be zero in this version (it&#39;s meant to accomodate &quot;dummy&quot; variables, not used here), and :py:obj:`totalK` is an integer. This tuple specifies</span>
+
+<span class="sd">* the parameter space :math:`\overline{\mathcal{M}}_{0,k,l}`</span>
+
+<span class="sd">here :math:`k` is :py:obj:`totalK` (this includes both the boundary markings and the incoming edges), :math:`l` should be :py:obj:`len(omegas)` assuming [#this-is-a-lie]_ there are no interior markings on a disk mapping to :math:`p_0`, only markings associated with the complex nodes, which are in bijection with the elements of :py:obj:`omegas`).</span>
+
+<span class="sd">* a factor :math:`\\mbox{coeff}\\,\\prod_i \\left(\\psi_i - \\mbox{omegas}[i]\\right)^{-1}` of the integrand.</span>
+
+<span class="sd">Here :py:obj:`omegas` is a tuple of &quot;omega classes&quot;, see Definition 27.3.1 in the `MS book &lt;http://www.claymath.org/library/monographs/cmim-1.pdf&gt;`_. For each flag :math:`F` in a fixed point diagram, :math:`\omega_F` is the first chern class of the tangent space to the positive energy component corresponding to the edge of the flag, evaluated at the special point where it is attached to the flag&#39;s vertex (which in our case, is the contracted component of the disk)</span>
+
+<span class="sd">**The closed moduli spaces and integrand factors**</span>
+
+<span class="sd">Each element of :py:obj:`closedModulis` is a tuple :py:obj:`(coeff,l,omegas)`  where :py:obj:`coeff`, and each element of the list :py:obj:`omegas`, is a rational function in :py:obj:`u,eps`. :py:obj:`l` is an integer specifying the number of interior markings on the vertex. Let :math:`n = l + e` where :math:`e` is the number of positive energy components (including the disk component, if we&#39;re at the root) incident to the vertex.</span>
+
+<span class="sd">In case :math:`n \geq 3`, :py:obj:`omegas` contains a list of length :math:`e` of the flags&#39; &quot;omega classes&quot; as discussed above, so :math:`omegas` specifies the factor involving :math:`\psi` classes on the parameter space :math:`\\overline{\\mathcal{M}}_{0,n}`. If :math:`n &lt; 3` then this factor does not appear; :py:obj:`omegas` is empty; and the parameter space is just a point. In either case, :py:obj:`coeff` holds the other contributions to the integrand (except for the :math:`\psi` classes, all classes live in the cohomology ring, pulled back from a point).</span>
+
+<span class="sd">See the intro to the module for more on the computation of the inverse Euler.</span>
+
+<span class="sd">.. [#this-is-a-lie] Actually, this is a somewhat idealized description of what the function does: in case there are interior markings on a contracted disk component you wouldn&#39;t know about them, so you cannot really reconstruct the true parameter space in this case.</span>
+
+<span class="sd">   .. code-block:: py</span>
+
+<span class="sd">    &gt;&gt;&gt; fps = fixedPoints(6,7,3,0)</span>
+<span class="sd">    &gt;&gt;&gt; printFP(fps[2500])</span>
+<span class="sd">                            0 )...</span>
+<span class="sd">    ops((3, 7, 0, 1))[182]     &lt;p0&gt;||||            degs: (1, 1)</span>
+<span class="sd">    ops((1, 0, 0, 2))[0]          &lt;p-&gt;             degs: (1,)</span>
+<span class="sd">    ops((0, 0, 0, 1))[0]             &lt;p0&gt;          degs: ()</span>
+<span class="sd">    ops((0, 3, 0, 0))[0]          &lt;p+&gt;|||          degs: ()</span>
+
+<span class="sd">    &gt;&gt;&gt; openModuli,closedModulis = fpModuliAndEuler(fps[2500])</span>
+<span class="sd">    &gt;&gt;&gt; openModuli</span>
+<span class="sd">    (0, 0, 3, (-eps + u, -eps - u))</span>
+<span class="sd">    &gt;&gt;&gt; coeff,dumb0,totalK,omegas = openModuli</span>
+
+<span class="sd">   Of course this does not matter, since our assumption on the support of the form carried by the interior markings force these contributions to vanish (indeed, we see that coeff is zero). Still, it&#39;s a bit ugly and at some point you may want to rewrite this. As we mentioned elsewhere, throwing out diagrams like fps[2500] earlier will probably also speed things up.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="c1"># parse fp:</span>
+    <span class="c1"># extract the degree of the disk irreducible component,</span>
+    <span class="c1"># the number of boundary markings (including incoming edges)</span>
+    <span class="c1"># and the T^2 fixed point tree.</span>
+    <span class="p">(</span><span class="n">discDeg</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="n">tree</span><span class="p">)</span> <span class="o">=</span> <span class="n">fp</span>
+
+    <span class="c1"># list of the closed moduli</span>
+    <span class="n">closedModulis</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vertices</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># we deal with the root separately</span>
+        <span class="k">if</span> <span class="n">v</span> <span class="o">==</span> <span class="p">()</span> <span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span>
+
+        <span class="n">parentDat</span> <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">tree</span><span class="p">)</span>
+
+        <span class="c1"># get incoming degree - is listed in the parents degs list...</span>
+        <span class="n">inDeg</span> <span class="o">=</span> <span class="n">parentDat</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">v</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+        <span class="c1"># get parent&#39;s mu</span>
+        <span class="n">parentMu</span> <span class="o">=</span> <span class="n">parentDat</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="c1"># number of imp&#39;s on the vertex</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">imps0</span> <span class="o">+</span> <span class="n">dumb0</span>
+
+        <span class="c1"># this is the specialization of the extended form</span>
+        <span class="c1"># defining the invariants to the fixed point.</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="n">integrand_at_F</span><span class="p">(</span><span class="n">imps0</span><span class="p">,</span><span class="n">dumb0</span><span class="p">,</span><span class="n">mu</span><span class="p">)</span>
+        <span class="n">omegas</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># nmarks includes all half edges coming into the moduli,</span>
+        <span class="c1"># i.e. imp&#39;s and nodes with other edges (including one for the parent)</span>
+        <span class="n">nMarks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">+</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+
+
+        <span class="c1">## FLAGS TERM ##</span>
+        <span class="c1"># see the intro to the module for the formula we refer to</span>
+        <span class="c1"># by &quot;flags term&quot;, &quot;vertices term&quot; etc.</span>
+        <span class="c1">#</span>
+        <span class="c1"># if there&#39;s a contracted moduli here, we add the first flags term</span>
+        <span class="k">if</span> <span class="n">nMarks</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="p">:</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span> <span class="n">inDeg</span><span class="p">)</span>
+
+            <span class="c1"># first deal with parent</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="n">omega</span>
+            <span class="n">omegas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> <span class="p">:</span>
+                <span class="n">outDeg</span> <span class="o">=</span> <span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">kidMu</span>  <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,),</span> <span class="n">tree</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">)</span>
+                <span class="n">coeff</span> <span class="o">/=</span> <span class="n">omega</span>
+                <span class="n">omegas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+
+        <span class="c1"># rest of flags term minus 1 for the vertices term, so we get len(degs)</span>
+        <span class="c1"># and not len(degs) +1.</span>
+        <span class="n">coeff</span> <span class="o">*=</span> <span class="n">myprod</span><span class="p">([(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">nu</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> \
+                         <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">nu</span> <span class="o">!=</span> <span class="n">mu</span><span class="p">])</span>
+
+        <span class="c1"># if valency is 2, and no imps</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="n">outDeg</span> <span class="o">=</span> <span class="n">degs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">kidMu</span>  <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="p">,),</span> <span class="n">tree</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">)</span>
+
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">+</span> \
+                   <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">))</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="n">tmp</span>
+
+        <span class="c1"># if valency is 1 and there are no imps</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">coeff</span> <span class="o">*=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span><span class="n">inDeg</span><span class="p">)</span>
+
+        <span class="c1">## EDGES TERM ##</span>
+        <span class="n">coeff</span> <span class="o">*=</span> <span class="n">old_div</span><span class="p">(</span><span class="n">rat</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">inDeg</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">inDeg</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">inDeg</span><span class="p">),</span><span class="n">factorial</span><span class="p">(</span><span class="n">inDeg</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]</span><span class="o">-</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">inDeg</span><span class="p">))</span>
+
+        <span class="c1"># an akward way of getting the k in the formula...</span>
+        <span class="c1"># here i,j,k refer to the formula in the MS book,</span>
+        <span class="c1"># see the intro to the module.</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="p">((</span><span class="n">k</span> <span class="o">!=</span> <span class="n">mu</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span> <span class="o">!=</span> <span class="n">parentMu</span><span class="p">))][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">inDeg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">inDeg</span> <span class="o">-</span> <span class="n">a</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">rat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">+</span> \
+                   <span class="n">rat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]</span> <span class="o">-</span> \
+                   <span class="n">alpha</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="n">tmp</span>
+
+        <span class="n">closedModulis</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coeff</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="nb">tuple</span><span class="p">(</span><span class="n">omegas</span><span class="p">)))</span>
+
+
+    <span class="c1"># ITERSECTION TERM AND FIRST VERTEX CONTRIBUTION</span>
+
+    <span class="c1"># if disc is contracted...</span>
+    <span class="k">if</span> <span class="n">discDeg</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">totalK</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;when there&#39;s a ghost disc need positive number of bmps.&quot;</span><span class="p">)</span>
+
+        <span class="n">v</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span>
+        <span class="n">omegas</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">if</span> <span class="n">mu</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;expected mu to be 1 on ghost disc!, mu = &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mu</span><span class="p">))</span>
+
+
+        <span class="c1"># ugly code - the part of the integrand that comes from</span>
+        <span class="c1"># the bmp&#39;s is written outside the integrand at F...</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="n">u</span><span class="o">**</span><span class="p">(</span><span class="n">totalK</span><span class="p">)</span> <span class="o">*</span> <span class="n">integrand_at_F</span><span class="p">(</span><span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span> <span class="n">mu</span><span class="p">)</span>
+
+        <span class="c1"># we must have a bmp so there&#39;s a contracted component there.</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> <span class="p">:</span>
+            <span class="n">outDeg</span> <span class="o">=</span> <span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">kidMu</span>  <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,),</span> <span class="n">tree</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">)</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="n">omega</span>
+            <span class="n">omegas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+
+        <span class="c1"># flags contribution (both val = 2 and val = 1 are irrelevant</span>
+        <span class="c1"># since there are marked points)</span>
+
+        <span class="c1"># (mu == 1 in this case, but okay...)</span>
+        <span class="n">coeff</span> <span class="o">*=</span> <span class="n">myprod</span><span class="p">([(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">nu</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> \
+                        <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">nu</span> <span class="o">!=</span> <span class="n">mu</span><span class="p">])</span>
+
+        <span class="c1"># vertex contribution is just 1/u, since the vertex can only move</span>
+        <span class="c1"># along the lagrangian RP^2. Here&#39;s where a subtle sign may come in...</span>
+        <span class="n">coeff</span> <span class="o">/=</span> <span class="n">u</span>
+
+        <span class="n">tD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalT</span><span class="p">,</span><span class="n">rm</span> <span class="o">=</span> <span class="n">subtreeData</span>
+
+        <span class="n">openModuli</span> <span class="o">=</span> <span class="p">(</span><span class="n">coeff</span><span class="p">,</span><span class="n">dumb0</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="nb">tuple</span><span class="p">(</span><span class="n">omegas</span><span class="p">))</span>
+
+    <span class="c1"># if disc is not contracted</span>
+    <span class="k">if</span> <span class="n">discDeg</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">openModuli</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="c1"># in this case the first vertex is similar to any other, except for the</span>
+        <span class="c1"># edges term (which also contains the elusive sign).</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="p">()</span>
+        <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span>
+
+        <span class="c1"># parentMu, for the sake of omega computation, is the conjugate of mu</span>
+        <span class="n">parentMu</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="n">mu</span>
+
+        <span class="c1"># incoming deg in this case is the disc degree.</span>
+        <span class="n">inDeg</span> <span class="o">=</span> <span class="n">discDeg</span>
+
+        <span class="c1"># number of imp&#39;s on the vertex</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">imps0</span> <span class="o">+</span> <span class="n">dumb0</span>
+
+        <span class="c1"># pullback term</span>
+        <span class="n">coeff</span> <span class="o">=</span> <span class="p">(</span><span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span>
+                 <span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">**</span><span class="n">imps0</span> <span class="o">*</span>\
+                <span class="n">u</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dumb0</span><span class="p">)</span>
+
+        <span class="n">omegas</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># nmarks includes all half edges coming into the moduli,</span>
+        <span class="c1"># i.e. imp&#39;s and nodes with other edges (including one for the parent)</span>
+        <span class="n">nMarks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">+</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1">## FLAGS TERM ##</span>
+        <span class="c1"># if there&#39;s a contracted moduli here, we add the first flags term</span>
+        <span class="k">if</span> <span class="n">nMarks</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="p">:</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span> <span class="n">inDeg</span><span class="p">)</span>
+
+            <span class="c1"># first deal with parent</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="n">omega</span>
+            <span class="n">omegas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> <span class="p">:</span>
+                <span class="n">outDeg</span> <span class="o">=</span> <span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">kidMu</span>  <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="n">i</span><span class="p">,),</span> <span class="n">tree</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">)</span>
+                <span class="n">coeff</span> <span class="o">/=</span> <span class="n">omega</span>
+                <span class="n">omegas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+
+        <span class="c1"># rest of flags term minus 1 for the vertices term, so we get len(degs)</span>
+        <span class="c1"># and not len(degs) +1.</span>
+        <span class="n">coeff</span> <span class="o">*=</span> <span class="n">myprod</span><span class="p">([(</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">nu</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> \
+                         <span class="k">for</span> <span class="n">nu</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">nu</span> <span class="o">!=</span> <span class="n">mu</span><span class="p">])</span>
+
+        <span class="c1"># if valency is 2, and no imps</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="n">outDeg</span> <span class="o">=</span> <span class="n">degs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">kidMu</span>  <span class="o">=</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="p">(</span><span class="mi">0</span><span class="p">,),</span> <span class="n">tree</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">)</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="p">(</span><span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">+</span> \
+                      <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">kidMu</span><span class="p">]),</span><span class="n">outDeg</span><span class="p">))</span>
+
+        <span class="c1"># if valency is 1 and there are no imps</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="n">coeff</span> <span class="o">*=</span> <span class="n">old_div</span><span class="p">((</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]),</span><span class="n">inDeg</span><span class="p">)</span>
+
+        <span class="c1">## EDGES TERM ##</span>
+        <span class="n">coeff</span> <span class="o">*=</span> <span class="n">old_div</span><span class="p">(</span><span class="n">rat</span><span class="p">((</span><span class="n">inDeg</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">inDeg</span><span class="p">),</span><span class="n">factorial</span><span class="p">(</span><span class="n">inDeg</span><span class="p">)),</span> <span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]</span><span class="o">-</span><span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="n">inDeg</span><span class="p">))</span>
+
+        <span class="c1"># an akward way of getting the k in the formula...</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="p">((</span><span class="n">k</span> <span class="o">!=</span> <span class="n">mu</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">k</span> <span class="o">!=</span> <span class="n">parentMu</span><span class="p">))][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">old_div</span><span class="p">((</span><span class="n">inDeg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span> <span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">inDeg</span> <span class="o">-</span> <span class="n">a</span>
+            <span class="n">coeff</span> <span class="o">/=</span> <span class="p">(</span><span class="n">rat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">[</span><span class="n">mu</span><span class="p">]</span> <span class="o">+</span> <span class="n">rat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">inDeg</span><span class="p">)</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">[</span><span class="n">parentMu</span><span class="p">]</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="n">tD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalT</span><span class="p">,</span><span class="n">rm</span> <span class="o">=</span> <span class="n">subtreeData</span>
+        <span class="n">closedModulis</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">coeff</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">omegas</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">openModuli</span><span class="p">,</span> <span class="n">closedModulis</span></div>
+
+
+<div class="viewcode-block" id="sumRats"><a class="viewcode-back" href="../weighted_fp_contribs.html#weighted_fp_contribs.sumRats">[docs]</a><span class="k">def</span> <span class="nf">sumRats</span><span class="p">(</span><span class="n">rats</span><span class="p">,</span> <span class="n">vrs</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Rewrites a sum of rational functions :math:`a_i/b_i` as a single rational function by taking the naive common denominator. E.g.</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    a_1/b_1 + a_2/b_2 + a_3/b_3 = \\frac{a_1 b_2 b_3 + b_1 a_2 b_3 + b_1 b_2 a_3}{b_1 b_2 b_3}.</span>
+
+<span class="sd">If vrs is specified, it also factors out from the numerator and the denominator</span>
+<span class="sd">the highest power possible of each of the variables vrs. It returns a quotient</span>
+<span class="sd">of polynomials in this case.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rats</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">Number</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">nds</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">as_numer_denom</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rats</span><span class="p">]</span>
+    <span class="n">newnumer</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">nds</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">myprod</span><span class="p">([</span><span class="n">nds</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">if</span> <span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="p">])</span>\
+                 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)])</span>
+    <span class="n">newdenom</span> <span class="o">=</span> <span class="n">myprod</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">nds</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">vrs</span> <span class="p">:</span>
+        <span class="n">npoly</span> <span class="o">=</span> <span class="n">newnumer</span><span class="o">.</span><span class="n">as_poly</span><span class="p">(</span><span class="n">vrs</span><span class="p">)</span>
+        <span class="n">dpoly</span> <span class="o">=</span> <span class="n">newdenom</span><span class="o">.</span><span class="n">as_poly</span><span class="p">(</span><span class="n">vrs</span><span class="p">)</span>
+        <span class="n">cexps</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">npoly</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()))))),</span>\
+                              <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="n">dpoly</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">())))))))))</span>
+        <span class="n">common</span> <span class="o">=</span> <span class="n">myprod</span><span class="p">([</span><span class="n">vrs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="n">cexps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cexps</span><span class="p">))])</span>
+
+        <span class="k">return</span> <span class="n">old_div</span><span class="p">((</span><span class="n">old_div</span><span class="p">(</span><span class="n">npoly</span><span class="p">,</span><span class="n">common</span><span class="p">))</span><span class="o">.</span><span class="n">as_poly</span><span class="p">(</span><span class="o">*</span><span class="n">vrs</span><span class="p">),</span> <span class="p">(</span><span class="n">old_div</span><span class="p">(</span><span class="n">dpoly</span><span class="p">,</span><span class="n">common</span><span class="p">))</span><span class="o">.</span><span class="n">as_poly</span><span class="p">(</span><span class="o">*</span><span class="n">vrs</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">old_div</span><span class="p">(</span><span class="n">newnumer</span><span class="p">,</span><span class="n">newdenom</span><span class="p">)</span></div>
+
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1"># </span>
+<span class="c1"># the doctest module will automatically generate some tests from the </span>
+<span class="c1"># code in the docstrings of the module, and compare </span>
+<span class="c1"># the output to the printout. The -v flag means you will see </span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except </span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

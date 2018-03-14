@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>evenOddTrees &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for evenOddTrees</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">map</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">weighted_fp_contribs</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">treeReiterator</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">dlk_partitions</span> <span class="k">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="W2"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.W2">[docs]</a><span class="k">def</span> <span class="nf">W2</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A wrapper for computing the Welschinger counts as a special case of the open Gromov-Witten invariants. It computes the signed count of degree  :py:obj:`d` real rational curves through a generic configuration of :py:obj:`l` conjugate pairs of complex points and a suitable number :py:obj:`k` (computed from :py:obj:`d` and :py:obj:`l`) of real points.</span>
+
+<span class="sd">For example, the following calls show that there is a unique conic through 5 real points, and 40 degree 4 curves through 3 complex pairs and 5 real points.</span>
+
+<span class="sd">&gt;&gt;&gt; W2(2,0)</span>
+<span class="sd">-1</span>
+
+<span class="sd">&gt;&gt;&gt; W2(4,3)</span>
+<span class="sd">40</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="mi">2</span><span class="o">*</span><span class="n">l</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="o">*</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span> <span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;too many interior constraints!&quot;</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">d</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span>
+    <span class="k">return</span> <span class="mi">2</span><span class="o">**</span><span class="n">l</span> <span class="o">*</span> <span class="n">OGW</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span></div>
+
+<div class="viewcode-block" id="OGW"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.OGW">[docs]</a><span class="k">def</span> <span class="nf">OGW</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is the only function you need to call to compute an equivariant open Gromov-Witten invariant with the fixed point formula. It is really just a wrapper for :py:func:`superPotential`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="o">+</span><span class="n">k</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">l</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="o">*</span><span class="n">superPotential</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">**</span><span class="n">p</span></div>
+
+<div class="viewcode-block" id="superPotential"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.superPotential">[docs]</a><span class="k">def</span> <span class="nf">superPotential</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:py:func:`superPotential` computes a coefficient of the equivariant superpotential (up to some power of :math:`\sqrt{-1}`).</span>
+
+<span class="sd">More precisely, given three non-negative integers</span>
+
+<span class="sd">* :py:obj:`totalD` = :math:`d \\in \mathbb{Z} = H_2(\mathbb{C}P^2,\mathbb{R}P^2)`, the total degree</span>
+
+<span class="sd">* :py:obj:`totalL` = :math:`l`, the total number of interior markings, and</span>
+
+<span class="sd">* :py:obj:`totalK` = :math:`k`, the total number of boundary markings,</span>
+
+<span class="sd">:py:func:`superPotential` (:math:`\\beta,l,k`) computes a sympy rational number :math:`c` such that</span>
+
+<span class="sd">.. math::</span>
+
+<span class="sd">    \\frac{1}{k! \\, l!} OGW(d,l,k) = c \\, u^\\frac{k + 2\\, l - (3 \\, \\beta-1)}{2}.</span>
+
+<span class="sd">See the documentation for more details on the notation.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="c1"># check stability and sign of conjugation</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">goodDLK_2</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span> <span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">)</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;superPotential: moduli is unstable or conjugation sign is trivial, returning a `trivial` zero.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># check relative orientability of moduli space</span>
+    <span class="c1"># (also, if this fails there&#39;s a mismatch between the parity</span>
+    <span class="c1"># of the dimension of the moduli space and the degree of the form)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">totalD</span> <span class="o">+</span> <span class="n">totalK</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;superPotential: moduli is not relatively oriented, returning at `rivial` zero.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+
+    <span class="c1"># the contribution of the unique diagram with a single vertex,</span>
+    <span class="c1"># and no edges, is computed first.</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">wfp_nou</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">*</span><span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">factorial</span><span class="p">(</span><span class="n">totalL</span><span class="p">)</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">totalK</span><span class="p">))</span>
+
+<span class="c1">#    print(&quot;{}&quot;.format(res))</span>
+
+    <span class="c1"># We compute the sum of contributions of diagrams with more than one edge.</span>
+    <span class="c1">#</span>
+    <span class="c1"># This is the same as sum over diagrams with a highlighted</span>
+    <span class="c1"># edge*, of the contribution of the underlying diagram divided by the number of</span>
+    <span class="c1"># edges. Each edge connects an even degree vertex to an odd degree vertex,</span>
+    <span class="c1"># so if we sever the highlighted edge we obtain an ordered pair of rooted</span>
+    <span class="c1"># trees.</span>
+    <span class="c1">#</span>
+    <span class="c1"># In practice, we go over all ways to write the 3-tuple</span>
+    <span class="c1"># (totalD,totalL,totalK) as a sum (dodd,lodd,kodd) + (deven,leven,keven),</span>
+    <span class="c1"># and compute the contribution of all pairs of rooted trees, one with an</span>
+    <span class="c1"># even-degree root and one with an odd root. The contribution is the product</span>
+    <span class="c1"># of the two amplitudes, divided by the product of automorphism groups,</span>
+    <span class="c1"># and the total number of edges.</span>
+    <span class="c1">#</span>
+    <span class="c1"># It will probably be more efficient to change the sum of products</span>
+    <span class="c1"># to a product of sums.</span>
+    <span class="c1">#</span>
+    <span class="c1"># * all sums are automorphism-weighted; highlighting an edge</span>
+    <span class="c1"># means we also reduce the automorphism group.</span>
+    <span class="k">for</span> <span class="n">dodd</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalD</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">lodd</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalL</span> <span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">kodd</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalK</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">deven</span> <span class="o">=</span> <span class="n">totalD</span> <span class="o">-</span> <span class="n">dodd</span>
+                <span class="n">leven</span> <span class="o">=</span> <span class="n">totalL</span> <span class="o">-</span> <span class="n">lodd</span>
+                <span class="n">keven</span> <span class="o">=</span> <span class="n">totalK</span> <span class="o">-</span> <span class="n">kodd</span>
+
+                <span class="c1"># we make sure that both sides of the edge</span>
+                <span class="c1"># are stable and have a good sign of conjugation.</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">goodDLK_2</span><span class="p">(</span><span class="n">dodd</span><span class="p">,</span><span class="n">lodd</span><span class="p">,</span><span class="n">kodd</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span>\
+                        <span class="n">goodDLK_2</span><span class="p">(</span><span class="n">deven</span><span class="p">,</span><span class="n">leven</span><span class="p">,</span><span class="n">keven</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># iterate over the rooted tree on the odd side</span>
+                <span class="k">for</span> <span class="n">trodd</span> <span class="ow">in</span> <span class="n">treeReiterable</span><span class="p">(</span><span class="n">evenOddTreeFunc</span><span class="p">,</span> \
+                                            <span class="p">(</span><span class="n">dodd</span><span class="p">,</span><span class="n">lodd</span><span class="p">,</span><span class="n">kodd</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="p">:</span>
+                    <span class="c1"># iterate over the rooted tree on the even side</span>
+                    <span class="k">for</span> <span class="n">treven</span> <span class="ow">in</span> <span class="n">treeReiterable</span><span class="p">(</span><span class="n">evenOddTreeFunc</span><span class="p">,</span>\
+                                                 <span class="p">(</span><span class="n">deven</span><span class="p">,</span><span class="n">leven</span><span class="p">,</span><span class="n">keven</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span> <span class="p">:</span>
+                        <span class="c1"># compute the product of amplitudes,</span>
+                        <span class="c1"># divide by the size of automorphism group of the</span>
+                        <span class="c1"># highlighted diagram (which is the product of the</span>
+                        <span class="c1"># automorphism groups of the trees) and by</span>
+                        <span class="c1"># the total number of edges, including the severed edge.</span>
+                        <span class="n">tmp</span> <span class="o">=</span> <span class="n">calcAmplitude</span><span class="p">(</span><span class="n">trodd</span><span class="p">)</span> <span class="o">*</span> <span class="n">calcAmplitude</span><span class="p">(</span><span class="n">treven</span><span class="p">)</span> <span class="o">*</span>\
+               <span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nedges</span><span class="p">(</span><span class="n">trodd</span><span class="p">)</span> <span class="o">+</span> <span class="n">nedges</span><span class="p">(</span><span class="n">treven</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span>\
+               <span class="n">rat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">calcEOAutomorphisms</span><span class="p">(</span><span class="n">trodd</span><span class="p">)</span> <span class="o">*</span> <span class="n">calcEOAutomorphisms</span><span class="p">(</span><span class="n">treven</span><span class="p">))</span>
+
+<span class="c1">#                        print(&quot;{}&quot;.format(tmp))</span>
+
+                        <span class="n">res</span> <span class="o">+=</span> <span class="n">tmp</span>
+    <span class="k">return</span> <span class="n">res</span></div>
+
+
+
+<span class="c1">################ EVEN-ODD TREES  ##########</span>
+<span class="c1"># see more about this in the documentation.</span>
+
+<div class="viewcode-block" id="evenOddTreeFunc"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.evenOddTreeFunc">[docs]</a><span class="k">def</span> <span class="nf">evenOddTreeFunc</span><span class="p">(</span><span class="n">subtreeData</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This function complies with the :py:class:`treeReiterable` interface (see the documentation there for details). It represents the recursive step in the construction of an even-odd rooted tree.</span>
+
+<span class="sd">The input subtreeData is a tuple :py:obj:`(totalD,totalL,totalK,rootDegParity)`,</span>
+<span class="sd">where :py:obj:`totalD`, :py:obj:`totalL` and :py:obj:`totalK` are the total degree, number of interior markings and number of boundary markings of the tree to be generated, and the :py:obj:`rootDegParity` is the parity of the degree of the root (0 or 1).</span>
+
+<span class="sd">As specified by the :py:class:`treeReiterable` interface, the function returns an</span>
+<span class="sd">iterable generating tuples of tree specifications of the form:</span>
+<span class="sd">:py:obj:`(  ((subTreeData, multiplicity),(...),...),  nodeDecoration)`.</span>
+
+<span class="sd">where</span>
+
+<span class="sd">* :py:obj:`subTreeData` has the same format as the input (indeed, it is fed to **evenOddTreeFunc** recursively when generating trees),</span>
+
+<span class="sd">* :py:obj:`multiplicity` is a positive integer representing the number of subtrees of the specified type.</span>
+
+<span class="sd">* :py:obj:`nodeDecoration` is a nested tuple of integers formatted like so:</span>
+<span class="sd">  :py:obj:`(totalD,totalL,totalK,rootDegParity), counter, (droot,lroot,kroot))`</span>
+
+<span class="sd">Here :py:obj:`(totalD,totalL,totalK,rootDegParity)` is a copy of the initial :py:obj:`subtreeData`, and :py:obj:`counter` is the index we&#39;re at in the iterable (so the first tree specification has :py:obj:`counter` = 0, the second has :py:obj:`counter` = 1, etc.). :py:obj:`(droot,lroot,kroot)` represent the degree and number of interior and boundary markings on the root vertex of the tree.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span> <span class="n">parity</span><span class="p">)</span> <span class="o">=</span> <span class="n">subtreeData</span>
+    <span class="k">return</span> <span class="n">seqReiterable</span><span class="p">(</span><span class="n">genEvenOddOps</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span> <span class="n">parity</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="genEvenOddOps"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.genEvenOddOps">[docs]</a><span class="k">def</span> <span class="nf">genEvenOddOps</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span> <span class="n">rootDegParity</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This generates a list of tuples of the form</span>
+<span class="sd">(  ((subTreeData, multiplicity),(...),...),  nodeDecoration)</span>
+<span class="sd">as explained in the documentation for :py:func:`evenOddTreeFunc`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="c1"># verifies that the tuple is valid in terms of stability and sign of</span>
+    <span class="c1"># conjugation.</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">goodDLK_2</span><span class="p">(</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># you&#39;re not supposed to get here</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;in genEvenOddOps: </span><span class="si">{}</span><span class="s2"> have bad sign of conjugation!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">ops</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># go over the allowed degrees for the root, even or odd as specified</span>
+    <span class="c1"># by rootDegParity.</span>
+    <span class="k">for</span> <span class="n">droot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rootDegParity</span><span class="p">,</span> <span class="n">totalD</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># interior markings on the root</span>
+        <span class="k">for</span> <span class="n">lroot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalL</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+            <span class="c1"># boundary markings on the root. This does *not*</span>
+            <span class="c1"># include markings coming from edges.</span>
+            <span class="k">for</span> <span class="n">kroot</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalK</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+                <span class="c1"># you cannot have any boundary markings when the degree</span>
+                <span class="c1"># is odd (no fixed points in that case). Though</span>
+                <span class="c1"># of course you can have special points corresponding</span>
+                <span class="c1"># to edges, all outgoing.</span>
+                <span class="k">if</span> <span class="n">rootDegParity</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">kroot</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># the &quot;resources&quot; left over to</span>
+                <span class="c1"># be partitioned among the subtrees.</span>
+                <span class="n">leftoverD</span> <span class="o">=</span> <span class="n">totalD</span> <span class="o">-</span> <span class="n">droot</span>
+                <span class="n">leftoverL</span> <span class="o">=</span> <span class="n">totalL</span> <span class="o">-</span> <span class="n">lroot</span>
+                <span class="n">leftoverK</span> <span class="o">=</span> <span class="n">totalK</span> <span class="o">-</span> <span class="n">kroot</span>
+
+                <span class="c1"># this goes over all partitions of of the leftover resources</span>
+                <span class="c1"># into subtrees. A partition is a kind of multiset,</span>
+                <span class="c1"># a list of ((d,l,k),m) where</span>
+                <span class="c1"># m is the multiplicity, or number of times each subtree</span>
+                <span class="c1"># with (d,l,k) appears.</span>
+                <span class="k">for</span> <span class="n">dlk_part</span> <span class="ow">in</span> <span class="n">dlk_partitions</span><span class="p">(</span><span class="n">leftoverD</span><span class="p">,</span><span class="n">leftoverL</span><span class="p">,</span><span class="n">leftoverK</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="c1"># the total number of special points on the root =</span>
+                    <span class="c1"># (edges going down to the subtrees)  +</span>
+                    <span class="c1"># + (boundary marked points) +</span>
+                    <span class="c1"># (the edge going up)</span>
+                    <span class="n">ktag</span> <span class="o">=</span> <span class="n">intsum</span><span class="p">([</span><span class="n">m</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">m</span> <span class="ow">in</span> <span class="n">dlk_part</span><span class="p">])</span> <span class="o">+</span> <span class="n">kroot</span> <span class="o">+</span><span class="mi">1</span>
+                    <span class="c1"># if the root is even degree, all edges are incoming</span>
+                    <span class="c1"># and ...</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">droot</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="c1"># we check that the moduli space is relatively</span>
+                        <span class="c1"># oriented ...</span>
+                        <span class="k">if</span> <span class="n">ktag</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+                            <span class="k">continue</span>
+                        <span class="c1"># ... and stable.</span>
+                        <span class="k">if</span> <span class="n">droot</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> \
+                           <span class="p">((</span><span class="n">ktag</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">or</span> <span class="n">lroot</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+                            <span class="k">continue</span>
+                    <span class="c1"># since trees are even-odd, the parity of the</span>
+                    <span class="c1"># subtrees is always opposite that of the root.</span>
+                    <span class="n">newParity</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">rootDegParity</span>
+
+                    <span class="c1"># cast the generated result in the format</span>
+                    <span class="c1"># (((subTreeData, multiplicity),(...),...), nodeDecoration)</span>
+                    <span class="c1"># as dictated by the treeReiterator interface</span>
+                    <span class="c1"># (see also evenOddTreeFunc(subtreeData) documentation).</span>
+                    <span class="n">ops</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">tuple</span><span class="p">((</span><span class="n">dlk</span> <span class="o">+</span> <span class="p">(</span><span class="n">newParity</span><span class="p">,),</span><span class="n">mult</span><span class="p">)</span> \
+                                      <span class="k">for</span> <span class="n">dlk</span><span class="p">,</span><span class="n">mult</span> <span class="ow">in</span> <span class="n">dlk_part</span><span class="p">),</span>\
+                                <span class="p">((</span><span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="n">rootDegParity</span><span class="p">),</span>\
+                                 <span class="n">counter</span><span class="p">,</span> <span class="p">(</span><span class="n">droot</span><span class="p">,</span><span class="n">lroot</span><span class="p">,</span><span class="n">kroot</span><span class="p">))))</span>
+                    <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">ops</span></div>
+
+
+<span class="c1">#### TREE PRINTING - Not Used by superPotential ####</span>
+<span class="c1"># the following pair of functions should help examine and play</span>
+<span class="c1"># with even odd diagrams, they&#39;re not invoked in the</span>
+<span class="c1"># computation itself.</span>
+<div class="viewcode-block" id="evenOddTrees"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.evenOddTrees">[docs]</a><span class="k">def</span> <span class="nf">evenOddTrees</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">rp</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    return a list from the treeReiterable generating even-odd trees.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">treeReiterable</span><span class="p">(</span><span class="n">evenOddTreeFunc</span><span class="p">,</span> <span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">rp</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="printTrees"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.printTrees">[docs]</a><span class="k">def</span> <span class="nf">printTrees</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">rp</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A nice print of all the trees generated by treeReiterable.</span>
+<span class="sd">Each tree is displayed using :py:func:`stree` from the :py:mod:`treeReiterator` module;</span>
+<span class="sd">so a tree is represented by a block of lines in DFS order,</span>
+<span class="sd">with each line containing the nodeDecoration of a single vertex,</span>
+<span class="sd">indented by its depth.</span>
+
+<span class="sd">Recall the nodeDecoration for an evenOddTree is:</span>
+<span class="sd">(totalD,totalL,totalK,rootDegParity), counter, (droot,lroot,kroot))</span>
+
+<span class="sd">For example:</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    &gt;&gt;&gt; printTrees(3,0,7,0)</span>
+<span class="sd">    found 13 trees</span>
+<span class="sd">    --------------</span>
+<span class="sd">    tmp[0] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="sd">       ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">       ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 48</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[1] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="sd">       ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">       ((2, 0, 7, 1), 1, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">    amplitude: -2; automorphisms: 16</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[2] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 1, (0, 0, 0))</span>
+<span class="sd">       ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">       ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 16</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[3] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((2, 0, 0, 0), 0, (0, 0, 0))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 96</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[4] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((2, 0, 0, 0), 1, (2, 0, 0))</span>
+<span class="sd">    amplitude: 1; automorphisms: 48</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[5] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 2, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 16</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[6] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((2, 0, 4, 0), 0, (0, 0, 0))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">             ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">    amplitude: -2; automorphisms: 16</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[7] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((2, 0, 4, 0), 1, (0, 0, 1))</span>
+<span class="sd">             ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">                ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">                   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 4</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[8] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((2, 0, 4, 0), 3, (2, 0, 4))</span>
+<span class="sd">    amplitude: 32; automorphisms: 48</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[9] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 5, (1, 0, 0))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">                ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">    amplitude: -2; automorphisms: 8</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[10] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="sd">       ((3, 0, 6, 1), 6, (3, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">    amplitude: -182/3; automorphisms: 48</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[11] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 6, (2, 0, 3))</span>
+<span class="sd">       ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">    amplitude: 32; automorphisms: 48</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    tmp[12] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 8, (2, 0, 7))</span>
+<span class="sd">       ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: 6144; automorphisms: 5040</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+
+<span class="sd">We examine this example more closely in the documentation for :py:func:`evenOddTrees.calcEOAutomorphisms`.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">evenOddTrees</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">rp</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found </span><span class="si">{}</span><span class="s2"> trees&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">N</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="n">n</span><span class="o">=</span> <span class="n">N</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">:</span>
+<span class="c1">##            print &quot;{}th tree&quot;.format(i)</span>
+        <span class="n">tr</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;tmp[</span><span class="si">{}</span><span class="s2">] is:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="c1"># stree is defined in treeReiterator.py, it turns</span>
+        <span class="c1"># tree into a string of lines, each line represents a node</span>
+        <span class="c1"># indented by depth</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">stree</span><span class="p">(</span><span class="n">tmp</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;amplitude: </span><span class="si">{}</span><span class="s2">; automorphisms: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">calcAmplitude</span><span class="p">(</span><span class="n">tr</span><span class="p">),</span>\
+                                                        <span class="n">calcEOAutomorphisms</span><span class="p">(</span><span class="n">tr</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">()</span></div>
+
+<span class="c1">############ AMPLITUDE COMPUTATION ##############################</span>
+
+<div class="viewcode-block" id="calcEOAutomorphisms"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.calcEOAutomorphisms">[docs]</a><span class="k">def</span> <span class="nf">calcEOAutomorphisms</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Computes the size of the automorphism group of the input :py:obj:`tree`.</span>
+
+<span class="sd">We think of :py:obj:`tree` as a rooted tree, whose vertices are decorated by degrees and which has additional &quot;exterior&quot; edges of two distinct types, corresponding to the boundary and the interior markings, but which are otherwise indistinguishable and thus contribute to the symmetries of the tree.</span>
+
+<span class="sd">For example:</span>
+
+<span class="sd">.. code-block:: python</span>
+
+<span class="sd">    &gt;&gt;&gt; printTrees(3,0,7,0) # doctest: +SKIP</span>
+<span class="sd">    found 13 trees</span>
+<span class="sd">    --------------</span>
+<span class="sd">    tmp[0] is:</span>
+<span class="sd">    ((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="sd">       ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">       ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="sd">          ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="sd">             ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="sd">    amplitude: -2; automorphisms: 48</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">We see that the root is connected to two distinct subtrees.</span>
+<span class="sd">The subtree starting at ((2, 0, 7, 1), 0, (1, 0, 0)) is connected to 4</span>
+<span class="sd">subtrees, three of which are identical, each containing a pair of boundary markings. Thus the automorphism group is :math:`3! \\times 2^3 = 48` in this case.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">subtrees</span><span class="p">)</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="n">dr</span><span class="p">,</span><span class="n">lr</span><span class="p">,</span><span class="n">kr</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1"># Compute the equivalence classes of the subtrees.</span>
+    <span class="c1"># Note the sizes of these equivalence classes are smaller</span>
+    <span class="c1"># than the multiplicites of the subTreeData&#39;s</span>
+    <span class="c1"># as seen from the root vertex. Two subtrees are equivalent</span>
+    <span class="c1"># only if they are equal &quot;all the way down&quot;. Here it is important</span>
+    <span class="c1"># that we keep the subtrees ordered lexicographically.</span>
+    <span class="n">equivs</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">subtrees</span><span class="p">)</span>
+
+    <span class="c1"># the automorphism group is the semidirect product</span>
+    <span class="c1"># of the automorphism groups of the subtrees, with the product of the</span>
+    <span class="c1"># symmetry groups</span>
+    <span class="c1"># S_{lr} x S_{kr} x S_{equivs}</span>
+    <span class="c1"># where S_{equivs} = S_{C1} x S_{C2} x ...</span>
+    <span class="c1"># is the automorphism of the set of subtrees with its equivalence relation.</span>
+    <span class="k">return</span> <span class="n">intprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">factorial</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">equivs</span><span class="o">.</span><span class="n">values</span><span class="p">()))))</span> <span class="o">*</span> \
+           <span class="n">factorial</span><span class="p">(</span><span class="n">kr</span><span class="p">)</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">lr</span><span class="p">)</span> <span class="o">*</span>\
+           <span class="n">intprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">calcEOAutomorphisms</span><span class="p">,</span> <span class="n">subtrees</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="calcAmplitude"><a class="viewcode-back" href="../evenOddTrees.html#evenOddTrees.calcAmplitude">[docs]</a><span class="k">def</span> <span class="nf">calcAmplitude</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Computes the amplitude of the evenOddTree :py:obj:`tree`, which is just :math:`\\prod_v \\sum_{\\tilde F} A_{\\tilde F}`.</span>
+
+<span class="sd">(so this does *not* include the symmetry factor).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="n">subtrees</span><span class="p">)</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="p">((</span><span class="n">td</span><span class="p">,</span><span class="n">tl</span><span class="p">,</span><span class="n">tk</span><span class="p">,</span><span class="n">rootDegParity</span><span class="p">),</span><span class="n">ctr</span><span class="p">,</span> <span class="p">(</span><span class="n">rootD</span><span class="p">,</span><span class="n">rootL</span><span class="p">,</span><span class="n">rootK</span><span class="p">))</span> <span class="o">=</span> <span class="n">root</span>
+
+    <span class="n">rootE</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">subtrees</span><span class="p">)</span> <span class="o">+</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="n">rootDegParity</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">rootContrib</span> <span class="o">=</span> <span class="n">wfp_nou</span><span class="p">(</span><span class="n">rootD</span><span class="p">,</span><span class="n">rootL</span><span class="p">,</span><span class="n">rootK</span><span class="o">+</span><span class="n">rootE</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="n">rootContrib</span> <span class="o">=</span> <span class="n">wfp_nou</span><span class="p">(</span><span class="n">rootD</span><span class="p">,</span><span class="n">rootL</span><span class="p">,</span><span class="n">rootK</span><span class="p">,</span><span class="n">rootE</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">rootContrib</span><span class="o">*</span><span class="n">intprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">calcAmplitude</span><span class="p">,</span><span class="n">subtrees</span><span class="p">)))</span></div>
+
+
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1">#</span>
+<span class="c1"># the doctest module will automatically generate some tests from the</span>
+<span class="c1"># code in the docstrings of the module, and compare</span>
+<span class="c1"># the output to the printout. The -v flag means you will see</span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except</span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

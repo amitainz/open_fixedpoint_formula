@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>The fixed-point components &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="next" title="Reiterables and tree generation" href="reiterators+treeReiterator.html" />
+    <link rel="prev" title="The weighted_fp_contribs module" href="weighted_fp_contribs.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">The fixed-point components</a><ul>
+<li><a class="reference internal" href="#the-fixedpoints-module">The fixedPoints module</a></li>
+<li><a class="reference internal" href="#the-pincher-module">The pincher module</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="weighted_fp_contribs.html" title="The weighted_fp_contribs module" accesskey="P">previous </a></li>
+              <li><a href="reiterators+treeReiterator.html" title="Reiterables and tree generation" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/fixedPoints+pincher.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The fixed-point components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-fixedpoints-module">The fixedPoints module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-pincher-module">The pincher module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="weighted_fp_contribs.html"
+                        title="previous chapter">The weighted_fp_contribs module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reiterators+treeReiterator.html"
+                        title="next chapter">Reiterables and tree generation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fixedPoints+pincher.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="the-fixed-point-components">
+<h1>The fixed-point components<a class="headerlink" href="#the-fixed-point-components" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-fixedpoints-module">
+<h2>The fixedPoints module<a class="headerlink" href="#the-fixedpoints-module" title="Permalink to this headline">¶</a></h2>
+<p>This takes care of generation of fixed point diagrams, each of which specifies a <span class="math">\(T^2\)</span> -fixed component inside each <span class="math">\(S^1\)</span> -fixed component.</p>
+<span class="target" id="module-fixedPoints"></span><dl class="function">
+<dt id="fixedPoints.FPformatter">
+<code class="descclassname">fixedPoints.</code><code class="descname">FPformatter</code><span class="sig-paren">(</span><em>x</em>, <em>depth</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#FPformatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.FPformatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.calcNAutomorphisms">
+<code class="descclassname">fixedPoints.</code><code class="descname">calcNAutomorphisms</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#calcNAutomorphisms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.calcNAutomorphisms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.discFormatter">
+<code class="descclassname">fixedPoints.</code><code class="descname">discFormatter</code><span class="sig-paren">(</span><em>discDeg</em>, <em>totalK</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#discFormatter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.discFormatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.fixedPointsGen">
+<code class="descclassname">fixedPoints.</code><code class="descname">fixedPointsGen</code><span class="sig-paren">(</span><em>totalRelDeg</em>, <em>totalL</em>, <em>totalK</em>, <em>totalT</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#fixedPointsGen"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.fixedPointsGen" title="Permalink to this definition">¶</a></dt>
+<dd><p>this is a wrapper function generating all fixed point trees, including the special disc data.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.fpCombFactor">
+<code class="descclassname">fixedPoints.</code><code class="descname">fpCombFactor</code><span class="sig-paren">(</span><em>xxx_todo_changeme1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#fpCombFactor"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.fpCombFactor" title="Permalink to this definition">¶</a></dt>
+<dd><p>compute the combinatorial factor for the fixed point’s “amplitude”
+(product of relevant moduli integrals) in the total integral.</p>
+<p>combFactor =
+#{labeling of tree rep} / #{<em>unlabeled</em> tree automorphism} / deg product</p>
+<p>note the count of number of labelings ignores possible tree automorphisms,
+this is accounted for by the fact we divide by unlabeled tree automorphisms:
+that is, automorphisms mapping a vertex to a vertex with the same <em>number</em>
+of markings, but these markings are unlabeled.</p>
+<p>the label-preserving automorphisms combine with the product of the degrees to
+determine the degree of the cover of the map from the product of modulis we’re
+integrating over to the fixed suborbifold with corners of the moduli of maps.</p>
+<p>Note: the integral of the open discs’ moduli already accounts for the possible
+orderings of the boundary marked points.</p>
+<p>Unimportant note:
+This can probably be simplified according to the symmetric-markings yoga
+(indeed you see that the multinomials form a telescopic product).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.genFixedPointTreeOps">
+<code class="descclassname">fixedPoints.</code><code class="descname">genFixedPointTreeOps</code><span class="sig-paren">(</span><em>subtreeData</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#genFixedPointTreeOps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.genFixedPointTreeOps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.oldCalcNAutomorphisms">
+<code class="descclassname">fixedPoints.</code><code class="descname">oldCalcNAutomorphisms</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#oldCalcNAutomorphisms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.oldCalcNAutomorphisms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.printFP">
+<code class="descclassname">fixedPoints.</code><code class="descname">printFP</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#printFP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.printFP" title="Permalink to this definition">¶</a></dt>
+<dd><p>This prints fixed-point diagrams in a palatable format:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="n">fixedPoints</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">3090</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printFP</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">2500</span><span class="p">])</span>
+<span class="go">                        0 )...</span>
+<span class="go">ops((3, 7, 0, 1))[182]     &lt;p0&gt;||||            degs: (1, 1)</span>
+<span class="go">ops((1, 0, 0, 2))[0]          &lt;p-&gt;             degs: (1,)</span>
+<span class="go">ops((0, 0, 0, 1))[0]             &lt;p0&gt;          degs: ()</span>
+<span class="go">ops((0, 3, 0, 0))[0]          &lt;p+&gt;|||          degs: ()</span>
+</pre></div>
+</div>
+<p>The first two lines represent the disk (which in the even degree is also the root of the tree part of the diagram). Note the condition that there are no interior markings on a vertex mapping to <span class="math">\(p_0\)</span> is not enforced.
+The disk has 3 boundary markings in this case. It is connected by two edges to vertices mapping to <span class="math">\(p_-\)</span> and <span class="math">\(p_+\)</span>. The degree of the edges is shown at the parent, in this case both edges have absoulte degree <span class="math">\(1 \in H_2(X)\)</span> (the map <span class="math">\(\mathbb{Z} = H_2(X) \to H_2(X,L) = \mathbb{Z}\)</span> from the absolute to the relative degree is multiplication by 2, so the total degree of the diagram is <span class="math">\(2 \cdot 3 = 6\)</span>, as it should be).</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="n">fixedPoints</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">102</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printFP</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">35</span><span class="p">])</span>
+<span class="go">                        1 )</span>
+<span class="go">ops((2, 2, 0, 0))[17]      &lt;p+&gt;                degs: (1, 1)</span>
+<span class="go">ops((0, 1, 0, 1))[0]          &lt;p0&gt;|            degs: ()</span>
+<span class="go">ops((0, 1, 0, 2))[0]          &lt;p-&gt;|            degs: ()</span>
+</pre></div>
+</div>
+<p>When the total degree is odd, the diagram is fairly similar except now the root of the tree part of the diagram represents the point where the disk irreducible component is attached to the rest of the tree (there may be a contracted component there, of course). This vertex can map either to <span class="math">\(p_+\)</span> or to <span class="math">\(p_-\)</span>. We also see that there must be no boundary markings on the disk component.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="fixedPoints.strFP">
+<code class="descclassname">fixedPoints.</code><code class="descname">strFP</code><span class="sig-paren">(</span><em>xxx_todo_changeme</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fixedPoints.html#strFP"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#fixedPoints.strFP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="the-pincher-module">
+<h2>The pincher module<a class="headerlink" href="#the-pincher-module" title="Permalink to this headline">¶</a></h2>
+<p>This handles the mapping from a <span class="math">\(T^2\)</span> -fixed component to its <span class="math">\(S^1\)</span> -fixed component. Each <span class="math">\(S^1\)</span> component is represented by a “totally-pinched” fixed point diagram, in a unique way.</p>
+<p>A fixed-point diagram is <em>totally-pinched</em> if there are no edges with even absolute degree <span class="math">\(2\,d\)</span> connecting <span class="math">\(p_+\)</span> and <span class="math">\(p_-\)</span>. Indeed, such an edge can be “pinched” inside the <span class="math">\(S^1\)</span> -fixed component to two edges of degree <span class="math">\(d\)</span> covering the line <span class="math">\(p_+ p_0\)</span> and the line <span class="math">\(p_0 p_-\)</span>, respectively, connected by a node at <span class="math">\(p_0\)</span>.</p>
+<span class="target" id="module-pincher"></span><dl class="function">
+<dt id="pincher.fixRootCounter">
+<code class="descclassname">pincher.</code><code class="descname">fixRootCounter</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pincher.html#fixRootCounter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pincher.fixRootCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>recalculate the counter for the root after we pinch.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pincher.pinch">
+<code class="descclassname">pincher.</code><code class="descname">pinch</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pincher.html#pinch"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pincher.pinch" title="Permalink to this definition">¶</a></dt>
+<dd><p>go over each fixed point tree, and wherever an even degree edge between
+p+ and p- is encountered, pinch it, thus obtaining the unique totally
+pinched representative to the class of T^3 fixed point components correspondingcontained in the same S^1 fp connected component.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="pincher.pincher">
+<code class="descclassname">pincher.</code><code class="descname">pincher</code><span class="sig-paren">(</span><em>vertexData</em>, <em>pinchedSubtrees</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pincher.html#pincher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pincher.pincher" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function pinches at the root, if necessary.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="weighted_fp_contribs.html" title="The weighted_fp_contribs module" >previous</a></li>
+        <li><a href="reiterators+treeReiterator.html" title="Reiterables and tree generation" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>treeReiterator &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for treeReiterator</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">str</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">map</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">next</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">object</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c1"># this is needed for python 2.7, probably.</span>
+<span class="c1"># from sets import *</span>
+
+<span class="kn">from</span> <span class="nn">reiterators</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
+
+<div class="viewcode-block" id="treeReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.treeReiterable">[docs]</a><span class="k">class</span> <span class="nc">treeReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">treeFunc is a function which takes in predecessorData and outputs</span>
+<span class="sd">an iterable generating tuples</span>
+<span class="sd">(  ((subTreeData, multiplicity),(...),...),  nodeDecoration)</span>
+
+<span class="sd">subTreeData is what will be fed to the next calls to treeFunc on the subtrees.</span>
+<span class="sd">multiplicity is the number of &quot;so far symmetric&quot; copies of each subTreeData.</span>
+
+<span class="sd">nodeDecoration contains data that decorates the root of the (big) tree,</span>
+<span class="sd">when this choice of children is selected. The most succint, lossless option is</span>
+<span class="sd">to decorate the root with (predecessorData, counter) where counter</span>
+<span class="sd">refers to the order in the treeFunc reiterable.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treeFunc</span><span class="p">,</span> <span class="n">predecessorData</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treeFunc</span> <span class="o">=</span> <span class="n">treeFunc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rootReiterable</span> <span class="o">=</span> <span class="n">treeFunc</span><span class="p">(</span><span class="n">predecessorData</span><span class="p">)</span>
+
+<div class="viewcode-block" id="treeReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.treeReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">treeReiterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="treeReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.treeReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootReiterable</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">(),</span> <span class="kc">False</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+
+<span class="c1"># predecessorData is parent&#39;s data only, not a tuple!</span>
+<span class="c1"># status is a tree of rootReiter&#39;s statuses.</span>
+<div class="viewcode-block" id="treeReiterator"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.treeReiterator">[docs]</a><span class="k">class</span> <span class="nc">treeReiterator</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tr</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treeFunc</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">treeFunc</span>
+
+        <span class="c1"># think of rootReiter is a pointer to the list of options at the root.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rootReiter</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">rootReiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">rootDecor</span> <span class="o">=</span> <span class="n">status</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">rootDecor</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootReiter</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span> <span class="o">=</span> <span class="n">imapReiterable</span><span class="p">(</span>\
+                <span class="n">productReiterable</span><span class="p">(</span><span class="o">*</span><span class="p">[</span>\
+                    <span class="n">sortedProductReiterable</span><span class="p">(</span>\
+                        <span class="n">treeReiterable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treeFunc</span><span class="p">,</span> <span class="n">cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">cdm</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>\
+                <span class="k">for</span> <span class="n">cdm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span><span class="p">]),</span>
+                <span class="k">lambda</span> <span class="n">childecorts</span> <span class="p">:</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">childecorts</span><span class="p">,</span> <span class="p">()))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">while</span> <span class="kc">True</span> <span class="p">:</span>
+            <span class="k">try</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootDecor</span><span class="p">,</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">childrenReiter</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">rootDecor</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootReiter</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span> <span class="o">=</span> <span class="n">imapReiterable</span><span class="p">(</span>\
+                    <span class="n">productReiterable</span><span class="p">(</span><span class="o">*</span><span class="p">[</span>\
+                        <span class="n">sortedProductReiterable</span><span class="p">(</span>\
+                            <span class="n">treeReiterable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">treeFunc</span><span class="p">,</span> <span class="n">cdm</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">cdm</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>\
+                    <span class="k">for</span> <span class="n">cdm</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span><span class="p">]),</span>
+                    <span class="k">lambda</span> <span class="n">childecorts</span> <span class="p">:</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">childecorts</span><span class="p">,</span> <span class="p">()))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span><span class="p">)</span>
+
+<div class="viewcode-block" id="treeReiterator.status"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.treeReiterator.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># (rootReiter.status(), childrenReiterSet)</span>
+        <span class="c1"># if childrenReiterSet is False otherwise,</span>
+        <span class="c1"># (rootReiter.status(), childrenReiterSet, childrenReiterable, childrenReiter.status(),</span>
+        <span class="c1"># ... childrenDataMult, rootDecor)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootReiter</span><span class="o">.</span><span class="n">status</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span><span class="p">,</span> \
+                    <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterable</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiter</span><span class="o">.</span><span class="n">status</span><span class="p">(),</span>\
+                    <span class="bp">self</span><span class="o">.</span><span class="n">childrenDataMult</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rootDecor</span><span class="p">)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rootReiter</span><span class="o">.</span><span class="n">status</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">childrenReiterSet</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="UnmarkedTreesFunc"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.UnmarkedTreesFunc">[docs]</a><span class="k">class</span> <span class="nc">UnmarkedTreesFunc</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A silly example of a tree reiterator function. Below we generate all *six* isomorphism types of binary trees of depth two, with two types of leaves (yellow or red).</span>
+
+<span class="sd">.. code-block:: py</span>
+
+<span class="sd">    &gt;&gt;&gt; from treeReiterator import *</span>
+<span class="sd">    &gt;&gt;&gt; f = UnmarkedTreesFunc([2],2)</span>
+<span class="sd">    &gt;&gt;&gt; tr = list(treeReiterable(f,0))</span>
+<span class="sd">    &gt;&gt;&gt; len(tr)</span>
+<span class="sd">    6</span>
+<span class="sd">    &gt;&gt;&gt; for t in tr :</span>
+<span class="sd">    ...     print(stree(t), end=&#39;&#39;)</span>
+<span class="sd">    ...     print()</span>
+<span class="sd">    ...</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Yellow Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">    Depth 0 Node</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">       Depth 1 Node</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">          Red Leaf</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">childops</span><span class="p">,</span> <span class="n">maxdepth</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">childops</span> <span class="o">=</span> <span class="n">childops</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">maxdepth</span> <span class="o">=</span> <span class="n">maxdepth</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">pd</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">maxdepth</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="n">seqReiterable</span><span class="p">([((),</span><span class="s2">&quot;Yellow Leaf&quot;</span><span class="p">),</span> <span class="p">((),</span> <span class="s2">&quot;Red Leaf&quot;</span><span class="p">)]</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">seqReiterable</span><span class="p">([(((</span><span class="n">pd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),),</span> <span class="s2">&quot;Depth </span><span class="si">{}</span><span class="s2"> Node&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pd</span><span class="p">))</span> \
+                              <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">childops</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="stree"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.stree">[docs]</a><span class="k">def</span> <span class="nf">stree</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span><span class="n">formatter</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">d</span> <span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">formatter</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">depth</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">tr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">stree</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">formatter</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">S</span></div>
+
+
+<div class="viewcode-block" id="vertexDescriptions"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.vertexDescriptions">[docs]</a><span class="k">def</span> <span class="nf">vertexDescriptions</span><span class="p">(</span><span class="n">forest</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">forest</span><span class="p">))</span> <span class="p">:</span>
+        <span class="k">yield</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span>
+        <span class="k">for</span> <span class="n">rnd</span> <span class="ow">in</span> <span class="n">vertexDescriptions</span><span class="p">(</span><span class="n">forest</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="p">:</span>
+            <span class="k">yield</span> <span class="p">(</span><span class="n">i</span><span class="p">,)</span> <span class="o">+</span> <span class="n">rnd</span></div>
+
+<div class="viewcode-block" id="vertices"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.vertices">[docs]</a><span class="k">def</span> <span class="nf">vertices</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="p">((),)</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">edges</span><span class="p">(</span><span class="n">tree</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="edges"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.edges">[docs]</a><span class="k">def</span> <span class="nf">edges</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">an edge of a trees is uniquely determined by any non-root node of the tree.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">vertexDescriptions</span><span class="p">(</span><span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="getVertex"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.getVertex">[docs]</a><span class="k">def</span> <span class="nf">getVertex</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">tree</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">getVertex</span><span class="p">(</span><span class="n">vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span></div>
+
+<div class="viewcode-block" id="getSubtree"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.getSubtree">[docs]</a><span class="k">def</span> <span class="nf">getSubtree</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">vertex</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">tree</span>
+    <span class="k">return</span> <span class="n">getSubtree</span><span class="p">(</span><span class="n">vertex</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">vertex</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span></div>
+
+
+<span class="c1"># it might be good to write a memoize decorator for the iterator class,</span>
+<span class="c1"># so that the iterator constantly saves its status and output.</span>
+<span class="c1"># This way eventually the function is &quot;mapped out&quot;, and this</span>
+<span class="c1"># should make running times much better.</span>
+
+<span class="c1"># a canonical rep for a mutlisetPartition is one in which the</span>
+<span class="c1"># elements are ordered from small to large.</span>
+<span class="c1"># That&#39;s why the recursive computation needs to also know about the</span>
+<span class="c1"># smallest allowed element.</span>
+<div class="viewcode-block" id="multiSetPartitions"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.multiSetPartitions">[docs]</a><span class="k">def</span> <span class="nf">multiSetPartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">smallest</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">yield</span> <span class="nb">tuple</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">i0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">smallest</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">for</span> <span class="n">m0</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="c1">#range(min(n + 1 / i0,k)) :</span>
+            <span class="k">for</span> <span class="n">pp</span> <span class="ow">in</span> <span class="n">multiSetPartitions</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i0</span><span class="o">*</span><span class="n">m0</span><span class="p">,</span><span class="n">k</span><span class="o">-</span><span class="n">m0</span><span class="p">,</span><span class="n">i0</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+                <span class="k">yield</span> <span class="p">((</span><span class="n">i0</span><span class="p">,</span><span class="n">m0</span><span class="p">),)</span> <span class="o">+</span> <span class="n">pp</span></div>
+
+<div class="viewcode-block" id="strMultiSet"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.strMultiSet">[docs]</a><span class="k">def</span> <span class="nf">strMultiSet</span><span class="p">(</span><span class="n">ms</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">i</span><span class="p">,</span><span class="n">m</span> <span class="o">=</span> <span class="n">ms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> x </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">m</span><span class="p">)</span> <span class="ow">in</span> <span class="n">ms</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">:</span>
+        <span class="n">s</span><span class="o">+=</span> <span class="s1">&#39; + </span><span class="si">{}</span><span class="s1"> x </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span></div>
+
+<div class="viewcode-block" id="someSymPartitions"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.someSymPartitions">[docs]</a><span class="k">def</span> <span class="nf">someSymPartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ks</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">for</span> <span class="n">coarsePartition</span> <span class="ow">in</span> <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span> <span class="p">:</span>
+        <span class="k">for</span> <span class="n">finePartition</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">multiSetPartitions</span><span class="p">(</span><span class="n">coarsePartition</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">ks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> \
+                                    <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))])</span> <span class="p">:</span>
+            <span class="k">yield</span> <span class="n">finePartition</span></div>
+
+<div class="viewcode-block" id="dummyPartition"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.dummyPartition">[docs]</a><span class="k">def</span> <span class="nf">dummyPartition</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">yield</span> <span class="p">(((),</span><span class="n">k</span><span class="p">),)</span></div>
+
+<div class="viewcode-block" id="addPartition"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.addPartition">[docs]</a><span class="k">def</span> <span class="nf">addPartition</span><span class="p">(</span><span class="n">generator</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">for</span> <span class="n">oldP</span> <span class="ow">in</span> <span class="n">generator</span> <span class="p">:</span>
+        <span class="n">ks</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">oldP</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">newP</span> <span class="ow">in</span> <span class="n">someSymPartitions</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">ks</span><span class="p">)</span> <span class="p">:</span>
+            <span class="n">flatP</span> <span class="o">=</span> <span class="p">()</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">))</span> <span class="p">:</span>
+                <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">newP</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span> <span class="p">:</span>
+                    <span class="n">flatP</span> <span class="o">+=</span> <span class="p">((</span><span class="n">oldP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">newP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],),</span> <span class="n">newP</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">]),)</span>
+            <span class="k">yield</span> <span class="n">flatP</span></div>
+
+<div class="viewcode-block" id="strSomeSymPartition"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.strSomeSymPartition">[docs]</a><span class="k">def</span> <span class="nf">strSomeSymPartition</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">p</span> <span class="p">:</span>
+        <span class="n">S</span> <span class="o">+=</span> <span class="n">strMultiSet</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;; &#39;</span>
+    <span class="k">return</span> <span class="n">S</span></div>
+
+<div class="viewcode-block" id="tree_map"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.tree_map">[docs]</a><span class="k">def</span> <span class="nf">tree_map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tr</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">apply f recursively to all the tree nodes</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">tree_map</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tr</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span></div>
+
+<div class="viewcode-block" id="tree_reduce"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.tree_reduce">[docs]</a><span class="k">def</span> <span class="nf">tree_reduce</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tr</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">f is a function of the form</span>
+<span class="sd">f(rootData, subTreeOutputsList) -&gt; treeOutput</span>
+<span class="sd">and this applies it recursively to the tree.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">trf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">tree_reduce</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">tr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">trf</span><span class="p">,</span><span class="n">tr</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span></div>
+
+<div class="viewcode-block" id="nedges"><a class="viewcode-back" href="../reiterators+treeReiterator.html#treeReiterator.nedges">[docs]</a><span class="k">def</span> <span class="nf">nedges</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Compute the number of edges in a tree.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tree_reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">r</span><span class="p">,</span><span class="n">so</span> <span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">intsum</span><span class="p">(</span><span class="n">so</span><span class="p">),</span> <span class="n">tree</span><span class="p">)</span></div>
+
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1"># </span>
+<span class="c1"># the doctest module will automatically generate some tests from the </span>
+<span class="c1"># code in the docstrings of the module, and compare </span>
+<span class="c1"># the output to the printout. The -v flag means you will see </span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except </span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

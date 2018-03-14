@@ -1,7 +1,0 @@
-old
-*.pyc
-*~
-\#*#
-.ipynb_checkpoints/
-src/__pycache__/
-*.json

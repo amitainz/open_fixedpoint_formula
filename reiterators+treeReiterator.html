@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Reiterables and tree generation &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="next" title="Smaller Modules" href="utilities+jrr+dlkp.html" />
+    <link rel="prev" title="The fixed-point components" href="fixedPoints+pincher.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Reiterables and tree generation</a><ul>
+<li><a class="reference internal" href="#the-reiterators-module">The reiterators module</a></li>
+<li><a class="reference internal" href="#motivation">Motivation</a></li>
+<li><a class="reference internal" href="#the-reiterable-reiterator-interface">The Reiterable-Reiterator Interface</a></li>
+<li><a class="reference internal" href="#the-treereiterator-module">The treeReiterator module</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="fixedPoints+pincher.html" title="The fixed-point components" accesskey="P">previous </a></li>
+              <li><a href="utilities+jrr+dlkp.html" title="Smaller Modules" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/reiterators+treeReiterator.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reiterables and tree generation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-reiterators-module">The reiterators module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#motivation">Motivation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-reiterable-reiterator-interface">The Reiterable-Reiterator Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-treereiterator-module">The treeReiterator module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="fixedPoints+pincher.html"
+                        title="previous chapter">The fixed-point components</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="utilities+jrr+dlkp.html"
+                        title="next chapter">Smaller Modules</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reiterators+treeReiterator.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="reiterables-and-tree-generation">
+<h1>Reiterables and tree generation<a class="headerlink" href="#reiterables-and-tree-generation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-reiterators-module">
+<h2>The reiterators module<a class="headerlink" href="#the-reiterators-module" title="Permalink to this headline">¶</a></h2>
+<p>A Reiterable is like an iterator, that supports restarting the iteration from a given position. The main reason you need this is in order to generate multisets (which, in turn, are needed in order to generate trees recursively). This module defines the <code class="xref py py-class docutils literal"><span class="pre">Reiterable</span></code> interface, and implements a few useful constructions of reiterables.</p>
+</div>
+<div class="section" id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Permalink to this headline">¶</a></h2>
+<p>A natural way to represent a multiset of a sequence <span class="math">\(S\)</span> is by a non-decreasing sequence of elements from the sequence:</p>
+<div class="math">
+\[i_1 \leq i_2 \cdots \leq i_n\]</div>
+<p>to generate the next multiset, we simply try to increment <span class="math">\(i_n\)</span>. If we can’t we increment <span class="math">\(i_{n-1}\)</span> and then, and this is crucial - <em>let</em> <span class="math">\(i_n\)</span> <em>start iterating from the new</em> <span class="math">\(i_{n-1}\)</span> <em>value</em>. This is easy enough to implement when <span class="math">\(S\)</span> is a list, but it is often very undesirable to hold the entire sequence <span class="math">\(S\)</span> in memory. Instead, the <code class="xref py py-class docutils literal"><span class="pre">Reiterable</span></code> interface spells out what we need from our object in order to support taking multisets of it.</p>
+<p>To counterbalance the rather abstract (and possibly vague) definition of the interface below, you might want to look at the implementation of the simple <code class="xref py py-class docutils literal"><span class="pre">seqReiterable</span></code> and <code class="xref py py-class docutils literal"><span class="pre">seqReiterator</span></code>, constructed from a list, and then take a look at the implementation of <code class="xref py py-class docutils literal"><span class="pre">sortedProductReiterable</span></code> (which really should be called “multisetReiterable” - that’s the main reason to go through this hassle. Then you can take a look at <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> (in the next module) which iterates over isomorphism types of rooted labeled trees.</p>
+</div>
+<div class="section" id="the-reiterable-reiterator-interface">
+<h2>The Reiterable-Reiterator Interface<a class="headerlink" href="#the-reiterable-reiterator-interface" title="Permalink to this headline">¶</a></h2>
+<p>Because we’re not saavy programs, the interface is just an agreement we’ve bound ourselves to, about how all the objects <em>should</em> behave. It is not enforced through any sort inheritance syntax or whatever, but if you see a class ending in Reiterable or Reiterator then that’s an indication that this class supports the structure indicated below.</p>
+<p>If you find the description below too abstract</p>
+<dl class="docutils">
+<dt>A Reiterable class has</dt>
+<dd><ul class="first last simple">
+<li>a method <code class="xref py py-obj docutils literal"><span class="pre">reiter(status)</span></code> which accepts <code class="xref py py-obj docutils literal"><span class="pre">status</span></code> (see below) and returns a Reiterator</li>
+<li>a method <code class="xref py py-obj docutils literal"><span class="pre">initialStatus()</span></code> which returns the initial status used for implementation of <code class="xref py py-obj docutils literal"><span class="pre">__iter__()</span></code> which should just be <code class="xref py py-obj docutils literal"><span class="pre">reiter(initialStatus())</span></code>.</li>
+</ul>
+</dd>
+<dt>A Reiterator class</dt>
+<dd><ul class="first last simple">
+<li>is the class returned by calling <code class="xref py py-obj docutils literal"><span class="pre">reiter</span></code> on a Reiterable.</li>
+<li>supports method <code class="xref py py-obj docutils literal"><span class="pre">getStatus()</span></code> which returns a status which can be fed to a reiter call to allow reiteration.</li>
+<li>supports method <code class="xref py py-obj docutils literal"><span class="pre">__next__()</span></code> which advances status one step.</li>
+</ul>
+</dd>
+</dl>
+<p>One should think of <code class="xref py py-class docutils literal"><span class="pre">Reiterable</span></code> as a generlization of a list, or other sequences. Something that represents an ordered set of elements, but is generated “on the fly”. The <code class="xref py py-class docutils literal"><span class="pre">Reiterator</span></code> is a kind of pointer to this sequence, though really it can “live on its own” even if the parent <code class="xref py py-class docutils literal"><span class="pre">Reiterable</span></code> is destroyed, since it contains all the information necessary to complete the iteration. There may be more than one reiterator pointing to the same reiterable.</p>
+<p>It is best to think of a <code class="xref py py-class docutils literal"><span class="pre">Reiterator</span></code> as a pointer to “the spaces between the sequence elements”. Indeed, if a reiterator generates n elements it will generally have n+1 different conditions (or statuses, see below).</p>
+<p>When next is called, the element between the current space and the next space is outputted and the pointer is advanced. If next is called on the last space, stopIteration() is raised - but for consistent results it is important keep this possibility in mind.</p>
+<p><code class="xref py py-obj docutils literal"><span class="pre">status</span></code> is that portion of the information about the iteration that
+changes through the iteration. Note there may still be some parameters
+which are constant throughout the iteration (think of the endpoints of an
+interval, say, as opposed to the actual place in the interval we’re
+pointng to). The proper way to deal with these constants is to store them as variables of the ReiterABLE, and <em>not</em> return them as part of the status. Remember that to produce a reiterator from a status the reiterable must be invoked, so the status is only meaningful in the context of some <code class="xref py py-class docutils literal"><span class="pre">Reiterable</span></code> which must be kept in hand.</p>
+<span class="target" id="module-reiterators"></span><dl class="class">
+<dt id="reiterators.imapReiterable">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">imapReiterable</code><span class="sig-paren">(</span><em>reiterable</em>, <em>func</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#imapReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.imapReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>build a reiterable by composing a function on the output of a given
+reiterable.</p>
+<dl class="method">
+<dt id="reiterators.imapReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#imapReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.imapReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="reiterators.imapReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#imapReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.imapReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.imapReiterator">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">imapReiterator</code><span class="sig-paren">(</span><em>imr</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#imapReiterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.imapReiterator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="reiterators.imapReiterator.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#imapReiterator.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.imapReiterator.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.productReiterable">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">productReiterable</code><span class="sig-paren">(</span><em>*reiterables</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#productReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.productReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="reiterators.productReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#productReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.productReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="reiterators.productReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#productReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.productReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.productReiterator">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">productReiterator</code><span class="sig-paren">(</span><em>pr</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#productReiterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.productReiterator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="reiterators.productReiterator.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#productReiterator.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.productReiterator.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.seqReiterable">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">seqReiterable</code><span class="sig-paren">(</span><em>seq</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#seqReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.seqReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the simple example of a reiterable.
+Here status is just the index to the list. This example highlights why it’s better to have status distinct from the value returned by the iterator - we don’t want ot have to invoke .index in reiter.</p>
+<dl class="method">
+<dt id="reiterators.seqReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#seqReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.seqReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="reiterators.seqReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#seqReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.seqReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.seqReiterator">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">seqReiterator</code><span class="sig-paren">(</span><em>reiterable</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#seqReiterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.seqReiterator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="reiterators.seqReiterator.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#seqReiterator.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.seqReiterator.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.sortedProductReiterable">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">sortedProductReiterable</code><span class="sig-paren">(</span><em>reiterable</em>, <em>repeat</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#sortedProductReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.sortedProductReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>this class produces “canonical representatives” for all the (unsorted) multisets of a given Reiterable.
+It produces all sequences (i1,…,ik) of reiterator values with i1 &lt;= i2 &lt;= … &lt;= i3.</p>
+<dl class="method">
+<dt id="reiterators.sortedProductReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#sortedProductReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.sortedProductReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="reiterators.sortedProductReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#sortedProductReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.sortedProductReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.sortedProductReiterator">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">sortedProductReiterator</code><span class="sig-paren">(</span><em>spr</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#sortedProductReiterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.sortedProductReiterator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="reiterators.sortedProductReiterator.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#sortedProductReiterator.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.sortedProductReiterator.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="reiterators.suffixReiterable">
+<em class="property">class </em><code class="descclassname">reiterators.</code><code class="descname">suffixReiterable</code><span class="sig-paren">(</span><em>reiterable</em>, <em>beginStatus</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#suffixReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.suffixReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>from a reiterable and a status, produces a new reiterable which goes over
+the old reiterable starting form status.</p>
+<dl class="method">
+<dt id="reiterators.suffixReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#suffixReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.suffixReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="reiterators.suffixReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/reiterators.html#suffixReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#reiterators.suffixReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="the-treereiterator-module">
+<h2>The treeReiterator module<a class="headerlink" href="#the-treereiterator-module" title="Permalink to this headline">¶</a></h2>
+<p>This implements the <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> which generates isomorphism types of rooted labeled trees, generated recursively by a function which takes the data at a vertex and generates possibilities for data for the children.</p>
+<span class="target" id="module-treeReiterator"></span><dl class="class">
+<dt id="treeReiterator.UnmarkedTreesFunc">
+<em class="property">class </em><code class="descclassname">treeReiterator.</code><code class="descname">UnmarkedTreesFunc</code><span class="sig-paren">(</span><em>childops</em>, <em>maxdepth</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#UnmarkedTreesFunc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.UnmarkedTreesFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>A silly example of a tree reiterator function. Below we generate all <em>six</em> isomorphism types of binary trees of depth two, with two types of leaves (yellow or red).</p>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">treeReiterator</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">UnmarkedTreesFunc</span><span class="p">([</span><span class="mi">2</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">treeReiterable</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">tr</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tr</span> <span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="n">stree</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Yellow Leaf</span>
+
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Red Leaf</span>
+
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Red Leaf</span>
+<span class="go">      Red Leaf</span>
+
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Red Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Red Leaf</span>
+
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Yellow Leaf</span>
+<span class="go">      Red Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Red Leaf</span>
+<span class="go">      Red Leaf</span>
+
+<span class="go">Depth 0 Node</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Red Leaf</span>
+<span class="go">      Red Leaf</span>
+<span class="go">   Depth 1 Node</span>
+<span class="go">      Red Leaf</span>
+<span class="go">      Red Leaf</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.addPartition">
+<code class="descclassname">treeReiterator.</code><code class="descname">addPartition</code><span class="sig-paren">(</span><em>generator</em>, <em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#addPartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.addPartition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.dummyPartition">
+<code class="descclassname">treeReiterator.</code><code class="descname">dummyPartition</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#dummyPartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.dummyPartition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.edges">
+<code class="descclassname">treeReiterator.</code><code class="descname">edges</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#edges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>an edge of a trees is uniquely determined by any non-root node of the tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.getSubtree">
+<code class="descclassname">treeReiterator.</code><code class="descname">getSubtree</code><span class="sig-paren">(</span><em>vertex</em>, <em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#getSubtree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.getSubtree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.getVertex">
+<code class="descclassname">treeReiterator.</code><code class="descname">getVertex</code><span class="sig-paren">(</span><em>vertex</em>, <em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#getVertex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.getVertex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.multiSetPartitions">
+<code class="descclassname">treeReiterator.</code><code class="descname">multiSetPartitions</code><span class="sig-paren">(</span><em>n</em>, <em>k</em>, <em>smallest=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#multiSetPartitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.multiSetPartitions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.nedges">
+<code class="descclassname">treeReiterator.</code><code class="descname">nedges</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#nedges"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.nedges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the number of edges in a tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.someSymPartitions">
+<code class="descclassname">treeReiterator.</code><code class="descname">someSymPartitions</code><span class="sig-paren">(</span><em>n</em>, <em>ks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#someSymPartitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.someSymPartitions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.strMultiSet">
+<code class="descclassname">treeReiterator.</code><code class="descname">strMultiSet</code><span class="sig-paren">(</span><em>ms</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#strMultiSet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.strMultiSet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.strSomeSymPartition">
+<code class="descclassname">treeReiterator.</code><code class="descname">strSomeSymPartition</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#strSomeSymPartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.strSomeSymPartition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.stree">
+<code class="descclassname">treeReiterator.</code><code class="descname">stree</code><span class="sig-paren">(</span><em>tr</em>, <em>formatter=&lt;function &lt;lambda&gt;&gt;</em>, <em>depth=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#stree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.stree" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="treeReiterator.treeReiterable">
+<em class="property">class </em><code class="descclassname">treeReiterator.</code><code class="descname">treeReiterable</code><span class="sig-paren">(</span><em>treeFunc</em>, <em>predecessorData</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#treeReiterable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.treeReiterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>treeFunc is a function which takes in predecessorData and outputs
+an iterable generating tuples
+(  ((subTreeData, multiplicity),(…),…),  nodeDecoration)</p>
+<p>subTreeData is what will be fed to the next calls to treeFunc on the subtrees.
+multiplicity is the number of “so far symmetric” copies of each subTreeData.</p>
+<p>nodeDecoration contains data that decorates the root of the (big) tree,
+when this choice of children is selected. The most succint, lossless option is
+to decorate the root with (predecessorData, counter) where counter
+refers to the order in the treeFunc reiterable.</p>
+<dl class="method">
+<dt id="treeReiterator.treeReiterable.initialStatus">
+<code class="descname">initialStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#treeReiterable.initialStatus"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.treeReiterable.initialStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="treeReiterator.treeReiterable.reiter">
+<code class="descname">reiter</code><span class="sig-paren">(</span><em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#treeReiterable.reiter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.treeReiterable.reiter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="treeReiterator.treeReiterator">
+<em class="property">class </em><code class="descclassname">treeReiterator.</code><code class="descname">treeReiterator</code><span class="sig-paren">(</span><em>tr</em>, <em>status</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#treeReiterator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.treeReiterator" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="treeReiterator.treeReiterator.status">
+<code class="descname">status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#treeReiterator.status"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.treeReiterator.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.tree_map">
+<code class="descclassname">treeReiterator.</code><code class="descname">tree_map</code><span class="sig-paren">(</span><em>f</em>, <em>tr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#tree_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.tree_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>apply f recursively to all the tree nodes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.tree_reduce">
+<code class="descclassname">treeReiterator.</code><code class="descname">tree_reduce</code><span class="sig-paren">(</span><em>f</em>, <em>tr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#tree_reduce"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.tree_reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p>f is a function of the form
+f(rootData, subTreeOutputsList) -&gt; treeOutput
+and this applies it recursively to the tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.vertexDescriptions">
+<code class="descclassname">treeReiterator.</code><code class="descname">vertexDescriptions</code><span class="sig-paren">(</span><em>forest</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#vertexDescriptions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.vertexDescriptions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="treeReiterator.vertices">
+<code class="descclassname">treeReiterator.</code><code class="descname">vertices</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/treeReiterator.html#vertices"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#treeReiterator.vertices" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="fixedPoints+pincher.html" title="The fixed-point components" >previous</a></li>
+        <li><a href="utilities+jrr+dlkp.html" title="Smaller Modules" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

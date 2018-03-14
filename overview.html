@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Overview of the Program &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="next" title="The evenOddTrees module" href="evenOddTrees.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="includeme.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Overview of the Program</a><ul>
+<li><a class="reference internal" href="#short-description-of-modules">Short Description of Modules</a></li>
+<li><a class="reference internal" href="#footnotes">Footnotes</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="includeme.html" title="&lt;no title&gt;" accesskey="P">previous </a></li>
+              <li><a href="evenOddTrees.html" title="The evenOddTrees module" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/overview.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview of the Program</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#short-description-of-modules">Short Description of Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#footnotes">Footnotes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="includeme.html"
+                        title="previous chapter">&lt;no title&gt;</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="evenOddTrees.html"
+                        title="next chapter">The evenOddTrees module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/overview.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="overview-of-the-program">
+<h1>Overview of the Program<a class="headerlink" href="#overview-of-the-program" title="Permalink to this headline">¶</a></h1>
+<p>If you just want to compute the invariants, all you need to do is run
+<a class="reference internal" href="evenOddTrees.html#evenOddTrees.OGW" title="evenOddTrees.OGW"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.OGW()</span></code></a> (or <a class="reference internal" href="evenOddTrees.html#evenOddTrees.W2" title="evenOddTrees.W2"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.W2()</span></code></a>, for the Welschinger counts). It is my hope, however, that this extended documentation and the many comments in the code will invite the reader to look under the bonnet and study the fixed point formula itself.</p>
+<p>The fixed-point formula can be recast in the following form <a class="footnote-reference" href="#details" id="id1">[1]</a>, which can be used as a schematic representation for the entire algorithm.</p>
+<div class="math" id="equation-fpf-concise">
+<span class="eqno">(1)<a class="headerlink" href="#equation-fpf-concise" title="Permalink to this equation">¶</a></span>\[OGW(d,l,k) = \overbrace{\sum_{T \in EO(d,l,k)} C_T \prod_{v \in V(T)}}^{\mbox{evenOddTrees.py}} \underbrace{\sum_{\tilde F} A_{\tilde F}}_{\mbox{weighted\_fp\_contribs.py}}.\]</div>
+<p>Let us explain the main features of this formula; more details can be found in the specific modules and their docs.</p>
+<p>First, we have a sum over all <em>even-odd diagrams</em>. An even-odd diagram is built by gluing a pair of even-odd rooted trees, each of which looks something like this <a class="footnote-reference" href="#verbose-tree" id="id2">[2]</a> :</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">eo</span> <span class="o">=</span> <span class="n">evenOddTrees</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">eo</span><span class="p">)</span>
+<span class="go">13</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stree</span><span class="p">(</span><span class="n">eo</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="k">lambda</span> <span class="n">sd</span><span class="p">,</span><span class="n">d</span> <span class="p">:</span> <span class="s2">&quot;  &quot;</span><span class="o">*</span><span class="n">d</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">sd</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">))</span>
+<span class="go">(0, 0, 1)</span>
+<span class="go">  (1, 0, 0)</span>
+<span class="go">    (0, 0, 2)</span>
+<span class="go">    (0, 0, 2)</span>
+<span class="go">    (0, 0, 1)</span>
+<span class="go">      (1, 0, 0)</span>
+<span class="go">    (0, 0, 1)</span>
+<span class="go">      (1, 0, 0)</span>
+</pre></div>
+</div>
+<p>Each vertex <span class="math">\(v \in V(T)\)</span> in the diagram <span class="math">\(T\)</span> (represented by a single line above) specifies a moduli space of marked stable disk maps <a class="footnote-reference" href="#combinatorics" id="id3">[3]</a>. For example, the moduli spaces corresponding to the first and second vertices are <span class="math">\(\overline{\mathcal{M}}_{0,k = 3, l = 0}(d = 0)\)</span> and <span class="math">\(\overline{\mathcal{M}}_{0,k = 0,l=0}(d=1)\)</span>, respectively. An edge in  <span class="math">\(T\)</span> roughly corresponds to a real node where the adjacent disks <em>could</em> have been attached. The first vertex has two incident edges - the one going down to the second vertex, and an edge going up (where it will be attached to the other “half” of the even-odd diagram). The second vertex has 5 neighbours - the first vertex as well as the vertices on lines 3,4,5 and 7. Note how the parity of the degrees (the first elements in each 3-tuple) alternates. This is why these diagrams are called even-odd. The enumeration of the diagrams is managed in <a class="reference internal" href="evenOddTrees.html#module-evenOddTrees" title="evenOddTrees"><code class="xref py py-mod docutils literal"><span class="pre">evenOddTrees</span></code></a>, and this is probably where one should begin exploring this program. This module also contains the source for the function <a class="reference internal" href="evenOddTrees.html#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.superPotential()</span></code></a> which implements the automorphism-weighted sum over the even odd diagrams of the product of vertex contributions. The main functions <a class="reference internal" href="evenOddTrees.html#evenOddTrees.OGW" title="evenOddTrees.OGW"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.OGW()</span></code></a>, <a class="reference internal" href="evenOddTrees.html#evenOddTrees.W2" title="evenOddTrees.W2"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.W2()</span></code></a>, are simple wrappers for <a class="reference internal" href="evenOddTrees.html#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.superPotential()</span></code></a>, and are also implemented in that module.</p>
+<p>The contribution of each vertex <span class="math">\(v \in V(T)\)</span> is given by a sum <span class="math">\(\sum_{\tilde F} A_{\tilde F}\)</span>. This sum ranges over <em>fixed-point trees</em>. These are also tree-like diagrams, but are otherwise quite different than the even odd diagrams. They look something like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="n">fixedPoints</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">fps</span><span class="p">)</span>
+<span class="go">3090</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printFP</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">2500</span><span class="p">])</span>
+<span class="go">                        0 )...</span>
+<span class="go">ops((3, 7, 0, 1))[182]     &lt;p0&gt;||||            degs: (1, 1)</span>
+<span class="go">ops((1, 0, 0, 2))[0]          &lt;p-&gt;             degs: (1,)</span>
+<span class="go">ops((0, 0, 0, 1))[0]             &lt;p0&gt;          degs: ()</span>
+<span class="go">ops((0, 3, 0, 0))[0]          &lt;p+&gt;|||          degs: ()</span>
+</pre></div>
+</div>
+<p>These are a variant of the diagrams appearing in the well-known fixed-point formula for closed curves. Edges correspond to positive energy components covering a line, and are labeled by their degree. Vertices map to a fixed point <span class="math">\(\{p_+,p_-,p_0\} \subset \mathbb{C}P^2\)</span>, as indicated. | is used to indicate an interior marking. Each fixed point diagram determines a fixed-point component for the <span class="math">\(S^1\)</span> action <a class="footnote-reference" href="#t2-actually" id="id4">[4]</a> on the moduli space of disks corresponding to a single vertex of the even-odd diagram. The computation of <span class="math">\(\sum_{\tilde F} A_{\tilde F}\)</span> is managed by <a class="reference internal" href="weighted_fp_contribs.html#module-weighted_fp_contribs" title="weighted_fp_contribs"><code class="xref py py-mod docutils literal"><span class="pre">weighted_fp_contribs</span></code></a> which is probably the second module you will want to examine.</p>
+<p>To understand the program, it is probably best to start by looking at the two main modules <a class="reference internal" href="evenOddTrees.html#module-evenOddTrees" title="evenOddTrees"><code class="xref py py-mod docutils literal"><span class="pre">evenOddTrees</span></code></a> and <a class="reference internal" href="weighted_fp_contribs.html#module-weighted_fp_contribs" title="weighted_fp_contribs"><code class="xref py py-mod docutils literal"><span class="pre">weighted_fp_contribs</span></code></a> together with their docs (which contain more mathematical detail). The other modules can then be read in context, when they’re invoked, to get a more detailed picture of the implementation <a class="footnote-reference" href="#autodoc-problem" id="id5">[5]</a>.</p>
+<div class="section" id="short-description-of-modules">
+<h2>Short Description of Modules<a class="headerlink" href="#short-description-of-modules" title="Permalink to this headline">¶</a></h2>
+<p>Here’s a list of all the modules with a short description of what they do. The two main modules which we’ve already discussed are</p>
+<ul class="simple">
+<li><a class="reference internal" href="evenOddTrees.html#module-evenOddTrees" title="evenOddTrees"><code class="xref py py-mod docutils literal"><span class="pre">evenOddTrees</span></code></a> - generate even odd diagrams and sum their contributions.</li>
+<li><a class="reference internal" href="weighted_fp_contribs.html#module-weighted_fp_contribs" title="weighted_fp_contribs"><code class="xref py py-mod docutils literal"><span class="pre">weighted_fp_contribs</span></code></a> - compute the contribution of a fixed point diagram, and sum over all such contributions (to get a single even-odd diagram’s vertex factor).</li>
+</ul>
+<p>The next two modules describe the geometry of the fixed points.</p>
+<ul class="simple">
+<li><a class="reference internal" href="fixedPoints+pincher.html#module-fixedPoints" title="fixedPoints"><code class="xref py py-mod docutils literal"><span class="pre">fixedPoints</span></code></a> - generate fixed point diagrams, specifying <span class="math">\(T^2\)</span> fixed point components inside the <span class="math">\(S^1\)</span> fixed point components of a given moduli space.</li>
+<li><a class="reference internal" href="fixedPoints+pincher.html#module-pincher" title="pincher"><code class="xref py py-mod docutils literal"><span class="pre">pincher</span></code></a> - compute a canonical, “totally pinched” fixed point diagram, representing the class of all fixed point digrams belonging to the same <span class="math">\(S^1\)</span> fixed-point component.</li>
+</ul>
+<p>The following two modules provide a general tool for generating
+tree-like diagrams recursively.</p>
+<ul class="simple">
+<li><a class="reference internal" href="reiterators+treeReiterator.html#module-reiterators" title="reiterators"><code class="xref py py-mod docutils literal"><span class="pre">reiterators</span></code></a> - sets up a general interface, <code class="xref py py-class docutils literal"><span class="pre">reiterable</span></code>,  for an iterator-type object with an assumed extra functionality allowing you to restart the iteration from a given pointer object, <code class="xref py py-class docutils literal"><span class="pre">reiterator</span></code> (hence the “re” in reiterable). Some simple reiterables are constructed to support enumeration of simple objects.</li>
+<li><a class="reference internal" href="reiterators+treeReiterator.html#module-treeReiterator" title="treeReiterator"><code class="xref py py-mod docutils literal"><span class="pre">treeReiterator</span></code></a> - a reiterable which generates trees recursively.</li>
+</ul>
+<p>The smaller modules below each fill in some specific gap.</p>
+<ul class="simple">
+<li><a class="reference internal" href="utilities+jrr+dlkp.html#module-jrrFormula" title="jrrFormula"><code class="xref py py-mod docutils literal"><span class="pre">jrrFormula</span></code></a> - computes the Pandharipande-Solomon-Tessler formula for descendent integrals of disks, used for integrating the inverse Euler over the contracted disk-moduli in the even degree vertices.</li>
+<li><a class="reference internal" href="utilities+jrr+dlkp.html#module-utils" title="utils"><code class="xref py py-mod docutils literal"><span class="pre">utils</span></code></a> - some utility functions.</li>
+<li><a class="reference internal" href="utilities+jrr+dlkp.html#module-dlk_partitions" title="dlk_partitions"><code class="xref py py-mod docutils literal"><span class="pre">dlk_partitions</span></code></a> - generates all the partitions of a given moduli specification (d,l,k), used in generation of even odd diagrams.</li>
+</ul>
+</div>
+<div class="section" id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this headline">¶</a></h2>
+<table class="docutils footnote" frame="void" id="details" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first">To see this, start from Remark 31 and Definition 26 (c) of <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>. By acting first by <span class="math">\(Sym(r)\)</span> and then by <span class="math">\(Sym(\boldsymbol s)\)</span> we find that the fixed point formula can be written as a sum over isomorphism types <span class="math">\(T\)</span> of sorted odd-even trees, followed by a sum over the isomorphism types of fixed-point profiles <span class="math">\(\boldsymbol \phi \in \mathcal P (T)\)</span> for each <span class="math">\(T\)</span>. Turning now to the formula in Proposition 32, we see that the contribution of each fixed-point profile can be written as a product of contributions, one factor for each vertex. So we get</p>
+<div class="math">
+\[\sum_T \cdots \sum_{\boldsymbol{\phi}} \cdots \prod_{v \in V(T)} \cdots .\]</div>
+<p>The fixed-point profiles for each <span class="math">\(T\)</span> are given as a product over the vertices of <span class="math">\(T\)</span> of “local choices” (cf. Definition 26 (b)),</p>
+<div class="math">
+\[\boldsymbol \phi = (...,\phi_v,...)\]</div>
+<p>It is not hard to see the factor associated with each vertex in Proposition 32 depends only on these local choices. So we can interchange the inner sum and the product, and write the OGW invariants as</p>
+<div class="math">
+\[\sum_T \cdots \prod_{v \in V(T)} \cdots \sum_{\phi_v} \cdots .\]</div>
+<p class="last">This is essentially the formula we use, except that we also “unwind” the recursion defining the constraint correlator (see Proposition 6). This means that instead of summing over fixed point profiles, which just record information about the behaviour of the fixed point configuration near <span class="math">\(\mathbb{R}P^2\)</span>, we sum over “fixed point diagrams” which specify the entire fixed point configuration.</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="verbose-tree" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><p class="first">The function <a class="reference internal" href="reiterators+treeReiterator.html#treeReiterator.stree" title="treeReiterator.stree"><code class="xref py py-func docutils literal"><span class="pre">treeReiterator.stree()</span></code></a> is a general printing method for tree-like objects. If you run it without the additional formatting parameter, like so</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">stree</span><span class="p">(</span><span class="n">eo</span><span class="p">[</span><span class="mi">5</span><span class="p">]))</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 2, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+</pre></div>
+</div>
+<p class="last">you can see what eo[5] is really made of. Above, we’ve only shown the right-most 3-tuple of integers in each line, which are the moduli specs for the vertices. They contain all of the relevant information, but this redundant representation allows us to compute more efficiently (e.g. we don’t have to sum the degrees of the vertices in a subtree, because the total degree is recorded in the left 4-tuple).</p>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="combinatorics" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><p class="first">Actually, it is probably best to think of all of the moduli spaces as having <em>symmetric markings</em>. In other words, when we refer to <span class="math">\(\overline{\mathcal{M}}_{0,k,l}(d)\)</span> we really mean the (homotopy, or stacky) quotient of the usual moduli space of disks by the action of the group <span class="math">\(\operatorname{Sym}(k) \times \operatorname{Sym}(l)\)</span> permuting the labels. This explains</p>
+<ul class="last simple">
+<li>why <a class="reference internal" href="evenOddTrees.html#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.superPotential()</span></code></a> naturally computes <span class="math">\(\frac{1}{k!\,l!}\)</span> times the open Gromov-Witten invariant</li>
+<li>why the even-odd and fixed-point diagrams only keep track of the <em>number</em> of boundary and interior labels, not the actual subsets (this is, of course, much more efficient)</li>
+<li>why when we divide by the size of the automorphism group of a diagram, it is always of the diagram labeled by <em>numbers</em> and not by <em>subsets</em>.</li>
+</ul>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="t2-actually" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>In fact, each f.p. diagram specifies a <span class="math">\(T^2\)</span> -fixed -point component inside such an <span class="math">\(S^1\)</span> fixed-point component - this is discussed in some detail at the documentation for <a class="reference internal" href="weighted_fp_contribs.html#module-weighted_fp_contribs" title="weighted_fp_contribs"><code class="xref py py-mod docutils literal"><span class="pre">weighted_fp_contribs</span></code></a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="autodoc-problem" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>In various places we use the <a class="reference internal" href="utilities+jrr+dlkp.html#utils.Memoize" title="utils.Memoize"><code class="xref py py-class docutils literal"><span class="pre">utils.Memoize</span></code></a> decorator to create lookup tables for functions. This causes Sphinx’s autodoc not to show these functions at all, so you have to look at the source to see the complete picture.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="includeme.html" title="&lt;no title&gt;" >previous</a></li>
+        <li><a href="evenOddTrees.html" title="The evenOddTrees module" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

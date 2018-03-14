@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>fixedPoints &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for fixedPoints</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+
+
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">str</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">zip</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">map</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">past.utils</span> <span class="k">import</span> <span class="n">old_div</span>
+<span class="kn">from</span> <span class="nn">treeReiterator</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="k">import</span> <span class="n">reduce</span>
+
+<span class="c1"># the purpose of this file is to generate all fixed point diagrams,</span>
+<span class="c1"># specifying a T^2 fixed point component inside an S^1 fixed point component</span>
+<span class="c1"># of a moduli of disks (see discussion in weighted_fp_contribs</span>
+<span class="c1"># module documentation)</span>
+
+<span class="c1"># Memoize is a decorator class defined in utils.py,</span>
+<span class="c1"># it means we call the function once for each input,</span>
+<span class="c1"># and keep a hash of the output. This is useful for</span>
+<span class="c1"># time-consuming functions which have a modestly sized output</span>
+<span class="c1"># and which are called recursively with each value</span>
+<span class="c1"># accessed multiple times.</span>
+<span class="nd">@Memoize</span>
+<span class="k">def</span> <span class="nf">fixedPoints</span><span class="p">(</span><span class="n">totalRelDeg</span><span class="p">,</span> <span class="n">totalL</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">totalT</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">fixedPointsGen</span><span class="p">(</span><span class="n">totalRelDeg</span><span class="p">,</span> <span class="n">totalL</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">totalT</span><span class="p">))</span>
+
+<div class="viewcode-block" id="fixedPointsGen"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.fixedPointsGen">[docs]</a><span class="k">def</span> <span class="nf">fixedPointsGen</span><span class="p">(</span><span class="n">totalRelDeg</span><span class="p">,</span> <span class="n">totalL</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">totalT</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">this is a wrapper function generating all fixed point trees, including the special disc data.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+    <span class="c1"># if there are bmp&#39;s, we must have a ghost disc.</span>
+    <span class="k">if</span> <span class="n">totalK</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">totalRelDeg</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">discDeg</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># totalT counts the dummy marked points; in this version</span>
+        <span class="c1"># it is always zero.</span>
+        <span class="n">tr</span> <span class="o">=</span> <span class="n">treeReiterable</span><span class="p">(</span><span class="n">fixedPointTreeFunc</span><span class="p">,</span>\
+                            <span class="p">(</span><span class="n">old_div</span><span class="p">(</span><span class="n">totalRelDeg</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">totalL</span><span class="p">,</span> <span class="n">totalT</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="k">for</span> <span class="n">subtree</span> <span class="ow">in</span> <span class="n">tr</span> <span class="p">:</span>
+            <span class="k">yield</span> <span class="n">discDeg</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">subtree</span>
+        <span class="k">return</span>
+
+    <span class="c1"># if there are no bmp&#39;s, choose where disc is headed.</span>
+    <span class="k">for</span> <span class="n">mu</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span>
+        <span class="c1"># we don&#39;t allow ghost discs unless there are bmp&#39;s, so</span>
+        <span class="c1"># counting of discDeg starts from 1 or from 2 in this case.</span>
+        <span class="k">for</span> <span class="n">discDeg</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="o">-</span> <span class="p">(</span><span class="n">totalRelDeg</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="p">,</span> <span class="n">totalRelDeg</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">for</span> <span class="n">subtree</span> <span class="ow">in</span> <span class="n">treeReiterable</span><span class="p">(</span>\
+                <span class="n">fixedPointTreeFunc</span><span class="p">,</span> \
+                <span class="p">(</span><span class="n">old_div</span><span class="p">((</span><span class="n">totalRelDeg</span> <span class="o">-</span> <span class="n">discDeg</span><span class="p">),</span><span class="mi">2</span><span class="p">),</span> <span class="n">totalL</span><span class="p">,</span> <span class="n">totalT</span><span class="p">,</span> <span class="n">mu</span><span class="p">))</span> <span class="p">:</span>
+                <span class="k">yield</span> <span class="n">discDeg</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">subtree</span>
+    <span class="k">return</span></div>
+
+
+<span class="nd">@Memoize</span>
+<span class="k">def</span> <span class="nf">fixedPointTreeFunc</span><span class="p">(</span><span class="n">subtreeData</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">this function can be fed to treeReiterable.</span>
+<span class="sd">subTreeData takes the form:</span>
+<span class="sd">(totalD,totalL,totalT,rootMu)</span>
+<span class="sd">where totalD is the total *absolute* degree :math:`\\in H_2(X)`</span>
+<span class="sd">(twice the relative degree :math:`\\in H_2(X,L)`) of the subtree,</span>
+<span class="sd">totalL and totalT=0 are the total number of IMP&#39;s and Dummy&#39;s respectively,</span>
+<span class="sd">and rootMu is the image fixed point the contracted component is mapped to.</span>
+
+<span class="sd">as specified by the treeReiterable interface, the function returns a</span>
+<span class="sd">reiterable containing</span>
+<span class="sd">( ((subtree1 data, mult1),...,(subtreek data, multk)) ,nodeDecor).</span>
+
+<span class="sd">where nodeDecor is (subtreeData,nop,(mu1,degs),(mu2,degs)) where</span>
+<span class="sd">subtreeData is the input subtreeData to the function,</span>
+<span class="sd">mu2 are the two fp indices other than rootMu, and the accompanying degs</span>
+<span class="sd">is a tuple describing the edge degrees.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">seqReiterable</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">genFixedPointTreeOps</span><span class="p">(</span><span class="n">subtreeData</span><span class="p">)))</span>
+
+
+<div class="viewcode-block" id="genFixedPointTreeOps"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.genFixedPointTreeOps">[docs]</a><span class="k">def</span> <span class="nf">genFixedPointTreeOps</span><span class="p">(</span><span class="n">subtreeData</span><span class="p">)</span> <span class="p">:</span>
+    <span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalT</span><span class="p">,</span><span class="n">rootMu</span> <span class="o">=</span> <span class="n">subtreeData</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># we renumber the fixed points of CP2 (abstractly, for now) as</span>
+    <span class="c1"># 0,1 and 2</span>
+    <span class="c1"># where 0 corresponds to rootMu and 1 and 2, which are (rootMu + i)%3</span>
+    <span class="c1"># respectively, are the other options. We refer to them as option 1 and</span>
+    <span class="c1"># option2, and generally 1,2 indexes refer to these options,</span>
+    <span class="c1"># and then 0 index means the root data</span>
+    <span class="c1"># (e.g. imps0,imps1,imps2 or dumbs0,dumbs1,dumbs2).</span>
+
+    <span class="c1"># we will create two partitions, one for option1 and one for option2.</span>
+    <span class="c1"># but first we need to know how the (double) degrees divide between:</span>
+    <span class="c1"># edges1, children1, edges2, children2</span>
+    <span class="c1"># and how the imps divide between</span>
+    <span class="c1"># root, children1, children2.</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">for</span> <span class="n">nKids</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">totalD</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">for</span> <span class="n">nKids1</span><span class="p">,</span><span class="n">nKids2</span> <span class="ow">in</span> <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">nKids</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">:</span>
+            <span class="c1"># ddegsEdges1 is at least nKids1, and</span>
+            <span class="c1"># ddegsEdges2 is at least nKids2, so we partition</span>
+            <span class="c1"># totalDoubleDeg - nKids and then put back the nKids.</span>
+            <span class="k">for</span> <span class="n">degsEdges1</span><span class="p">,</span> <span class="n">degsEdges2</span><span class="p">,</span> <span class="n">degsKids1</span><span class="p">,</span> <span class="n">degsKids2</span> <span class="ow">in</span> \
+                <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">totalD</span> <span class="o">-</span> <span class="n">nKids</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">:</span>
+
+                <span class="c1"># the first two partitions determine how many of the imps</span>
+                <span class="c1"># and dummies will go on the subtrees labeled mu + 1 %3 and mu+2%3</span>
+                <span class="c1"># and how many will remain on the current vertex (this is imps0 and dumb0).</span>
+                <span class="k">for</span> <span class="p">(</span><span class="n">imps0</span><span class="p">,</span><span class="n">imps1</span><span class="p">,</span><span class="n">imps2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">totalL</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">:</span>
+                    <span class="k">for</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">dumb1</span><span class="p">,</span><span class="n">dumb2</span> <span class="ow">in</span> <span class="n">tuplePartitions</span><span class="p">(</span><span class="n">totalT</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="p">:</span>
+                        <span class="k">for</span> <span class="n">multiPart1</span> <span class="ow">in</span> \
+                            <span class="n">addPartition</span><span class="p">(</span>\
+                                <span class="n">addPartition</span><span class="p">(</span>\
+                                    <span class="n">addPartition</span><span class="p">(</span>\
+                                        <span class="n">addPartition</span><span class="p">(</span>\
+                                            <span class="n">dummyPartition</span><span class="p">(</span><span class="n">nKids1</span><span class="p">),</span>\
+                                            <span class="n">degsEdges1</span><span class="p">),</span>\
+                                        <span class="n">degsKids1</span><span class="p">),</span>\
+                                    <span class="n">imps1</span><span class="p">),</span>\
+                                <span class="n">dumb1</span><span class="p">)</span> <span class="p">:</span>
+                                <span class="c1"># here we add back the one to the ddeg of the edges.</span>
+                                <span class="n">multiPart1</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">((</span><span class="n">rootMu</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span><span class="p">,)),</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> \
+                                                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">multiPart1</span><span class="p">))</span>
+                                <span class="k">for</span> <span class="n">multiPart2</span> <span class="ow">in</span> \
+                                    <span class="n">addPartition</span><span class="p">(</span>\
+                                        <span class="n">addPartition</span><span class="p">(</span>\
+                                            <span class="n">addPartition</span><span class="p">(</span>\
+                                                <span class="n">addPartition</span><span class="p">(</span>\
+                                                    <span class="n">dummyPartition</span><span class="p">(</span><span class="n">nKids2</span><span class="p">),</span>\
+                                                    <span class="n">degsEdges2</span><span class="p">),</span>\
+                                                <span class="n">degsKids2</span><span class="p">),</span>\
+                                            <span class="n">imps2</span><span class="p">),</span>\
+                                        <span class="n">dumb2</span><span class="p">)</span> <span class="p">:</span>
+
+                                            <span class="n">multiPart2</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="p">((</span><span class="n">rootMu</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span><span class="o">%</span><span class="mi">3</span><span class="p">,)),</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span> \
+                                                                <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">multiPart2</span><span class="p">))</span>
+
+                                            <span class="n">twoParts</span> <span class="o">=</span> <span class="n">multiPart1</span> <span class="o">+</span> <span class="n">multiPart2</span>
+                                            <span class="k">yield</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">part</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">twoParts</span><span class="p">),</span> \
+                                                   <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> \
+                                                    <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span>\
+                                                    <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">,</span> \
+                                                           <span class="p">((</span><span class="n">part</span><span class="p">[</span><span class="mi">0</span><span class="p">],)</span><span class="o">*</span><span class="n">part</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>\
+                                                            <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">twoParts</span><span class="p">),</span>\
+                                                           <span class="p">())))</span>
+                                            <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span></div>
+
+
+<span class="c1">### PAUSE: PRETTY PRINTING ###</span>
+<span class="c1"># the next four functions are not invoked from the main body of the program,</span>
+<span class="c1"># but they help visualize and play with fixed point trees.</span>
+
+<div class="viewcode-block" id="FPformatter"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.FPformatter">[docs]</a><span class="k">def</span> <span class="nf">FPformatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">depth</span><span class="p">)</span> <span class="p">:</span>
+    <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{:27}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;ops(</span><span class="si">{}</span><span class="s1">)[</span><span class="si">{}</span><span class="s1">]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">))</span> <span class="o">+</span> \
+           <span class="s1">&#39;</span><span class="si">{:20}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">depth</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;p</span><span class="si">{}</span><span class="s1">&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">([</span><span class="s1">&#39;+&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">][</span><span class="n">rootMu</span><span class="p">])</span> <span class="o">+</span> \
+           <span class="s1">&#39;|&#39;</span><span class="o">*</span><span class="n">imps0</span> <span class="o">+</span> <span class="s1">&#39;T&#39;</span><span class="o">*</span><span class="n">dumb0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;degs: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">degs</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span></div>
+
+<div class="viewcode-block" id="discFormatter"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.discFormatter">[docs]</a><span class="k">def</span> <span class="nf">discFormatter</span><span class="p">(</span><span class="n">discDeg</span><span class="p">,</span> <span class="n">totalK</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">*</span><span class="mi">24</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> )&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">discDeg</span><span class="p">)</span> <span class="o">+</span>  <span class="s1">&#39;.&#39;</span><span class="o">*</span><span class="n">totalK</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span></div>
+
+
+<div class="viewcode-block" id="strFP"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.strFP">[docs]</a><span class="k">def</span> <span class="nf">strFP</span><span class="p">(</span><span class="n">xxx_todo_changeme</span><span class="p">)</span> <span class="p">:</span>
+    <span class="p">(</span><span class="n">discDeg</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">subtree</span><span class="p">)</span> <span class="o">=</span> <span class="n">xxx_todo_changeme</span>
+    <span class="k">return</span> <span class="n">discFormatter</span><span class="p">(</span><span class="n">discDeg</span><span class="p">,</span> <span class="n">totalK</span><span class="p">)</span> <span class="o">+</span> <span class="n">stree</span><span class="p">(</span><span class="n">subtree</span><span class="p">,</span> <span class="n">FPformatter</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="printFP"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.printFP">[docs]</a><span class="k">def</span> <span class="nf">printFP</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This prints fixed-point diagrams in a palatable format:</span>
+
+<span class="sd">&gt;&gt;&gt; fps = fixedPoints(6,7,3,0)</span>
+<span class="sd">&gt;&gt;&gt; len(fps)</span>
+<span class="sd">3090</span>
+<span class="sd">&gt;&gt;&gt; printFP(fps[2500])</span>
+<span class="sd">                        0 )...</span>
+<span class="sd">ops((3, 7, 0, 1))[182]     &lt;p0&gt;||||            degs: (1, 1)</span>
+<span class="sd">ops((1, 0, 0, 2))[0]          &lt;p-&gt;             degs: (1,)</span>
+<span class="sd">ops((0, 0, 0, 1))[0]             &lt;p0&gt;          degs: ()</span>
+<span class="sd">ops((0, 3, 0, 0))[0]          &lt;p+&gt;|||          degs: ()</span>
+
+<span class="sd">The first two lines represent the disk (which in the even degree is also the root of the tree part of the diagram). Note the condition that there are no interior markings on a vertex mapping to :math:`p_0` is not enforced.</span>
+<span class="sd">The disk has 3 boundary markings in this case. It is connected by two edges to vertices mapping to :math:`p_-` and :math:`p_+`. The degree of the edges is shown at the parent, in this case both edges have absoulte degree :math:`1 \\in H_2(X)` (the map :math:`\\mathbb{Z} = H_2(X) \\to H_2(X,L) = \\mathbb{Z}` from the absolute to the relative degree is multiplication by 2, so the total degree of the diagram is :math:`2 \\cdot 3 = 6`, as it should be).</span>
+
+
+<span class="sd">&gt;&gt;&gt; fps = fixedPoints(5,2,0,0)</span>
+<span class="sd">&gt;&gt;&gt; len(fps)</span>
+<span class="sd">102</span>
+<span class="sd">&gt;&gt;&gt; printFP(fps[35])</span>
+<span class="sd">                        1 )</span>
+<span class="sd">ops((2, 2, 0, 0))[17]      &lt;p+&gt;                degs: (1, 1)</span>
+<span class="sd">ops((0, 1, 0, 1))[0]          &lt;p0&gt;|            degs: ()</span>
+<span class="sd">ops((0, 1, 0, 2))[0]          &lt;p-&gt;|            degs: ()</span>
+
+<span class="sd">When the total degree is odd, the diagram is fairly similar except now the root of the tree part of the diagram represents the point where the disk irreducible component is attached to the rest of the tree (there may be a contracted component there, of course). This vertex can map either to :math:`p_+` or to :math:`p_-`. We also see that there must be no boundary markings on the disk component.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">strFP</span><span class="p">(</span><span class="n">fp</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></div>
+
+<span class="c1">### RESUME MAIN CODE ###</span>
+
+<span class="c1"># the novel thing about our generation scheme -</span>
+<span class="c1"># every subtree appears in its canonical form. This means</span>
+<span class="c1"># that we can simply check if two subtrees are equal, not up to</span>
+<span class="c1"># any permutation, to determine if they can be moved.</span>
+<span class="c1"># since the root is distinguished, the levels are also determined.</span>
+<div class="viewcode-block" id="calcNAutomorphisms"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.calcNAutomorphisms">[docs]</a><span class="k">def</span> <span class="nf">calcNAutomorphisms</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="p">((</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">),</span><span class="n">kids</span><span class="p">)</span> <span class="o">=</span> <span class="n">tree</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">kids</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+
+    <span class="n">rootData</span><span class="p">,</span> <span class="n">subtrees</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="n">equivs</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">degs</span><span class="p">,</span> <span class="n">kids</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">myprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">factorial</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">equivs</span><span class="o">.</span><span class="n">values</span><span class="p">()))))</span> <span class="o">*</span> \
+           <span class="n">myprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">calcNAutomorphisms</span><span class="p">,</span> <span class="n">kids</span><span class="p">)))</span></div>
+
+<div class="viewcode-block" id="oldCalcNAutomorphisms"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.oldCalcNAutomorphisms">[docs]</a><span class="k">def</span> <span class="nf">oldCalcNAutomorphisms</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="n">equivs</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">equivs</span> <span class="p">:</span>
+            <span class="n">equivs</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="n">equivs</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">myprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">factorial</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">equivs</span><span class="o">.</span><span class="n">values</span><span class="p">()))))</span> <span class="o">*</span> \
+           <span class="n">myprod</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">calcNAutomorphisms</span><span class="p">,</span> <span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span></div>
+
+
+<div class="viewcode-block" id="fpCombFactor"><a class="viewcode-back" href="../fixedPoints+pincher.html#fixedPoints.fpCombFactor">[docs]</a><span class="k">def</span> <span class="nf">fpCombFactor</span><span class="p">(</span><span class="n">xxx_todo_changeme1</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">compute the combinatorial factor for the fixed point&#39;s &quot;amplitude&quot;</span>
+<span class="sd">(product of relevant moduli integrals) in the total integral.</span>
+
+<span class="sd">combFactor =</span>
+<span class="sd">#{labeling of tree rep} / #{*unlabeled* tree automorphism} / deg product</span>
+
+<span class="sd">note the count of number of labelings ignores possible tree automorphisms,</span>
+<span class="sd">this is accounted for by the fact we divide by unlabeled tree automorphisms:</span>
+<span class="sd">that is, automorphisms mapping a vertex to a vertex with the same *number*</span>
+<span class="sd">of markings, but these markings are unlabeled.</span>
+
+<span class="sd">the label-preserving automorphisms combine with the product of the degrees to</span>
+<span class="sd">determine the degree of the cover of the map from the product of modulis we&#39;re</span>
+<span class="sd">integrating over to the fixed suborbifold with corners of the moduli of maps.</span>
+
+<span class="sd">Note: the integral of the open discs&#39; moduli already accounts for the possible</span>
+<span class="sd">orderings of the boundary marked points.</span>
+
+<span class="sd">Unimportant note:</span>
+<span class="sd">This can probably be simplified according to the symmetric-markings yoga</span>
+<span class="sd">(indeed you see that the multinomials form a telescopic product).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">discDeg</span><span class="p">,</span> <span class="n">totalK</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span> <span class="o">=</span> <span class="n">xxx_todo_changeme1</span>
+    <span class="k">def</span> <span class="nf">degProdReducer</span><span class="p">(</span><span class="n">vertexData</span><span class="p">,</span> <span class="n">subDegProds</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># first element is the degs of the outgoing edges.</span>
+        <span class="k">return</span> <span class="n">myprod</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">vertexData</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">subDegProds</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">LTvecReducer</span><span class="p">(</span><span class="n">vertexData</span><span class="p">,</span> <span class="n">subLTvecs</span><span class="p">)</span> <span class="p">:</span>
+        <span class="p">(</span><span class="n">subtreeData</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">vertexData</span>
+        <span class="k">return</span> <span class="p">((</span><span class="n">imps0</span><span class="p">,</span><span class="n">dumb0</span><span class="p">),)</span> <span class="o">+</span> <span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">subLTvecs</span><span class="p">,</span> <span class="p">())</span>
+
+
+    <span class="n">degsProd</span>   <span class="o">=</span> <span class="n">tree_reduce</span><span class="p">(</span><span class="n">degProdReducer</span><span class="p">,</span> <span class="n">tree</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">discDeg</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+        <span class="n">degsProd</span> <span class="o">*=</span> <span class="n">discDeg</span>
+
+    <span class="n">impsVec</span><span class="p">,</span> <span class="n">dumbVec</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">tree_reduce</span><span class="p">(</span><span class="n">LTvecReducer</span><span class="p">,</span> <span class="n">tree</span><span class="p">)))</span>
+    <span class="n">nLabelings</span> <span class="o">=</span> <span class="n">multinomial</span><span class="p">(</span><span class="o">*</span><span class="n">impsVec</span><span class="p">)</span> <span class="o">*</span> <span class="n">multinomial</span><span class="p">(</span><span class="o">*</span><span class="n">dumbVec</span><span class="p">)</span>
+
+    <span class="n">nAut</span>       <span class="o">=</span> <span class="n">calcNAutomorphisms</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rat</span><span class="p">(</span><span class="n">nLabelings</span><span class="p">,</span> <span class="n">degsProd</span> <span class="o">*</span> <span class="n">nAut</span><span class="p">)</span></div>
+
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1"># </span>
+<span class="c1"># the doctest module will automatically generate some tests from the </span>
+<span class="c1"># code in the docstrings of the module, and compare </span>
+<span class="c1"># the output to the printout. The -v flag means you will see </span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except </span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

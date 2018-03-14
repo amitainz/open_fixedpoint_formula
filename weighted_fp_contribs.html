@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>The weighted_fp_contribs module &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="next" title="The fixed-point components" href="fixedPoints+pincher.html" />
+    <link rel="prev" title="The evenOddTrees module" href="evenOddTrees.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">The weighted_fp_contribs module</a><ul>
+<li><a class="reference internal" href="#notation">Notation</a></li>
+<li><a class="reference internal" href="#the-vertex-factor-as-a-weighted-sum-of-fixed-point-contributions">The vertex factor as a weighted sum of fixed-point contributions</a></li>
+<li><a class="reference internal" href="#circle-vs-torus-fixed-points">Circle vs. Torus fixed points</a></li>
+<li><a class="reference internal" href="#the-formula-for-the-inverse-euler">The formula for the inverse Euler</a></li>
+<li><a class="reference internal" href="#module-weighted_fp_contribs">Documentation from Docstrings</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="evenOddTrees.html" title="The evenOddTrees module" accesskey="P">previous </a></li>
+              <li><a href="fixedPoints+pincher.html" title="The fixed-point components" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/weighted_fp_contribs.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The weighted_fp_contribs module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#notation">Notation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-vertex-factor-as-a-weighted-sum-of-fixed-point-contributions">The vertex factor as a weighted sum of fixed-point contributions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#circle-vs-torus-fixed-points">Circle vs. Torus fixed points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-formula-for-the-inverse-euler">The formula for the inverse Euler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-weighted_fp_contribs">Documentation from Docstrings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="evenOddTrees.html"
+                        title="previous chapter">The evenOddTrees module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="fixedPoints+pincher.html"
+                        title="next chapter">The fixed-point components</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/weighted_fp_contribs.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="the-weighted-fp-contribs-module">
+<h1>The weighted_fp_contribs module<a class="headerlink" href="#the-weighted-fp-contribs-module" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this module is to compute the fixed-point contributions to a single even-odd diagram vertex factor.</p>
+<p>Recall (see <a class="reference internal" href="overview.html#equation-fpf-concise">(1)</a>) that the open fixed-point formula is a sum of products of factors of the form <span class="math">\(C_v = \sum A_{\tilde F}\)</span>. There’s such factor <span class="math">\(C_v\)</span> for each vertex <span class="math">\(v\)</span> of an even-odd diagram. The main function of this module, <a class="reference internal" href="#weighted_fp_contribs.weighted_fpContrib" title="weighted_fp_contribs.weighted_fpContrib"><code class="xref py py-func docutils literal"><span class="pre">weighted_fp_contribs.weighted_fpContrib()</span></code></a>, computes the contribution <span class="math">\(C_v\)</span> of such a vertex, so let us now explain what this contribution is.</p>
+<div class="section" id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h2>
+<p>Write <span class="math">\((X,L) = (\mathbb{C}P^2,\mathbb{R}P^2)\)</span>. The circle group <span class="math">\(S^1\)</span> acts on this pair by rotations around an axis which intersects <span class="math">\(L\)</span> at the origin <span class="math">\(p_0\)</span>. <span class="math">\(X\)</span> has two additional fixed points, denoted <span class="math">\(p_+,p_-\)</span>. The circle action on <span class="math">\(X\)</span> can be extended to an action of the torus group <span class="math">\(T^2\)</span>. The circle and torus fixed points in <span class="math">\(X\)</span> are the same, but the torus action does significantly simplify the space of closed holomorphic maps into <span class="math">\(X\)</span>, which will be useful to us. Anyway, we have two degree two generators for the equivariant cohomology ring</p>
+<p><span class="math">\(H^*_{T^2} = \mathbb{R}[u,\epsilon]\)</span></p>
+<p>(in the code, <span class="math">\(\epsilon\)</span> is called <code class="xref py py-obj docutils literal"><span class="pre">eps</span></code>), chosen so that pullback along <span class="math">\(B S^1 \to B T^2\)</span> is given by <span class="math">\(\epsilon \mapsto 0\)</span> and <span class="math">\(u \mapsto u\)</span>.</p>
+<p>We denote the moduli spaces of stable disk-maps by <span class="math">\(\overline{\mathcal{M}}_{0,k,l}(d)\)</span>. It acquires an <span class="math">\(S^1\)</span> action from the action on the pair <span class="math">\((X,L)\)</span>.</p>
+</div>
+<div class="section" id="the-vertex-factor-as-a-weighted-sum-of-fixed-point-contributions">
+<h2>The vertex factor as a weighted sum of fixed-point contributions<a class="headerlink" href="#the-vertex-factor-as-a-weighted-sum-of-fixed-point-contributions" title="Permalink to this headline">¶</a></h2>
+<p>Let us focus, then, on some vertex in an even-odd diagram. The relevant information from the even-odd diagram is summarized by a four-tuple <code class="xref py py-obj docutils literal"><span class="pre">(d,l,k,e)</span></code> where</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">d</span></code> is the relative degree of the vertex <span class="math">\(\in H_2(X,L)\)</span></li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">l</span></code> is the number of interior markings (which always carry the equivariant point constraint <span class="math">\(\frac{1}{2}\left([p_+] + [p_-]\right)\)</span></li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">k</span></code> is the number of boundary markings PLUS the number of incoming edges; it should only be nonzero if <code class="xref py py-obj docutils literal"><span class="pre">d</span></code> is even (there are no fixed points otherwise, function will return zero).</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">e</span></code> is the number of outgoing edges. This should only be nonzero if <code class="xref py py-obj docutils literal"><span class="pre">d</span></code> is odd. This is the result of resummation of the even-even edges (see Section 6 of <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>), which leaves only edges oriented from an odd to an even vertex (and recovers the Pandharipande-Solomon-Tessler boundary condition).</li>
+</ul>
+<p>We’re interested in computing</p>
+<div class="math" id="equation-fpf-S1">
+<span class="eqno">(1)<a class="headerlink" href="#equation-fpf-S1" title="Permalink to this equation">¶</a></span>\[C_v = \sum_F \xi_F \int_F \frac{\omega|_F}{e^{S^1}(N_F)}.\]</div>
+<p>(cf. Remark 31 in <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>). Here <span class="math">\(F\)</span> ranges over connected components of the <span class="math">\(S^1\)</span> -fixed points of <span class="math">\(\overline{\mathcal{M}}_{0,k,l}(d)\)</span>, <span class="math">\(\omega\)</span> is the extended form whose integral gives the OGW invariants, and <span class="math">\(e^{S^1}(N_F)\)</span> is the equivariant Euler form of the normal bundle associated with the map <span class="math">\(F \hookrightarrow \overline{\mathcal{M}}\)</span>. So this is very much in tune with the classical fixed point formula for spaces without boundary, except here we see that the contribution of each fixed point is “weighted” by a factor <span class="math">\(\xi_F\)</span>, which comes from integrating a certain propagator <span class="math">\(\Lambda\)</span> along the fiber of the map forgetting the markings associated with the outgoing edges. See <span class="math">\(\S 3.3\)</span>, and in particular Lemma 28, of <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>.</p>
+<p>If <span class="math">\(d\)</span> is even, we have only incoming edges so <span class="math">\(\xi_F \equiv 1\)</span>. But if <span class="math">\(d\)</span> is odd, we have</p>
+<div class="math">
+\[\xi_F = \left(\frac{\pm d(F)}{2\,u}\right)^e\]</div>
+<p>where <span class="math">\(d(F)\)</span> is the degree of the irreducible disk component (in this case, <span class="math">\(k=0\)</span>, so we consider the fixed points of <span class="math">\(\overline{\mathcal{M}}_{0,0,l}(d)\)</span>, and the formula only knows about the number of outgoing edges through the weights).</p>
+</div>
+<div class="section" id="circle-vs-torus-fixed-points">
+<h2>Circle vs. Torus fixed points<a class="headerlink" href="#circle-vs-torus-fixed-points" title="Permalink to this headline">¶</a></h2>
+<p>In <a class="reference internal" href="#equation-fpf-S1">(1)</a> we considered the connected components of <span class="math">\(S^1\)</span> -fixed point <span class="math">\(F \subset \overline{\mathcal{M}}_{0,k,l}(d)\)</span>. The spaces <span class="math">\(F\)</span>, are, however, somewhat complicated, since the associated maps need not be rigid. This phenomena is discussed in Remark 9 of <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>. See also <a class="reference internal" href="fixedPoints+pincher.html#module-pincher" title="pincher"><code class="xref py py-mod docutils literal"><span class="pre">pincher</span></code></a> for more details about the geometry of the non-rigid maps.</p>
+<p>For our purposes, it is enough to note that <em>the fixed point components F are equipped with an extended torus</em> <span class="math">\(T^2\)</span> <em>action</em>. Indeed, this action fixes the irreducible disk components of the domain, and acts act on the remaining closed irreducible components by using the <span class="math">\(T^2\)</span> -action on <span class="math">\(X\)</span>. Since the closed components are attached to the disk components at points of <span class="math">\(X\)</span> which are fixed by the <span class="math">\(S^1\)</span> action, and hence also by the <span class="math">\(T^2\)</span> action, this is well-defined.</p>
+<p>The upshot is that</p>
+<div class="math">
+\[\int_F \frac{\omega|_F}{e^{S^1}(N_F)} = \sum_{\tilde F} \int_{\tilde F} \frac{\omega|_{\tilde F}}{e^{T^2}(N_{\tilde F})}\]</div>
+<p>where now <span class="math">\(\tilde F\)</span> ranges over the <span class="math">\(T^2\)</span> fixed points inside <span class="math">\(F = F(\tilde F)\)</span>. Setting <span class="math">\(A_{\tilde F} = \xi_{F(\tilde F)} \int_{\tilde F} \frac{\omega|_{\tilde F}}{e^{T^2}(N_{\tilde F})}\)</span> we obtain <a class="reference internal" href="overview.html#equation-fpf-concise">(1)</a>.</p>
+<p>We see that to specify a <span class="math">\(T^2\)</span> fixed point component we need to:</p>
+<ol class="loweralpha simple">
+<li>give some discrete data describing the behavior of the disk component(s).</li>
+<li>specify a <span class="math">\(T^2\)</span> fixed-point component of a <em>closed</em> moduli space.</li>
+</ol>
+<p>The closed <span class="math">\(T^2\)</span> fixed points have been extensively studied, and admit a simple description in terms of certain labeled trees. Throwing in the disk data we arrive at <em>fixed point diagrams</em>. These are generated by the module <a class="reference internal" href="fixedPoints+pincher.html#module-fixedPoints" title="fixedPoints"><code class="xref py py-mod docutils literal"><span class="pre">fixedPoints</span></code></a>, and you can look there for more details about the geometry of the fixed points.</p>
+<p>Each <span class="math">\(A_{\tilde F}\)</span> is a rational function in <em>two</em> equviariant variables, <span class="math">\(u\)</span> and <span class="math">\(\epsilon\)</span>. Generally speaking, <span class="math">\(A_{\tilde F}\)</span> will have a singularity at <span class="math">\(\epsilon = 0\)</span>. These singularities correspond to the <span class="math">\(S^1\)</span> fixed sub-bundle <span class="math">\(N_{\tilde F}^{F} \subset N_{\tilde F}^{\overline{\mathcal{M}}}\)</span>. It is another indication that we’re computing things correctly that if we fix some <span class="math">\(S^1\)</span> fixed point component <span class="math">\(F\)</span>, the sum <span class="math">\(\sum_{\{\tilde F | F(\tilde F) = F\}} A_{\tilde F}\)</span>
+is regular at <span class="math">\(\epsilon = 0\)</span>.</p>
+<p>In fact, to avoid enormous denominators, it is necessary to cluster the <span class="math">\(T^2\)</span> contributions by their associated <span class="math">\(S^1\)</span> fixed points and evaluate at <span class="math">\(\epsilon = 0\)</span> as soon as possible. The module <a class="reference internal" href="fixedPoints+pincher.html#module-pincher" title="pincher"><code class="xref py py-mod docutils literal"><span class="pre">pincher</span></code></a> implements a function <a class="reference internal" href="fixedPoints+pincher.html#pincher.pinch" title="pincher.pinch"><code class="xref py py-func docutils literal"><span class="pre">pincher.pinch()</span></code></a> which sends each fixed point diagram to another <em>totally pinched</em> fixed point diagram, which uniquely represents the <em>circle</em> fixed-point (in other words,
+<code class="xref py py-obj docutils literal"><span class="pre">pinch(fp1)</span> <span class="pre">==</span> <span class="pre">pinch(fp2)</span></code> iff <code class="xref py py-obj docutils literal"><span class="pre">fp1</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">fp2</span></code> belong to the same <span class="math">\(S^1\)</span> fixed point component).</p>
+</div>
+<div class="section" id="the-formula-for-the-inverse-euler">
+<h2>The formula for the inverse Euler<a class="headerlink" href="#the-formula-for-the-inverse-euler" title="Permalink to this headline">¶</a></h2>
+<p>We want to discuss the computation of the inverse Euler form in <a class="reference internal" href="#weighted_fp_contribs.fpModuliAndEuler" title="weighted_fp_contribs.fpModuliAndEuler"><code class="xref py py-func docutils literal"><span class="pre">weighted_fp_contribs.fpModuliAndEuler()</span></code></a>.</p>
+<p>For a justification (and precise definition) of the Euler form used here, see the proof of Proposition 32 in <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a> and the discussion leading up to it. Here we will give a more informal, computationally oriented review. We will assume the reader is familiar with the formula in the closed case:</p>
+<a class="reference internal image-reference" href="_images/closed_fpf.jpg"><img alt="The closed fixed-point formula" class="align-center" src="_images/closed_fpf.jpg" style="width: 400px; height: 200px;" /></a>
+<p>This is taken from pg. 545 of the freely available <a class="reference external" href="http://www.claymath.org/library/monographs/cmim-1.pdf">book on Mirror Symmetry</a> (we’ve penciled-in some notes to aid in interpreting the formula, but see the book for full details).</p>
+<p>We essentially follow this formula, and use the same terminology (e.g. we refer to the “flags”, “vertices” and “edges” terms in the code; and we use similar indices and variables whenever possible).</p>
+<p>The main difference is that we have an additional factor coming from deformations of the irreducible disk component. If the total degree is odd, this is essentially a square root of the edge term on the last line we would’ve obtained if were to double the disk component. If the total degree is even, the disk component is contracted. In this case there’s an additional “vertex-like” factor (second line) corresponding to moving the disk <em>inside</em> <span class="math">\(L\)</span>, as well as additional “flag-like” factor (first line) corresponding to the complex nodes attached to the disk component.</p>
+<p>Each node carries a <span class="math">\(T_{p_0}X\)</span> constraint factor, as well as a smoothing-deformation factor of the form <span class="math">\(\psi_i - \omega_i\)</span>, exactly as for a complex node between two rational components (one of which is contracted). The key point is that now <span class="math">\(\psi_i\)</span> lives on the manifold <em>with corners</em> <span class="math">\(\overline{\mathcal{M}}_{0,k,l}\)</span> parameterizing the contracted component. Thus we need to specify boundary conditions if we want to make sense of integrals of products of such <span class="math">\(\psi\)</span>‘s. The fixed-point formula dictates a natural boundary condition, and it turns out to agree with the boundary condition used by Pandharipande Solomon and Tessler in developing the <a class="reference external" href="https://arxiv.org/abs/1409.2191">intersection theory of disks</a>. The module <a class="reference internal" href="utilities+jrr+dlkp.html#module-jrrFormula" title="jrrFormula"><code class="xref py py-mod docutils literal"><span class="pre">jrrFormula</span></code></a> implements their elegant formula for the descendent integrals of disks in genus zero, and we use it when integrating the inverse Euler in <a class="reference internal" href="#weighted_fp_contribs.fpContrib" title="weighted_fp_contribs.fpContrib"><code class="xref py py-func docutils literal"><span class="pre">weighted_fp_contribs.fpContrib()</span></code></a>.</p>
+<p>We note that the formula above is written using a symmetric (but degenerate) action of the rank 3 torus <span class="math">\(T^3\)</span> on <span class="math">\(X\)</span> with weights <span class="math">\(\alpha_0,\alpha_1,\alpha_2\)</span>. The action of <span class="math">\(T^2\)</span> we’re interested in factors through this action, the relevant substitutions are discussed in a comment in the code.</p>
+</div>
+<div class="section" id="module-weighted_fp_contribs">
+<span id="documentation-from-docstrings"></span><h2>Documentation from Docstrings<a class="headerlink" href="#module-weighted_fp_contribs" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="weighted_fp_contribs.PDp0">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">PDp0</code><span class="sig-paren">(</span><em>imps</em>, <em>dumb</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#PDp0"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.PDp0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.PDppm">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">PDppm</code><span class="sig-paren">(</span><em>imps</em>, <em>dumb</em>, <em>mu</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#PDppm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.PDppm" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.closedIntegral">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">closedIntegral</code><span class="sig-paren">(</span><em>l</em>, <em>omegas</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#closedIntegral"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.closedIntegral" title="Permalink to this definition">¶</a></dt>
+<dd><p>Let <span class="math">\(e\)</span> denote <code class="xref py py-obj docutils literal"><span class="pre">len(omegas)</span></code>.
+This function computes the integral of</p>
+<div class="math">
+\[\prod_{1 \leq i \leq e} \frac{1}{1-\psi_i/\omega_i} := \sum_{j_1,...,j_e} \prod_i \left(\frac{\psi_i}{\omega_i}\right)^{j_i}\]</div>
+<p>over <span class="math">\(\overline{\mathcal{M}}_{0,l + e}\)</span>.</p>
+<p>If <span class="math">\(l + e &lt; 3\)</span> this is just the unit class. Otherwise, we apply the string equation (see Exercise 25.2.8 in <a class="reference external" href="http://www.claymath.org/library/monographs/cmim-1.pdf">MS book</a>) and simplify to find this is just</p>
+<div class="math">
+\[(\sum_i \frac{1}{\omega_i})^{l + e -3}\]</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.fpContrib">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">fpContrib</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#fpContrib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.fpContrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes</p>
+<div class="math">
+\[\int_{\tilde F} \frac{\omega|_{\tilde F}}{e^{T^2}(N_{\tilde F})}\]</div>
+<p>(without the outgoing edge weights).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.fpModuliAndEuler">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">fpModuliAndEuler</code><span class="sig-paren">(</span><em>fp</em>, <em>integrand_at_F=&lt;function PDppm&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#fpModuliAndEuler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.fpModuliAndEuler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a fixed point diagram <code class="xref py py-obj docutils literal"><span class="pre">fp</span></code>, this function computes</p>
+<ul class="simple">
+<li>the parameter spaces for the vertices in the fixed point diagram (so the product of these spaces is diffeomorphic to the fixed point component specified by <code class="xref py py-obj docutils literal"><span class="pre">fp</span></code>). <a class="footnote-reference" href="#this-is-a-lie" id="id5">[1]</a></li>
+<li>the integrand for this fixed point locus, as a product of factors, one for each of the parameter spaces above.</li>
+</ul>
+<p>The name of the function, <a class="reference internal" href="#weighted_fp_contribs.fpModuliAndEuler" title="weighted_fp_contribs.fpModuliAndEuler"><code class="xref py py-obj docutils literal"><span class="pre">fpModuliAndEuler</span></code></a>, is thus a bit of a misnomer, perhaps <code class="xref py py-obj docutils literal"><span class="pre">fpModuliAndIntegrand</span></code> would’ve been better.</p>
+<p>The output is of the form <code class="xref py py-obj docutils literal"><span class="pre">(openModuli,</span> <span class="pre">closedModulis)</span></code>.</p>
+<p><strong>The open Moduli space and integrand factor</strong></p>
+<p><code class="xref py py-obj docutils literal"><span class="pre">openModuli</span></code> is <code class="xref py py-obj docutils literal"><span class="pre">False</span></code> if the disk degree is positive (and odd), so there’s no contracted component there and the parameter space is just a point. The relevant “square root of edge” term corresponding to deformations of the map is then appended to the coefficient of the root vertex in the fixed point diagram (in general, each vertex’s <code class="xref py py-obj docutils literal"><span class="pre">coeff</span></code> is responsible for the unique edge going up towards the root).</p>
+<p>Otherwise, if the total degree is even <code class="xref py py-obj docutils literal"><span class="pre">openModuli</span> <span class="pre">=</span> <span class="pre">(coeff,dumb0,totalK,omegas)</span></code> is a tuple where <code class="xref py py-obj docutils literal"><span class="pre">coeff</span></code>, and each element of the list <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code>, is a rational function in <code class="xref py py-obj docutils literal"><span class="pre">u,eps</span></code>. <code class="xref py py-obj docutils literal"><span class="pre">dumb0</span></code> can always be assumed to be zero in this version (it’s meant to accomodate “dummy” variables, not used here), and <code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> is an integer. This tuple specifies</p>
+<ul class="simple">
+<li>the parameter space <span class="math">\(\overline{\mathcal{M}}_{0,k,l}\)</span></li>
+</ul>
+<p>here <span class="math">\(k\)</span> is <code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> (this includes both the boundary markings and the incoming edges), <span class="math">\(l\)</span> should be <code class="xref py py-obj docutils literal"><span class="pre">len(omegas)</span></code> assuming <a class="footnote-reference" href="#this-is-a-lie" id="id6">[1]</a> there are no interior markings on a disk mapping to <span class="math">\(p_0\)</span>, only markings associated with the complex nodes, which are in bijection with the elements of <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code>).</p>
+<ul class="simple">
+<li>a factor <span class="math">\(\mbox{coeff}\,\prod_i \left(\psi_i - \mbox{omegas}[i]\right)^{-1}\)</span> of the integrand.</li>
+</ul>
+<p>Here <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code> is a tuple of “omega classes”, see Definition 27.3.1 in the <a class="reference external" href="http://www.claymath.org/library/monographs/cmim-1.pdf">MS book</a>. For each flag <span class="math">\(F\)</span> in a fixed point diagram, <span class="math">\(\omega_F\)</span> is the first chern class of the tangent space to the positive energy component corresponding to the edge of the flag, evaluated at the special point where it is attached to the flag’s vertex (which in our case, is the contracted component of the disk)</p>
+<p><strong>The closed moduli spaces and integrand factors</strong></p>
+<p>Each element of <code class="xref py py-obj docutils literal"><span class="pre">closedModulis</span></code> is a tuple <code class="xref py py-obj docutils literal"><span class="pre">(coeff,l,omegas)</span></code>  where <code class="xref py py-obj docutils literal"><span class="pre">coeff</span></code>, and each element of the list <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code>, is a rational function in <code class="xref py py-obj docutils literal"><span class="pre">u,eps</span></code>. <code class="xref py py-obj docutils literal"><span class="pre">l</span></code> is an integer specifying the number of interior markings on the vertex. Let <span class="math">\(n = l + e\)</span> where <span class="math">\(e\)</span> is the number of positive energy components (including the disk component, if we’re at the root) incident to the vertex.</p>
+<p>In case <span class="math">\(n \geq 3\)</span>, <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code> contains a list of length <span class="math">\(e\)</span> of the flags’ “omega classes” as discussed above, so <span class="math">\(omegas\)</span> specifies the factor involving <span class="math">\(\psi\)</span> classes on the parameter space <span class="math">\(\overline{\mathcal{M}}_{0,n}\)</span>. If <span class="math">\(n &lt; 3\)</span> then this factor does not appear; <code class="xref py py-obj docutils literal"><span class="pre">omegas</span></code> is empty; and the parameter space is just a point. In either case, <code class="xref py py-obj docutils literal"><span class="pre">coeff</span></code> holds the other contributions to the integrand (except for the <span class="math">\(\psi\)</span> classes, all classes live in the cohomology ring, pulled back from a point).</p>
+<p>See the intro to the module for more on the computation of the inverse Euler.</p>
+<table class="docutils footnote" frame="void" id="this-is-a-lie" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><em>(<a class="fn-backref" href="#id5">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <p>Actually, this is a somewhat idealized description of what the function does: in case there are interior markings on a contracted disk component you wouldn’t know about them, so you cannot really reconstruct the true parameter space in this case.</p>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">fps</span> <span class="o">=</span> <span class="n">fixedPoints</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">printFP</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">2500</span><span class="p">])</span>
+<span class="go">                        0 )...</span>
+<span class="go">ops((3, 7, 0, 1))[182]     &lt;p0&gt;||||            degs: (1, 1)</span>
+<span class="go">ops((1, 0, 0, 2))[0]          &lt;p-&gt;             degs: (1,)</span>
+<span class="go">ops((0, 0, 0, 1))[0]             &lt;p0&gt;          degs: ()</span>
+<span class="go">ops((0, 3, 0, 0))[0]          &lt;p+&gt;|||          degs: ()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">openModuli</span><span class="p">,</span><span class="n">closedModulis</span> <span class="o">=</span> <span class="n">fpModuliAndEuler</span><span class="p">(</span><span class="n">fps</span><span class="p">[</span><span class="mi">2500</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">openModuli</span>
+<span class="go">(0, 0, 3, (-eps + u, -eps - u))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">coeff</span><span class="p">,</span><span class="n">dumb0</span><span class="p">,</span><span class="n">totalK</span><span class="p">,</span><span class="n">omegas</span> <span class="o">=</span> <span class="n">openModuli</span>
+</pre></div>
+</div>
+<p class="last">Of course this does not matter, since our assumption on the support of the form carried by the interior markings force these contributions to vanish (indeed, we see that coeff is zero). Still, it’s a bit ugly and at some point you may want to rewrite this. As we mentioned elsewhere, throwing out diagrams like fps[2500] earlier will probably also speed things up.</p>
+</td></tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.openIntegral">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">openIntegral</code><span class="sig-paren">(</span><em>dummies</em>, <em>k</em>, <em>omegas</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#openIntegral"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.openIntegral" title="Permalink to this definition">¶</a></dt>
+<dd><p>computes the integral over open moduli of discs of</p>
+<div class="math">
+\[\prod_{1 \leq i \leq e} \frac{1}{1-\psi_i/\omega_i} := \sum_{j_1,...,j_e} \prod_i \left(\frac{\psi_i}{\omega_i}\right)^{j_i}\]</div>
+<p>by invoking the Pandharipande-Solomon-Tessler formula (see intro to module for more info).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.sumRats">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">sumRats</code><span class="sig-paren">(</span><em>rats</em>, <em>vrs=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#sumRats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.sumRats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rewrites a sum of rational functions <span class="math">\(a_i/b_i\)</span> as a single rational function by taking the naive common denominator. E.g.</p>
+<div class="math">
+\[a_1/b_1 + a_2/b_2 + a_3/b_3 = \frac{a_1 b_2 b_3 + b_1 a_2 b_3 + b_1 b_2 a_3}{b_1 b_2 b_3}.\]</div>
+<p>If vrs is specified, it also factors out from the numerator and the denominator
+the highest power possible of each of the variables vrs. It returns a quotient
+of polynomials in this case.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.weighted_fpContrib">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">weighted_fpContrib</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em>, <em>e=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#weighted_fpContrib"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.weighted_fpContrib" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main function which computes</p>
+<div class="math">
+\[\sum_{A_{\tilde F}} A_{\tilde F} = \sum \xi_{F(\tilde F)} \int_{\tilde F} \frac{\omega|_{\tilde F}}{e^{T^2}(N_{\tilde F})}`.\]</div>
+<p>There’s a detailed explanation in the introduction to the module documentation.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="weighted_fp_contribs.wfp_nou">
+<code class="descclassname">weighted_fp_contribs.</code><code class="descname">wfp_nou</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em>, <em>e</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/weighted_fp_contribs.html#wfp_nou"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#weighted_fp_contribs.wfp_nou" title="Permalink to this definition">¶</a></dt>
+<dd><p>this is short for “weighted fixed point contribution no <span class="math">\(u\)</span>“.</p>
+<p>It’s a wrapper for <a class="reference internal" href="#weighted_fp_contribs.weighted_fpContrib" title="weighted_fp_contribs.weighted_fpContrib"><code class="xref py py-func docutils literal"><span class="pre">weighted_fpContrib()</span></code></a> that removes the formal generator u and returns a rational number. This is the function we actually use.</p>
+<p>The inputs are as follows:</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">d</span></code> is the relative degree <span class="math">\(\in H_2(X,L)\)</span></li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">l</span></code> is the number of interior markings.</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">k</span></code> is the number of boundary markings and incoming edges.</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">e</span></code> is the number of outgoing edges.</li>
+</ul>
+<p>If <span class="math">\(d\)</span> is even we must have <span class="math">\(e = 0\)</span> and if <span class="math">\(d\)</span> is odd, we must have <span class="math">\(k = 0\)</span>.</p>
+<p>The output is a rational number.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="evenOddTrees.html" title="The evenOddTrees module" >previous</a></li>
+        <li><a href="fixedPoints+pincher.html" title="The fixed-point components" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

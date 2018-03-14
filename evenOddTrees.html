@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>The evenOddTrees module &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="next" title="The weighted_fp_contribs module" href="weighted_fp_contribs.html" />
+    <link rel="prev" title="Overview of the Program" href="overview.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">The evenOddTrees module</a><ul>
+<li><a class="reference internal" href="#the-main-functions">The main functions</a></li>
+<li><a class="reference internal" href="#an-interlude-to-discuss-trivial-invariants">An Interlude to discuss Trivial Invariants</a></li>
+<li><a class="reference internal" href="#even-odd-tree-generation">even-odd tree generation</a></li>
+<li><a class="reference internal" href="#pretty-printing-of-even-odd-trees">pretty printing of even odd trees</a></li>
+<li><a class="reference internal" href="#computation-of-the-contribution-of-an-even-odd-tree">computation of the contribution of an even odd tree</a></li>
+<li><a class="reference internal" href="#module-evenOddTrees">All of the functions in this module</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="overview.html" title="Overview of the Program" accesskey="P">previous </a></li>
+              <li><a href="weighted_fp_contribs.html" title="The weighted_fp_contribs module" accesskey="N">next </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/evenOddTrees.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the Program</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The evenOddTrees module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-main-functions">The main functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#an-interlude-to-discuss-trivial-invariants">An Interlude to discuss Trivial Invariants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#even-odd-tree-generation">even-odd tree generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pretty-printing-of-even-odd-trees">pretty printing of even odd trees</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#computation-of-the-contribution-of-an-even-odd-tree">computation of the contribution of an even odd tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-evenOddTrees">All of the functions in this module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="overview.html"
+                        title="previous chapter">Overview of the Program</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="weighted_fp_contribs.html"
+                        title="next chapter">The weighted_fp_contribs module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/evenOddTrees.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="the-evenoddtrees-module">
+<h1>The evenOddTrees module<a class="headerlink" href="#the-evenoddtrees-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-main-functions">
+<h2>The main functions<a class="headerlink" href="#the-main-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">OGW</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#OGW"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This is the only function you need to call to compute an equivariant open Gromov-Witten invariant with the fixed point formula. It is really just a wrapper for <a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">superPotential</code><span class="sig-paren">(</span><em>totalD</em>, <em>totalL</em>, <em>totalK</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#superPotential"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p><a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a> computes a coefficient of the equivariant superpotential (up to some power of <span class="math">\(\sqrt{-1}\)</span>).</p>
+<p>More precisely, given three non-negative integers</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalD</span></code> = <span class="math">\(d \in \mathbb{Z} = H_2(\mathbb{C}P^2,\mathbb{R}P^2)\)</span>, the total degree</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalL</span></code> = <span class="math">\(l\)</span>, the total number of interior markings, and</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> = <span class="math">\(k\)</span>, the total number of boundary markings,</li>
+</ul>
+<p><a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a> (<span class="math">\(\beta,l,k\)</span>) computes a sympy rational number <span class="math">\(c\)</span> such that</p>
+<div class="math">
+\[\frac{1}{k! \, l!} OGW(d,l,k) = c \, u^\frac{k + 2\, l - (3 \, \beta-1)}{2}.\]</div>
+<p>See the documentation for more details on the notation.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="an-interlude-to-discuss-trivial-invariants">
+<h2>An Interlude to discuss Trivial Invariants<a class="headerlink" href="#an-interlude-to-discuss-trivial-invariants" title="Permalink to this headline">¶</a></h2>
+<p>The first thing the function <a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a> does is check that</p>
+<div class="math" id="equation-good_dlk">
+<span class="eqno">(1)<a class="headerlink" href="#equation-good_dlk" title="Permalink to this equation">¶</a></span>\[3\, d + 2 \, l + k \geq 3 \mbox{ and } (2\,l + k  + d) \equiv 3 \mod 4\]</div>
+<p>If this condition does not hold, it immediately returns zero.</p>
+<p>Following <a class="reference external" href="https://arxiv.org/pdf/1703.02950.pdf">arXiv:1703.02950</a>, the equivariant open Gromov-Witten invariants are defined for any 3-tuple of non-negative integers <span class="math">\((d,l,k)\)</span>. However, if <span class="math">\(k + d\)</span> is not odd (so the moduli spaces are not relatively orientable), or if they correspond to unstable disk configurations (which is when the first clause of <a class="reference internal" href="#equation-good_dlk">(1)</a> is violated) they are zero essentially <em>by definition</em>.</p>
+<p><span class="math">\(\mathbb{Z}/2\)</span> acts on <span class="math">\(\mathbb{C}P^2\)</span> fixing <span class="math">\(\mathbb{R}P^2\)</span> and thus also on the moduli spaces we’re integrating over. Since we’ve decided
+to consider here only conjugation-invariant integrands (see discussion in <a class="reference internal" href="index.html#conj-invariance"><span class="std std-ref">Scope of program, conjugation invariance condition</span></a>), we can consider the sign of conjugation on <a class="reference internal" href="index.html#equation-invariants">(1)</a>. These additional vanishings account for the second clause of <a class="reference internal" href="#equation-good_dlk">(1)</a>.</p>
+<p>Let us remark that, unlike the the vanishing of under-determined invariants discussed <a class="reference internal" href="index.html#vanishing-invts"><span class="std std-ref">above</span></a>, when the sign of conjugation condition is violated we do <em>not</em> get interesting relations since the contributions of conjugate fixed point components cancel in pairs. This is why we chose to simply return zero immediately in this case, but we do compute the under-determined invariants’ zero.</p>
+</div>
+<div class="section" id="even-odd-tree-generation">
+<h2>even-odd tree generation<a class="headerlink" href="#even-odd-tree-generation" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">evenOddTreeFunc</code><span class="sig-paren">(</span><em>subtreeData</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#evenOddTreeFunc"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This function complies with the <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> interface (see the documentation there for details). It represents the recursive step in the construction of an even-odd rooted tree.</p>
+<p>The input subtreeData is a tuple <code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity)</span></code>,
+where <code class="xref py py-obj docutils literal"><span class="pre">totalD</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">totalL</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> are the total degree, number of interior markings and number of boundary markings of the tree to be generated, and the <code class="xref py py-obj docutils literal"><span class="pre">rootDegParity</span></code> is the parity of the degree of the root (0 or 1).</p>
+<p>As specified by the <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> interface, the function returns an
+iterable generating tuples of tree specifications of the form:
+<code class="xref py py-obj docutils literal"><span class="pre">(</span>&#160; <span class="pre">((subTreeData,</span> <span class="pre">multiplicity),(...),...),</span>&#160; <span class="pre">nodeDecoration)</span></code>.</p>
+<p>where</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">subTreeData</span></code> has the same format as the input (indeed, it is fed to <strong>evenOddTreeFunc</strong> recursively when generating trees),</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">multiplicity</span></code> is a positive integer representing the number of subtrees of the specified type.</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">nodeDecoration</span></code> is a nested tuple of integers formatted like so:
+<code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity),</span> <span class="pre">counter,</span> <span class="pre">(droot,lroot,kroot))</span></code></li>
+</ul>
+<p>Here <code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity)</span></code> is a copy of the initial <code class="xref py py-obj docutils literal"><span class="pre">subtreeData</span></code>, and <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> is the index we’re at in the iterable (so the first tree specification has <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> = 0, the second has <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> = 1, etc.). <code class="xref py py-obj docutils literal"><span class="pre">(droot,lroot,kroot)</span></code> represent the degree and number of interior and boundary markings on the root vertex of the tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">genEvenOddOps</code><span class="sig-paren">(</span><em>totalD</em>, <em>totalL</em>, <em>totalK</em>, <em>rootDegParity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#genEvenOddOps"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>This generates a list of tuples of the form
+(  ((subTreeData, multiplicity),(…),…),  nodeDecoration)
+as explained in the documentation for <a class="reference internal" href="#evenOddTrees.evenOddTreeFunc" title="evenOddTrees.evenOddTreeFunc"><code class="xref py py-func docutils literal"><span class="pre">evenOddTreeFunc()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pretty-printing-of-even-odd-trees">
+<h2>pretty printing of even odd trees<a class="headerlink" href="#pretty-printing-of-even-odd-trees" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">printTrees</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em>, <em>rp</em>, <em>n=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#printTrees"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>A nice print of all the trees generated by treeReiterable.
+Each tree is displayed using <code class="xref py py-func docutils literal"><span class="pre">stree()</span></code> from the <a class="reference internal" href="reiterators+treeReiterator.html#module-treeReiterator" title="treeReiterator"><code class="xref py py-mod docutils literal"><span class="pre">treeReiterator</span></code></a> module;
+so a tree is represented by a block of lines in DFS order,
+with each line containing the nodeDecoration of a single vertex,
+indented by its depth.</p>
+<p>Recall the nodeDecoration for an evenOddTree is:
+(totalD,totalL,totalK,rootDegParity), counter, (droot,lroot,kroot))</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printTrees</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">found 13 trees</span>
+<span class="go">--------------</span>
+<span class="go">tmp[0] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 48</span>
+
+<span class="go">tmp[1] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[2] is:</span>
+<span class="go">((3, 0, 7, 0), 1, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">   ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[3] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 0, 0), 0, (0, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 96</span>
+
+<span class="go">tmp[4] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 0, 0), 1, (2, 0, 0))</span>
+<span class="go">amplitude: 1; automorphisms: 48</span>
+
+<span class="go">tmp[5] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 2, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[6] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 0, (0, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[7] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 1, (0, 0, 1))</span>
+<span class="go">         ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">               ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 4</span>
+
+<span class="go">tmp[8] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 3, (2, 0, 4))</span>
+<span class="go">amplitude: 32; automorphisms: 48</span>
+
+<span class="go">tmp[9] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 5, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 8</span>
+
+<span class="go">tmp[10] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 6, (3, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -182/3; automorphisms: 48</span>
+
+<span class="go">tmp[11] is:</span>
+<span class="go">((3, 0, 7, 0), 6, (2, 0, 3))</span>
+<span class="go">   ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: 32; automorphisms: 48</span>
+
+<span class="go">tmp[12] is:</span>
+<span class="go">((3, 0, 7, 0), 8, (2, 0, 7))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: 6144; automorphisms: 5040</span>
+</pre></div>
+</div>
+<p>We examine this example more closely in the documentation for <a class="reference internal" href="#evenOddTrees.calcEOAutomorphisms" title="evenOddTrees.calcEOAutomorphisms"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.calcEOAutomorphisms()</span></code></a>.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="computation-of-the-contribution-of-an-even-odd-tree">
+<h2>computation of the contribution of an even odd tree<a class="headerlink" href="#computation-of-the-contribution-of-an-even-odd-tree" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">calcEOAutomorphisms</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#calcEOAutomorphisms"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Computes the size of the automorphism group of the input <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code>.</p>
+<p>We think of <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code> as a rooted tree, whose vertices are decorated by degrees and which has additional “exterior” edges of two distinct types, corresponding to the boundary and the interior markings, but which are otherwise indistinguishable and thus contribute to the symmetries of the tree.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printTrees</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> 
+<span class="go">found 13 trees</span>
+<span class="go">--------------</span>
+<span class="go">tmp[0] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 48</span>
+
+<span class="gp">...</span>
+</pre></div>
+</div>
+<p>We see that the root is connected to two distinct subtrees.
+The subtree starting at ((2, 0, 7, 1), 0, (1, 0, 0)) is connected to 4
+subtrees, three of which are identical, each containing a pair of boundary markings. Thus the automorphism group is <span class="math">\(3! \times 2^3 = 48\)</span> in this case.</p>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descclassname">evenOddTrees.</code><code class="descname">calcAmplitude</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#calcAmplitude"><span class="viewcode-link">[source]</span></a></dt>
+<dd><p>Computes the amplitude of the evenOddTree <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code>, which is just <span class="math">\(\prod_v \sum_{\tilde F} A_{\tilde F}\)</span>.</p>
+<p>(so this does <em>not</em> include the symmetry factor).</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-evenOddTrees">
+<span id="all-of-the-functions-in-this-module"></span><h2>All of the functions in this module<a class="headerlink" href="#module-evenOddTrees" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="evenOddTrees.OGW">
+<code class="descclassname">evenOddTrees.</code><code class="descname">OGW</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#OGW"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.OGW" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the only function you need to call to compute an equivariant open Gromov-Witten invariant with the fixed point formula. It is really just a wrapper for <a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.W2">
+<code class="descclassname">evenOddTrees.</code><code class="descname">W2</code><span class="sig-paren">(</span><em>d</em>, <em>l</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#W2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.W2" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for computing the Welschinger counts as a special case of the open Gromov-Witten invariants. It computes the signed count of degree  <code class="xref py py-obj docutils literal"><span class="pre">d</span></code> real rational curves through a generic configuration of <code class="xref py py-obj docutils literal"><span class="pre">l</span></code> conjugate pairs of complex points and a suitable number <code class="xref py py-obj docutils literal"><span class="pre">k</span></code> (computed from <code class="xref py py-obj docutils literal"><span class="pre">d</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">l</span></code>) of real points.</p>
+<p>For example, the following calls show that there is a unique conic through 5 real points, and 40 degree 4 curves through 3 complex pairs and 5 real points.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">W2</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">-1</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">W2</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">40</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.calcAmplitude">
+<code class="descclassname">evenOddTrees.</code><code class="descname">calcAmplitude</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#calcAmplitude"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.calcAmplitude" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the amplitude of the evenOddTree <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code>, which is just <span class="math">\(\prod_v \sum_{\tilde F} A_{\tilde F}\)</span>.</p>
+<p>(so this does <em>not</em> include the symmetry factor).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.calcEOAutomorphisms">
+<code class="descclassname">evenOddTrees.</code><code class="descname">calcEOAutomorphisms</code><span class="sig-paren">(</span><em>tree</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#calcEOAutomorphisms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.calcEOAutomorphisms" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the size of the automorphism group of the input <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code>.</p>
+<p>We think of <code class="xref py py-obj docutils literal"><span class="pre">tree</span></code> as a rooted tree, whose vertices are decorated by degrees and which has additional “exterior” edges of two distinct types, corresponding to the boundary and the interior markings, but which are otherwise indistinguishable and thus contribute to the symmetries of the tree.</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printTrees</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> 
+<span class="go">found 13 trees</span>
+<span class="go">--------------</span>
+<span class="go">tmp[0] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 48</span>
+
+<span class="gp">...</span>
+</pre></div>
+</div>
+<p>We see that the root is connected to two distinct subtrees.
+The subtree starting at ((2, 0, 7, 1), 0, (1, 0, 0)) is connected to 4
+subtrees, three of which are identical, each containing a pair of boundary markings. Thus the automorphism group is <span class="math">\(3! \times 2^3 = 48\)</span> in this case.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.evenOddTreeFunc">
+<code class="descclassname">evenOddTrees.</code><code class="descname">evenOddTreeFunc</code><span class="sig-paren">(</span><em>subtreeData</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#evenOddTreeFunc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.evenOddTreeFunc" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function complies with the <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> interface (see the documentation there for details). It represents the recursive step in the construction of an even-odd rooted tree.</p>
+<p>The input subtreeData is a tuple <code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity)</span></code>,
+where <code class="xref py py-obj docutils literal"><span class="pre">totalD</span></code>, <code class="xref py py-obj docutils literal"><span class="pre">totalL</span></code> and <code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> are the total degree, number of interior markings and number of boundary markings of the tree to be generated, and the <code class="xref py py-obj docutils literal"><span class="pre">rootDegParity</span></code> is the parity of the degree of the root (0 or 1).</p>
+<p>As specified by the <code class="xref py py-class docutils literal"><span class="pre">treeReiterable</span></code> interface, the function returns an
+iterable generating tuples of tree specifications of the form:
+<code class="xref py py-obj docutils literal"><span class="pre">(</span>&#160; <span class="pre">((subTreeData,</span> <span class="pre">multiplicity),(...),...),</span>&#160; <span class="pre">nodeDecoration)</span></code>.</p>
+<p>where</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">subTreeData</span></code> has the same format as the input (indeed, it is fed to <strong>evenOddTreeFunc</strong> recursively when generating trees),</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">multiplicity</span></code> is a positive integer representing the number of subtrees of the specified type.</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">nodeDecoration</span></code> is a nested tuple of integers formatted like so:
+<code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity),</span> <span class="pre">counter,</span> <span class="pre">(droot,lroot,kroot))</span></code></li>
+</ul>
+<p>Here <code class="xref py py-obj docutils literal"><span class="pre">(totalD,totalL,totalK,rootDegParity)</span></code> is a copy of the initial <code class="xref py py-obj docutils literal"><span class="pre">subtreeData</span></code>, and <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> is the index we’re at in the iterable (so the first tree specification has <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> = 0, the second has <code class="xref py py-obj docutils literal"><span class="pre">counter</span></code> = 1, etc.). <code class="xref py py-obj docutils literal"><span class="pre">(droot,lroot,kroot)</span></code> represent the degree and number of interior and boundary markings on the root vertex of the tree.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.evenOddTrees">
+<code class="descclassname">evenOddTrees.</code><code class="descname">evenOddTrees</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em>, <em>rp</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#evenOddTrees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.evenOddTrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>return a list from the treeReiterable generating even-odd trees.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.genEvenOddOps">
+<code class="descclassname">evenOddTrees.</code><code class="descname">genEvenOddOps</code><span class="sig-paren">(</span><em>totalD</em>, <em>totalL</em>, <em>totalK</em>, <em>rootDegParity</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#genEvenOddOps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.genEvenOddOps" title="Permalink to this definition">¶</a></dt>
+<dd><p>This generates a list of tuples of the form
+(  ((subTreeData, multiplicity),(…),…),  nodeDecoration)
+as explained in the documentation for <a class="reference internal" href="#evenOddTrees.evenOddTreeFunc" title="evenOddTrees.evenOddTreeFunc"><code class="xref py py-func docutils literal"><span class="pre">evenOddTreeFunc()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.printTrees">
+<code class="descclassname">evenOddTrees.</code><code class="descname">printTrees</code><span class="sig-paren">(</span><em>d</em>, <em>l</em>, <em>k</em>, <em>rp</em>, <em>n=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#printTrees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.printTrees" title="Permalink to this definition">¶</a></dt>
+<dd><p>A nice print of all the trees generated by treeReiterable.
+Each tree is displayed using <code class="xref py py-func docutils literal"><span class="pre">stree()</span></code> from the <a class="reference internal" href="reiterators+treeReiterator.html#module-treeReiterator" title="treeReiterator"><code class="xref py py-mod docutils literal"><span class="pre">treeReiterator</span></code></a> module;
+so a tree is represented by a block of lines in DFS order,
+with each line containing the nodeDecoration of a single vertex,
+indented by its depth.</p>
+<p>Recall the nodeDecoration for an evenOddTree is:
+(totalD,totalL,totalK,rootDegParity), counter, (droot,lroot,kroot))</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printTrees</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">found 13 trees</span>
+<span class="go">--------------</span>
+<span class="go">tmp[0] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 48</span>
+
+<span class="go">tmp[1] is:</span>
+<span class="go">((3, 0, 7, 0), 0, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">   ((2, 0, 7, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[2] is:</span>
+<span class="go">((3, 0, 7, 0), 1, (0, 0, 0))</span>
+<span class="go">   ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">   ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[3] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 0, 0), 0, (0, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 96</span>
+
+<span class="go">tmp[4] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 1, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 0, 0), 1, (2, 0, 0))</span>
+<span class="go">amplitude: 1; automorphisms: 48</span>
+
+<span class="go">tmp[5] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 2, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[6] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 0, (0, 0, 0))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 16</span>
+
+<span class="go">tmp[7] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 1, (0, 0, 1))</span>
+<span class="go">         ((2, 0, 3, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">               ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: -2; automorphisms: 4</span>
+
+<span class="go">tmp[8] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 4, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((2, 0, 4, 0), 3, (2, 0, 4))</span>
+<span class="go">amplitude: 32; automorphisms: 48</span>
+
+<span class="go">tmp[9] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 5, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 1, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((1, 0, 5, 0), 0, (0, 0, 1))</span>
+<span class="go">         ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">            ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -2; automorphisms: 8</span>
+
+<span class="go">tmp[10] is:</span>
+<span class="go">((3, 0, 7, 0), 2, (0, 0, 1))</span>
+<span class="go">   ((3, 0, 6, 1), 6, (3, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: -182/3; automorphisms: 48</span>
+
+<span class="go">tmp[11] is:</span>
+<span class="go">((3, 0, 7, 0), 6, (2, 0, 3))</span>
+<span class="go">   ((1, 0, 4, 1), 0, (1, 0, 0))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">      ((0, 0, 2, 0), 0, (0, 0, 2))</span>
+<span class="go">amplitude: 32; automorphisms: 48</span>
+
+<span class="go">tmp[12] is:</span>
+<span class="go">((3, 0, 7, 0), 8, (2, 0, 7))</span>
+<span class="go">   ((1, 0, 0, 1), 0, (1, 0, 0))</span>
+<span class="go">amplitude: 6144; automorphisms: 5040</span>
+</pre></div>
+</div>
+<p>We examine this example more closely in the documentation for <a class="reference internal" href="#evenOddTrees.calcEOAutomorphisms" title="evenOddTrees.calcEOAutomorphisms"><code class="xref py py-func docutils literal"><span class="pre">evenOddTrees.calcEOAutomorphisms()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="evenOddTrees.superPotential">
+<code class="descclassname">evenOddTrees.</code><code class="descname">superPotential</code><span class="sig-paren">(</span><em>totalD</em>, <em>totalL</em>, <em>totalK</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/evenOddTrees.html#superPotential"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#evenOddTrees.superPotential" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a> computes a coefficient of the equivariant superpotential (up to some power of <span class="math">\(\sqrt{-1}\)</span>).</p>
+<p>More precisely, given three non-negative integers</p>
+<ul class="simple">
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalD</span></code> = <span class="math">\(d \in \mathbb{Z} = H_2(\mathbb{C}P^2,\mathbb{R}P^2)\)</span>, the total degree</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalL</span></code> = <span class="math">\(l\)</span>, the total number of interior markings, and</li>
+<li><code class="xref py py-obj docutils literal"><span class="pre">totalK</span></code> = <span class="math">\(k\)</span>, the total number of boundary markings,</li>
+</ul>
+<p><a class="reference internal" href="#evenOddTrees.superPotential" title="evenOddTrees.superPotential"><code class="xref py py-func docutils literal"><span class="pre">superPotential()</span></code></a> (<span class="math">\(\beta,l,k\)</span>) computes a sympy rational number <span class="math">\(c\)</span> such that</p>
+<div class="math">
+\[\frac{1}{k! \, l!} OGW(d,l,k) = c \, u^\frac{k + 2\, l - (3 \, \beta-1)}{2}.\]</div>
+<p>See the documentation for more details on the notation.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="overview.html" title="Overview of the Program" >previous</a></li>
+        <li><a href="weighted_fp_contribs.html" title="The weighted_fp_contribs module" >next</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

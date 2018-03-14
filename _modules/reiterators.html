@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>reiterators &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for reiterators</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: cp1255 -*-</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">object</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="c1"># this may be needed for python 2.7 compatibility</span>
+<span class="c1"># from sets import *</span>
+
+<span class="kn">import</span> <span class="nn">inspect</span>
+
+
+<span class="c1">################ REITERATORS ##################</span>
+
+<div class="viewcode-block" id="seqReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.seqReiterable">[docs]</a><span class="k">class</span> <span class="nc">seqReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This is the simple example of a reiterable.</span>
+<span class="sd">Here status is just the index to the list. This example highlights why it&#39;s better to have status distinct from the value returned by the iterator - we don&#39;t want ot have to invoke .index in reiter.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seq</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dat</span> <span class="o">=</span> <span class="n">seq</span>
+
+<div class="viewcode-block" id="seqReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.seqReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">seqReiterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">status</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="seqReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.seqReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+    
+<div class="viewcode-block" id="seqReiterator"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.seqReiterator">[docs]</a><span class="k">class</span> <span class="nc">seqReiterator</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reiterable</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dat</span> <span class="o">=</span> <span class="n">reiterable</span><span class="o">.</span><span class="n">dat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="n">status</span>
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">try</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+    
+<div class="viewcode-block" id="seqReiterator.status"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.seqReiterator.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span></div></div>
+
+<div class="viewcode-block" id="productReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.productReiterable">[docs]</a><span class="k">class</span> <span class="nc">productReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">reiterables</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">reiterables</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterable</span> <span class="o">=</span> <span class="n">reiterables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span> <span class="o">=</span> <span class="n">productReiterable</span><span class="p">(</span><span class="o">*</span><span class="n">reiterables</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        
+<div class="viewcode-block" id="productReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.productReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">productReiterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="productReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.productReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># in the case of an empty product, the status is either True</span>
+        <span class="c1"># or False. If it is True, we return () and change it to False,</span>
+        <span class="c1"># if it is False we raise StopIteration().</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;firstValue&quot;</span> <span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;firstValueSet&quot;</span> <span class="p">:</span> <span class="kc">False</span><span class="p">,</span> \
+                    <span class="s2">&quot;firstStatus&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterable</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">(),</span>\
+                    <span class="s2">&quot;restStatus&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">()}</span></div>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="productReiterator"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.productReiterator">[docs]</a><span class="k">class</span> <span class="nc">productReiterator</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pr</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">n</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">trivialStatus</span> <span class="o">=</span> <span class="n">status</span>
+            
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;firstValue&#39;</span><span class="p">,</span> <span class="s1">&#39;firstValueSet&#39;</span><span class="p">]</span> <span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">status</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            
+            <span class="bp">self</span><span class="o">.</span><span class="n">firstReiter</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">firstReiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;firstStatus&#39;</span><span class="p">])</span>
+            <span class="c1"># we need to keep the reiterABLE of the rest as well, because it is</span>
+            <span class="c1"># reset every time we advance the first reiterATOR.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">restReiterable</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">restReiter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">[</span><span class="s1">&#39;restStatus&#39;</span><span class="p">])</span>
+            
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">trivialStatus</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">trivialStatus</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">return</span> <span class="p">()</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">StopIteration</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstReiter</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">try</span> <span class="p">:</span>
+                <span class="n">restValue</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiter</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,)</span> <span class="o">+</span> <span class="n">restValue</span>
+            <span class="k">except</span> <span class="ne">StopIteration</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstReiter</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">restReiter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="p">)</span>
+                <span class="n">restValue</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiter</span><span class="p">)</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,)</span> <span class="o">+</span> <span class="n">restValue</span>
+                
+                <span class="c1"># conceptually, maybe more elegant to put the try in a loop -</span>
+                <span class="c1"># since if we had allowed &quot;back dependencies&quot; maybe a few are </span>
+                <span class="c1"># empty before we find a good one. but in a cartesian product </span>
+                <span class="c1"># this doesn&#39;t happen. so if the restValue can&#39;t be computed </span>
+                <span class="c1"># after a reset - we&#39;re done.</span>
+                
+<div class="viewcode-block" id="productReiterator.status"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.productReiterator.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">trivialStatus</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;firstValue&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,</span> <span class="s2">&quot;firstValueSet&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span><span class="p">,</span> \
+                    <span class="s2">&quot;firstStatus&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstReiter</span><span class="o">.</span><span class="n">status</span><span class="p">(),</span>\
+                    <span class="s2">&quot;restStatus&quot;</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">restReiter</span><span class="o">.</span><span class="n">status</span><span class="p">()}</span></div></div>
+
+<div class="viewcode-block" id="suffixReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.suffixReiterable">[docs]</a><span class="k">class</span> <span class="nc">suffixReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">from a reiterable and a status, produces a new reiterable which goes over</span>
+<span class="sd">the old reiterable starting form status. </span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reiterable</span><span class="p">,</span> <span class="n">beginStatus</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span> <span class="o">=</span> <span class="n">reiterable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beginStatus</span> <span class="o">=</span> <span class="n">beginStatus</span>
+
+<span class="c1">## the reiterators of the suffixReiterable are in fact just reiterators</span>
+<span class="c1">## of self.reiterable. The only things that changes is the initial status.</span>
+<div class="viewcode-block" id="suffixReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.suffixReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">)</span></div>
+
+<span class="c1">##    this is an example where the status must be understood in context,</span>
+<span class="c1">##    since the statuses of the suffixReiterator look exactly the same</span>
+<span class="c1">##    as the statuses of the original reiterator. </span>
+<div class="viewcode-block" id="suffixReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.suffixReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">beginStatus</span></div>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+            
+        
+
+<div class="viewcode-block" id="sortedProductReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.sortedProductReiterable">[docs]</a><span class="k">class</span> <span class="nc">sortedProductReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">this class produces &quot;canonical representatives&quot; for all the (unsorted) multisets of a given Reiterable.</span>
+<span class="sd">It produces all sequences (i1,...,ik) of reiterator values with i1 &lt;= i2 &lt;= ... &lt;= i3.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reiterable</span><span class="p">,</span> <span class="n">repeat</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">=</span> <span class="n">repeat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span> <span class="o">=</span> <span class="n">reiterable</span>
+
+<div class="viewcode-block" id="sortedProductReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.sortedProductReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">sortedProductReiterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span></div>
+        
+<div class="viewcode-block" id="sortedProductReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.sortedProductReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="kc">False</span><span class="p">,)</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+        
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="sortedProductReiterator"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.sortedProductReiterator">[docs]</a><span class="k">class</span> <span class="nc">sortedProductReiterator</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">spr</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="n">spr</span><span class="o">.</span><span class="n">repeat</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sortedProductReiterator initialization: repeat is negative!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">=</span> <span class="n">spr</span><span class="o">.</span><span class="n">repeat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span> <span class="o">=</span> <span class="n">spr</span><span class="o">.</span><span class="n">reiterable</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="n">status</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:</span>
+                <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,</span> \
+                 <span class="n">firstStat</span><span class="p">,</span> \
+                 <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="p">,</span> \
+                 <span class="n">restStat</span><span class="p">)</span> <span class="o">=</span> <span class="n">status</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">restReiterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">restStat</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">firstStat</span><span class="p">)</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">done</span> <span class="o">=</span> <span class="n">status</span>
+        
+               
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="c1"># the problem is we want to keep the firstValue,</span>
+        <span class="c1"># but have the restReiterator a sortedProduct of suffixes of</span>
+        <span class="c1"># defined by the status pointing to the space </span>
+        <span class="c1"># just *before* this firstValue (because we allow repetitions).</span>
+        <span class="c1"># this means the first step is a bit awkward.</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="p">:</span>
+                <span class="k">try</span> <span class="p">:</span>
+                    <span class="n">restVal</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiterator</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,)</span> <span class="o">+</span> <span class="n">restVal</span>
+
+                <span class="k">except</span> <span class="ne">StopIteration</span> <span class="p">:</span>
+                    <span class="n">firstStatus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterator</span><span class="o">.</span><span class="n">status</span><span class="p">()</span>
+            <span class="c1"># if firstValue is not set</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="n">firstStatus</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">()</span>
+
+            <span class="c1"># this code is run if either the restReiterator</span>
+            <span class="c1"># has finished, or this is the first call</span>
+            <span class="c1"># to next(). In the former case, we use the status</span>
+            <span class="c1"># of firstReiterator to define the suffixes for the next run.</span>
+            <span class="c1"># in the latter case, we use initialStatus() for this.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span> <span class="o">=</span> \
+                <span class="n">sortedProductReiterable</span><span class="p">(</span>\
+                    <span class="n">suffixReiterable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="p">,</span> <span class="n">firstStatus</span><span class="p">),</span>\
+                    <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">restReiterator</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="p">)</span>            
+            <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstReiterator</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="o">=</span> <span class="kc">True</span>
+            
+            <span class="n">restVal</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">restReiterator</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,)</span> <span class="o">+</span> <span class="n">restVal</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">StopIteration</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">return</span> <span class="p">()</span>   
+        
+<div class="viewcode-block" id="sortedProductReiterator.status"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.sortedProductReiterator.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">done</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">repeat</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">firstValue</span><span class="p">,</span> \
+                        <span class="bp">self</span><span class="o">.</span><span class="n">firstReiterator</span><span class="o">.</span><span class="n">status</span><span class="p">(),</span> \
+                        <span class="bp">self</span><span class="o">.</span><span class="n">restReiterable</span><span class="p">,</span>\
+                        <span class="bp">self</span><span class="o">.</span><span class="n">restReiterator</span><span class="o">.</span><span class="n">status</span><span class="p">())</span>
+            <span class="k">else</span> <span class="p">:</span>
+                <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">firstValueSet</span><span class="p">,)</span></div></div>
+
+    
+<div class="viewcode-block" id="imapReiterable"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.imapReiterable">[docs]</a><span class="k">class</span> <span class="nc">imapReiterable</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">build a reiterable by composing a function on the output of a given</span>
+<span class="sd">reiterable.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reiterable</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span> <span class="o">=</span> <span class="n">reiterable</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">func</span>
+        
+<div class="viewcode-block" id="imapReiterable.initialStatus"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.imapReiterable.initialStatus">[docs]</a>    <span class="k">def</span> <span class="nf">initialStatus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiterable</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">()</span></div>
+        
+<div class="viewcode-block" id="imapReiterable.reiter"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.imapReiterable.reiter">[docs]</a>    <span class="k">def</span> <span class="nf">reiter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">imapReiterator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span></div>
+    
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">initialStatus</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="imapReiterator"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.imapReiterator">[docs]</a><span class="k">class</span> <span class="nc">imapReiterator</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imr</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span> <span class="o">=</span> <span class="n">imr</span><span class="o">.</span><span class="n">reiterable</span><span class="o">.</span><span class="n">reiter</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">func</span> <span class="o">=</span> <span class="n">imr</span><span class="o">.</span><span class="n">func</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="p">))</span>
+
+<div class="viewcode-block" id="imapReiterator.status"><a class="viewcode-back" href="../reiterators+treeReiterator.html#reiterators.imapReiterator.status">[docs]</a>    <span class="k">def</span> <span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reiter</span><span class="o">.</span><span class="n">status</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+    
+    
+    
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1"># </span>
+<span class="c1"># the doctest module will automatically generate some tests from the </span>
+<span class="c1"># code in the docstrings of the module, and compare </span>
+<span class="c1"># the output to the printout. The -v flag means you will see </span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except </span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

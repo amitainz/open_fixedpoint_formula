@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>pincher &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="../_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="../_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="../_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="../_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    '../',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="../_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="../_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="../_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+            
+              <li><a href="../py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="../genindex.html" title="General Index" accesskey="I">index </a></li>
+              <li><a href="index.html" accesskey="U">Module code</a></li>
+            
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="../search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="../index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities+jrr+dlkp.html">Smaller Modules</a></li>
+</ul>
+
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="../search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <h1>Source code for pincher</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">zip</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">range</span>
+<span class="kn">from</span> <span class="nn">past.utils</span> <span class="k">import</span> <span class="n">old_div</span>
+<span class="kn">from</span> <span class="nn">fixedPoints</span> <span class="k">import</span> <span class="o">*</span>
+
+<div class="viewcode-block" id="pinch"><a class="viewcode-back" href="../fixedPoints+pincher.html#pincher.pinch">[docs]</a><span class="k">def</span> <span class="nf">pinch</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">go over each fixed point tree, and wherever an even degree edge between</span>
+<span class="sd">p+ and p- is encountered, pinch it, thus obtaining the unique totally</span>
+<span class="sd">pinched representative to the class of T^3 fixed point components correspondingcontained in the same S^1 fp connected component.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">fp</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">tree_reduce</span><span class="p">(</span><span class="n">pincher</span><span class="p">,</span> <span class="n">fp</span><span class="p">[</span><span class="mi">2</span><span class="p">]),)</span></div>
+
+<div class="viewcode-block" id="pincher"><a class="viewcode-back" href="../fixedPoints+pincher.html#pincher.pincher">[docs]</a><span class="k">def</span> <span class="nf">pincher</span><span class="p">(</span><span class="n">vertexData</span><span class="p">,</span><span class="n">pinchedSubtrees</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This function pinches at the root, if necessary.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="c1"># the only thing that&#39;s going to change in the top vertex data</span>
+    <span class="c1"># is degs and the counter.</span>
+    <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">vertexData</span>
+    <span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalT</span><span class="p">,</span><span class="n">rootMu</span> <span class="o">=</span> <span class="n">tmp</span>
+    
+    <span class="k">if</span> <span class="n">rootMu</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+        <span class="k">return</span> <span class="n">fixRootCounter</span><span class="p">((</span><span class="n">vertexData</span><span class="p">,</span> <span class="n">pinchedSubtrees</span><span class="p">))</span>
+
+    <span class="n">newDegs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">subTrees</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degs</span><span class="p">))</span> <span class="p">:</span>
+        <span class="p">(</span><span class="n">stmp</span><span class="p">,</span> <span class="n">scounter</span><span class="p">,</span> <span class="n">srootMu</span><span class="p">,</span> <span class="n">simps0</span><span class="p">,</span> <span class="n">sdumb0</span><span class="p">,</span><span class="n">sdegs</span><span class="p">)</span> <span class="o">=</span> <span class="n">pinchedSubtrees</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">stotalD</span><span class="p">,</span><span class="n">stotalL</span><span class="p">,</span><span class="n">stotalT</span><span class="p">,</span><span class="n">srootMu</span> <span class="o">=</span> <span class="n">stmp</span>
+
+        <span class="c1"># if the edge is not pinchable, don&#39;t change anything...</span>
+        <span class="k">if</span> <span class="n">srootMu</span> <span class="o">!=</span> <span class="mi">2</span><span class="o">-</span><span class="n">rootMu</span> <span class="ow">or</span> <span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">:</span>
+            <span class="n">newDegs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">subTrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pinchedSubtrees</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">continue</span>
+        
+        
+        <span class="c1"># ... otherwise, pinch it. The new subtree is of the form:</span>
+        <span class="c1"># p0</span>
+        <span class="c1">#    pinchedSubtree</span>
+        <span class="c1"># with the degree half the original degree.</span>
+        <span class="n">newDeg</span> <span class="o">=</span> <span class="n">old_div</span><span class="p">(</span><span class="n">degs</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">newDegs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newDeg</span><span class="p">)</span>
+        <span class="n">newTmp</span> <span class="o">=</span> <span class="p">(</span><span class="n">stotalD</span> <span class="o">+</span> <span class="n">newDeg</span><span class="p">,</span><span class="n">stotalL</span><span class="p">,</span><span class="n">stotalT</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">vec</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">newDeg</span><span class="p">,))</span>
+        <span class="n">newSubtree</span> <span class="o">=</span> <span class="n">fixRootCounter</span><span class="p">(((</span><span class="n">newTmp</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">vec</span><span class="p">,</span> <span class="p">(</span><span class="n">pinchedSubtrees</span><span class="p">[</span><span class="n">i</span><span class="p">],)))</span>
+        <span class="n">subTrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newSubtree</span><span class="p">)</span>
+    
+    <span class="n">mtree</span> <span class="o">=</span> <span class="p">(</span><span class="n">vertexData</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">newDegs</span><span class="p">),),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">subTrees</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fixRootCounter</span><span class="p">(</span><span class="n">mtree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="fixRootCounter"><a class="viewcode-back" href="../fixedPoints+pincher.html#pincher.fixRootCounter">[docs]</a><span class="k">def</span> <span class="nf">fixRootCounter</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">recalculate the counter for the root after we pinch.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">counter</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">degs</span><span class="p">)</span> <span class="o">=</span> <span class="n">tree</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">totalD</span><span class="p">,</span><span class="n">totalL</span><span class="p">,</span><span class="n">totalT</span><span class="p">,</span><span class="n">rootMu</span> <span class="o">=</span> <span class="n">tmp</span>
+    
+    <span class="c1"># construct a mapping from subtree types (by root data 4-tuple, like tmp)</span>
+    <span class="c1"># to the sorted list of subtrees of that type.</span>
+    <span class="n">subtreesByType</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span> <span class="p">:</span> <span class="p">[])</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">deg</span><span class="p">,</span><span class="n">st</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">degs</span><span class="p">,</span><span class="n">tree</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="p">:</span>
+        <span class="n">subtreesByType</span><span class="p">[(</span><span class="n">deg</span><span class="p">,</span><span class="n">st</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">st</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">subtreesByType</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="p">:</span>
+        <span class="n">subtreesByType</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    
+    <span class="n">ops</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">genFixedPointTreeOps</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">newCtr</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ops</span><span class="p">))</span> <span class="p">:</span>
+        <span class="c1"># note deg may have been shuffled...</span>
+        <span class="k">if</span> <span class="n">ops</span><span class="p">[</span><span class="n">newCtr</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="p">(</span><span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">)</span> <span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="n">std</span> <span class="o">=</span> <span class="n">ops</span><span class="p">[</span><span class="n">newCtr</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">goodDegs</span> <span class="o">=</span> <span class="n">ops</span><span class="p">[</span><span class="n">newCtr</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="c1"># try to construct an ordered subtrees list, from the subtrees</span>
+        <span class="c1"># we have, by the prescription defined by std and degs.</span>
+        
+        <span class="n">orderedSubtrees</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">degPtr</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">)</span> <span class="ow">in</span> <span class="n">std</span> <span class="p">:</span>
+            <span class="c1"># the sequence of n degrees is all supposed to be the same d.</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">goodDegs</span><span class="p">[</span><span class="n">degPtr</span><span class="p">]</span>
+            <span class="n">degPtr</span> <span class="o">+=</span> <span class="n">n</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">subtreesByType</span><span class="p">[(</span><span class="n">d</span><span class="p">,</span><span class="n">x</span><span class="p">)])</span> <span class="o">!=</span> <span class="n">n</span> <span class="p">:</span>
+                <span class="k">break</span>
+            <span class="n">orderedSubtrees</span> <span class="o">+=</span> <span class="n">subtreesByType</span><span class="p">[(</span><span class="n">d</span><span class="p">,</span><span class="n">x</span><span class="p">)]</span>
+
+        <span class="c1"># this is executed only if all the counters agree, i.e. if</span>
+        <span class="c1"># there are NO mismatches.</span>
+        <span class="k">else</span> <span class="p">:</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">tmp</span><span class="p">,</span> <span class="n">newCtr</span><span class="p">,</span> <span class="n">rootMu</span><span class="p">,</span> <span class="n">imps0</span><span class="p">,</span> <span class="n">dumb0</span><span class="p">,</span><span class="n">goodDegs</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">orderedSubtrees</span><span class="p">))</span>
+
+    <span class="c1"># if there&#39;s no newCtr which works, we raise an exception</span>
+    <span class="k">else</span> <span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fixRootCounter: can&#39;t find counter for given config.&quot;</span><span class="p">)</span></div>
+    
+<span class="c1"># This means if you run the module from the command line like so</span>
+<span class="c1"># $ python &lt;module-name&gt;.py -v</span>
+<span class="c1"># </span>
+<span class="c1"># the doctest module will automatically generate some tests from the </span>
+<span class="c1"># code in the docstrings of the module, and compare </span>
+<span class="c1"># the output to the printout. The -v flag means you will see </span>
+<span class="c1"># a report of all the tests (including those that passed, which should be all</span>
+<span class="c1"># of them!).</span>
+<span class="c1">#</span>
+<span class="c1"># NOTE: some of the sub-modules have no tests. As it is, the function</span>
+<span class="c1"># W2(d,l) in evenOddTrees.py runs almost all of the code (except </span>
+<span class="c1"># for some printing methods, etc.) and its output is quite fragile</span>
+<span class="c1"># - so if the tests there pass it probably means everything&#39;s ok.</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;running docstring tests...&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">()</span>
+</pre></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="../index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="../py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="../genindex.html" title="General Index" >index</a></li>
+        <li><a href="index.html" >Module code</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>

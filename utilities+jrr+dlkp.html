@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Smaller Modules &mdash; open_fixedpoint_formula 1.0 documentation</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    
+
+<link rel="stylesheet" href="_static/css/basicstrap-base.css" type="text/css" />
+<link rel="stylesheet" id="current-theme" href="_static/css/bootstrap3/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" id="current-adjust-theme" type="text/css" />
+
+<link rel="stylesheet" href="_static/css/font-awesome.min.css">
+
+<style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+</style>
+
+<link rel="stylesheet" href="_static/css/basicstrap.css" type="text/css" />
+<link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+<script type="text/javascript">
+  var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:    './',
+            VERSION:     '1.0',
+            COLLAPSE_INDEX: false,
+            FILE_SUFFIX: '.html',
+            HAS_SOURCE:  true
+  };
+</script>
+    <script type="text/javascript" src="_static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/bootstrap3.min.js"></script>
+<script type="text/javascript" src="_static/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="_static/js/basicstrap.js"></script>
+<script type="text/javascript">
+</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="open_fixedpoint_formula 1.0 documentation" href="index.html" />
+    <link rel="prev" title="Reiterables and tree generation" href="reiterators+treeReiterator.html" /> 
+  </head>
+  <body role="document">
+    <div id="navbar-top" class="navbar navbar-fixed-top navbar-default" role="navigation" aria-label="top navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">open_fixedpoint_formula 1.0 documentation</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown visible-xs">
+                <a role="button" id="localToc" data-toggle="dropdown" data-target="#" href="#">Table Of Contents <b class="caret"></b></a>
+                <ul class="dropdown-menu localtoc sp-localtoc" role="menu" aria-labelledby="localToc">
+                <ul>
+<li><a class="reference internal" href="#">Smaller Modules</a><ul>
+<li><a class="reference internal" href="#jrrformula-module">jrrFormula module</a></li>
+<li><a class="reference internal" href="#module-utils">utils module</a></li>
+<li><a class="reference internal" href="#dlk-partitions-module">dlk_partitions module</a></li>
+</ul>
+</li>
+</ul>
+
+                </ul>
+              </li>
+
+            
+              <li><a href="reiterators+treeReiterator.html" title="Reiterables and tree generation" accesskey="P">previous </a></li>
+              <li><a href="py-modindex.html" title="Python Module Index" >modules </a></li>
+              <li><a href="genindex.html" title="General Index" accesskey="I">index </a></li>
+            
+            <li class="visible-xs"><a href="_sources/utilities+jrr+dlkp.rst.txt" rel="nofollow">Show Source</a></li>
+
+            <li class="visible-xs">
+                <form class="search form-search form-inline navbar-form navbar-right sp-searchbox" action="search.html" method="get">
+                  <div class="input-append input-group">
+                    <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+                    <span class="input-group-btn">
+                    <input type="submit" class="btn" value="Go" />
+                    </span>
+                  </div>
+                  <input type="hidden" name="check_keywords" value="yes" />
+                  <input type="hidden" name="area" value="default" />
+                </form>
+            </li>
+
+            
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- container -->
+    <div class="container-fluid">
+
+      <!-- row -->
+      <div class="row">
+         
+<div class="col-md-3 hidden-xs" id="sidebar-wrapper">
+  <div class="sidebar hidden-xs" role="navigation" aria-label="main navigation">
+<h3><a href="index.html">Table Of Contents</a></h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Welcome to the Open Fixed-point Formula documentation!</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview of the Program</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evenOddTrees.html">The evenOddTrees module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weighted_fp_contribs.html">The weighted_fp_contribs module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fixedPoints+pincher.html">The fixed-point components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reiterators+treeReiterator.html">Reiterables and tree generation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Smaller Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#jrrformula-module">jrrFormula module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-utils">utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dlk-partitions-module">dlk_partitions module</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="reiterators+treeReiterator.html"
+                        title="previous chapter">Reiterables and tree generation</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/utilities+jrr+dlkp.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" role="search">
+  <h3>Quick search</h3>
+  <form class="search form-inline" action="search.html" method="get">
+      <div class="input-append input-group">
+        <input type="text" class="search-query form-control" name="q" placeholder="Search...">
+        <span class="input-group-btn">
+        <input type="submit" class="btn" value="Go" />
+        </span>
+      </div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+  </div>
+</div> 
+        
+
+        <div class="col-md-9" id="content-wrapper">
+          <div class="document" role="main">
+            <div class="documentwrapper">
+              <div class="bodywrapper">
+                <div class="body">
+                  
+  <div class="section" id="smaller-modules">
+<h1>Smaller Modules<a class="headerlink" href="#smaller-modules" title="Permalink to this headline">¶</a></h1>
+<p>These are smaller modules that have quite specific functionality.</p>
+<div class="section" id="jrrformula-module">
+<h2>jrrFormula module<a class="headerlink" href="#jrrformula-module" title="Permalink to this headline">¶</a></h2>
+<p>This module implements the Pandharipande-Solomon-Tessler formula for open descendent integrals (of a point). See Section 1.7 of <a class="reference external" href="https://arxiv.org/abs/1409.2191">their paper</a>.</p>
+<span class="target" id="module-jrrFormula"></span><dl class="function">
+<dt id="jrrFormula.addTau0s">
+<code class="descclassname">jrrFormula.</code><code class="descname">addTau0s</code><span class="sig-paren">(</span><em>tauPows</em>, <em>dummies</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#addTau0s"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.addTau0s" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="jrrFormula.dec1">
+<code class="descclassname">jrrFormula.</code><code class="descname">dec1</code><span class="sig-paren">(</span><em>tup</em>, <em>i</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#dec1"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.dec1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="jrrFormula.doubleFactorial">
+<code class="descclassname">jrrFormula.</code><code class="descname">doubleFactorial</code><span class="sig-paren">(</span><em>n</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#doubleFactorial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.doubleFactorial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="jrrFormula.jrrFormula">
+<code class="descclassname">jrrFormula.</code><code class="descname">jrrFormula</code><span class="sig-paren">(</span><em>tauPows</em>, <em>sigPow</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#jrrFormula"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.jrrFormula" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="jrrFormula.psiPows2tauPows">
+<code class="descclassname">jrrFormula.</code><code class="descname">psiPows2tauPows</code><span class="sig-paren">(</span><em>psiPows</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#psiPows2tauPows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.psiPows2tauPows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="jrrFormula.tauPows2psiPows">
+<code class="descclassname">jrrFormula.</code><code class="descname">tauPows2psiPows</code><span class="sig-paren">(</span><em>tauPows</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jrrFormula.html#tauPows2psiPows"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#jrrFormula.tauPows2psiPows" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-utils">
+<span id="utils-module"></span><h2>utils module<a class="headerlink" href="#module-utils" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="utils.Memoize">
+<em class="property">class </em><code class="descclassname">utils.</code><code class="descname">Memoize</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Memoize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.Memoize" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is a decorator for functions.
+Putting &#64;Memoize in front of a function f, like so:</p>
+<div class="highlight-py"><div class="highlight"><pre><span></span><span class="nd">@Memoize</span>
+<span class="k">def</span> <span class="nf">f</span> <span class="p">:</span>
+   <span class="o">...</span>
+</pre></div>
+</div>
+<p>means we build a lookup table for the function, so if we call it again with the same input we do not execute the code but instead use the stored value. It is used to run those parts of the code where a function is called with the same input many times, and the output is not too large (this typically happens inside recursions).</p>
+<dl class="method">
+<dt id="utils.Memoize.clearMemo">
+<code class="descname">clearMemo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Memoize.clearMemo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.Memoize.clearMemo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="utils.Memoize.getcounters">
+<code class="descname">getcounters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#Memoize.getcounters"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.Memoize.getcounters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="utils.frozenCounter">
+<em class="property">class </em><code class="descclassname">utils.</code><code class="descname">frozenCounter</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwds</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#frozenCounter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.frozenCounter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.intprod">
+<code class="descclassname">utils.</code><code class="descname">intprod</code><span class="sig-paren">(</span><em>ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#intprod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.intprod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.intsum">
+<code class="descclassname">utils.</code><code class="descname">intsum</code><span class="sig-paren">(</span><em>ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#intsum"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.intsum" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.mgcd">
+<code class="descclassname">utils.</code><code class="descname">mgcd</code><span class="sig-paren">(</span><em>*ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#mgcd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.mgcd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.multinomial">
+<code class="descclassname">utils.</code><code class="descname">multinomial</code><span class="sig-paren">(</span><em>*ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#multinomial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.multinomial" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.myprod">
+<code class="descclassname">utils.</code><code class="descname">myprod</code><span class="sig-paren">(</span><em>ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#myprod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.myprod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.str_concat">
+<code class="descclassname">utils.</code><code class="descname">str_concat</code><span class="sig-paren">(</span><em>ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#str_concat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.str_concat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.tup_concat">
+<code class="descclassname">utils.</code><code class="descname">tup_concat</code><span class="sig-paren">(</span><em>ls</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#tup_concat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.tup_concat" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="utils.tuplePartitions">
+<code class="descclassname">utils.</code><code class="descname">tuplePartitions</code><span class="sig-paren">(</span><em>n</em>, <em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/utils.html#tuplePartitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#utils.tuplePartitions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="dlk-partitions-module">
+<h2>dlk_partitions module<a class="headerlink" href="#dlk-partitions-module" title="Permalink to this headline">¶</a></h2>
+<p>This generates all partitions of a given total degree and number of interior and boundary markings. Each element of the partition is subject to a stability, orientability, and sign-of-conjugation condition (<code class="xref py py-func docutils literal"><span class="pre">goodDLK_2()</span></code> checks for this)</p>
+<span class="target" id="module-dlk_partitions"></span><dl class="function">
+<dt id="dlk_partitions.dlk_partitions">
+<code class="descclassname">dlk_partitions.</code><code class="descname">dlk_partitions</code><span class="sig-paren">(</span><em>totalD</em>, <em>totalL</em>, <em>totalK</em>, <em>minD=0</em>, <em>minL=0</em>, <em>minK=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dlk_partitions.html#dlk_partitions"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dlk_partitions.dlk_partitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>return all the dlk_partitions in a list.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="dlk_partitions.updatePartition">
+<code class="descclassname">dlk_partitions.</code><code class="descname">updatePartition</code><span class="sig-paren">(</span><em>partition</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dlk_partitions.html#updatePartition"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dlk_partitions.updatePartition" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div><!-- /row -->
+
+      <!-- row -->
+      <div class="row footer-relbar">
+<div id="navbar-related" class=" related navbar navbar-default" role="navigation" aria-label="related navigation">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav ">
+        <li><a href="index.html">open_fixedpoint_formula 1.0 documentation</a></li>
+    </ul>
+<ul class="nav navbar-nav pull-right hidden-xs hidden-sm">
+      
+        <li><a href="reiterators+treeReiterator.html" title="Reiterables and tree generation" >previous</a></li>
+        <li><a href="py-modindex.html" title="Python Module Index" >modules</a></li>
+        <li><a href="genindex.html" title="General Index" >index</a></li>
+        <li><a href="#">top</a></li> 
+      
+    </ul>
+  </div>
+</div>
+      </div><!-- /row -->
+
+      <!-- footer -->
+      <footer role="contentinfo">
+          &copy; Copyright 2018, Amitai Netser Zernik.
+        Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.6.6.
+      </footer>
+      <!-- /footer -->
+
+    </div>
+    <!-- /container -->
+
+  </body>
+</html>
