@@ -1,0 +1,68 @@
+Here are a few examples (the first two take about a minute each on my PC):
+
+>>> superPotential(6,0,17)
+-19/1187524800
+
+and :math:`17! \cdot 19/1187524800 = 5690880 = 2 \cdot 2845440` in accordance with the Welschinger count of degree 6 curves through 17 real points
+
+>>> superPotential(6,8,1)
+-1/5040
+
+and :math:`8! / 5040 = 8` in accordance with the Welschinger count of degree 6 curves through one real point and 8 complex points.
+
+The following quick (but non-trivial!) computations verify that there's a single line (or pair of degree one disks) through any 2 points, and a unique conic through every 5 points:
+
+>>> superPotential(1,0,2)
+-1
+>>> superPotential(2,0,5)
+-1/60
+
+
+----------
+We now discuss this phenomena in more detail and explain how it is dealt with in the code.
+
+Consider some fixed point :math:`p \in \overline{\mathcal{M}}_{0,k,l}(d)^{S^1}`. It is represented by a marked stable map, whose domain has some *rational components* isomorphic to :math:`\mathbb{C}P^1` and some *disk components* :math:`\simeq D^2`. If we forget all of the disk components, we obtain an :math:`S^1` fixed point :math:`p' \in \overline{\mathcal{M}}_{0,l'}(d')` of some moduli space of closed maps. This space is equipped with an extended :math:`T^2` -action of the torus group. In the code, we use :py:obj:`eps` (shorthand for "epsilon") to denote the extra equivariant generator of this action, so :math:`H^\bullet_{T^2}(\mbox{pt}) = \mathbb{R}[u,\epsilon]`. These torus fixed points *are* rigid, and have been extensively studied. The "discrete data", indexing the connected components of such fixed points, is described by a labeled tree. Attaching the disk component data, we call this information a *fixed-point tree* or *fixed-point diagram*. 
+
+TODO: continue here, this is probably nonesense.
+Essentially, we're using :math:`T^2` localization to integrate along the fibers of the map forgetting all of the non-disk components (this involves integrating out , which are equipped with an extended action)
+So the fixed point formula involves contributions from the :math:`S^1` fixed points
+
+So although we only really have 
+
+
+----
+The main method of this module, :py:func:`weighted_fpContrib` sums over the discrete data and integrates a certain inverse Euler form on the continuous data, to compute the factor associated to an even-odd vertex.
+
+
+
+:math:`f:(\Sigma,\partial \Sigma) \to (X,L)` (we assume there are no markings, just to avoid cumbersome notation). If we forget the irreducible components which are isomorphic to a disk we're left with a closed curve representing an :math:`S^1` fixed point (of a different moduli space).
+
+
+
+The way to overcome the problem
+The prototypical example is the 1-parameter family of holomorphic maps connecting
+
+* a fixed-point configuration :math:`f:(\Sigma,\partial \Sigma) \to (X,L)` (markings omitted) with a node connecting two irreducible components :math:`\Sigma_1, \Sigma_2 \subset \Sigma`, both rational, :math:`\Sigma_i \simeq \mathbb{C}P^1`, such that the map :math:`f_i : \Sigma_i \to X` is a degree :math:`d` ramified cover of the line :math:`p_+ p_0` for :math:`i = 1` and of the line :math:`p_0 p_-` for :math:`i=2` (recall from :ref:`conj-invariance` that :math:`\{p_+,p_-,p_0\}\subset \mathbb{C}P^2` denote the fixed points). 
+
+* a fixed point configuration where  rational component which is a degree :math:`2d` cover of the line :math:`p_+ p_-` ramified only over :math:`p_\pm` we see that there's a 
+
+It is not hard to see that you can smooth the node *while staying inside the fixed-point component*.  
+Reference the discussion in the paper too, there's an example and 
+also the extension claim and what have you.
+
+
+------------
+
+# It is convenient to think of the T^2 action as a degenerate 
+# T^3 action by projectivizing the standard(?) T^3 representation:
+#     CP^2 = P(V_{\alpha_0} \oplus V_{\alpha_1} \oplus V_{\alpha_2})
+# the list below describes the map BT^2 -> BT^3
+
+
+---------
+[#actually-pairs]_
+.. [#actually-pairs] In fact, the sum over isomorphism types of diagrams is realized as a sum over pairs of *rooted* even-odd trees. This is explained in detail in the module itself.
+
+-----
+
+  It is also necessary to think this way if you want statements like "a fixed point diagram specifies a component of the fixed points" to make sense (note we do not claim, necessarily, that this is a connected component, since the moduli factors may be disconnected

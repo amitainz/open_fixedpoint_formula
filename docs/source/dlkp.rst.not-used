@@ -1,0 +1,49 @@
+The dlk_partitions module
+=========================
+
+discussion of sign of conjugation
+---------------------------------
+
+TODO: discussion is incomplete, finish this.
+
+.. automodule:: dlk_partitions
+   :members:
+
+.. autofunction:: goodDLK_2
+
+This function is used in several places in the program to discard contributions which vanish because of sign of conjugation or stability considerations. We apply it to discard both contributions of entire subtrees, as well as contributions of specific disks (so it can be applied both "globally" and "locally").
+
+It accepts a moduli specification :py:obj:`(totalD,totalL,totalK)` and returns :py:obj:`True` or :py:obj:`False`.
+
+The first condition 
+
+.. code-block:: python
+
+    if (d == 0) and ((l != 0) or (k != 3)) :
+        return False
+
+is straightforward - it tests for stability of the moduli specification. So we focus on the second condition. For a moduli specification :math:`\mathfrak b = (k,l,\beta)` we set :math:`s_{\mathfrak b} = +1` if 
+
+.. math::
+
+   2\,l + k - (3\,\beta -1) \mod 4 \in \{0,3\}
+
+and :math:`s_{\mathfrak b} = -1` otherwise.
+
+We claim that :math:`s_{\mathfrak b}` is the sign of conjugation on
+:math:`\int_{\overline{\mathcal{M}}_{0,k,l}(\beta)} \omega`
+where 
+
+.. math::
+
+   \omega = \prod_{1 \leq i \leq k} (\operatorname{ev}_i^L)^* \sigma_i \; \prod_{1 \leq j \leq l} (\operatorname{ev}_j^X)^* \tau_j
+
+is a product of pullback of forms along the interior and boundary evaluation maps, provided that
+
+* :math:`\tau_j` is conjugation invariant and
+* :math:`\operatorname{cd} \sigma_i \equiv \operatorname{ls} \sigma_i (\mod 2)`,the codimension degree of :math:`\sigma_i` is equal to the local system degree.
+
+This explains why it can be used "locally" to discard contributions of certain disks. 
+
+in practice, all of the markings either carry a point constraint (which is )
+
